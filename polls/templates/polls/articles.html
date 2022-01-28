@@ -6,23 +6,28 @@
     <title>Les articles GFIX</title>
 </head>
 <body>
-    <div>
-        <form class = "post-form" method="POST">
-            {% csrf_token %}
-            {% form.as_p %}
+    {% comment %} <div> {% endcomment %}
+        {% comment %} <form class = "post-form" method="POST"> {% endcomment %}
+            {% comment %} {% csrf_token %} {% endcomment %}
+            {% comment %} {% form.as_p %} {% endcomment %}
             
-            <option value = "">TEST</option>
-            <label for="type1">Matière corps </label>
+            <select name="test">
+                <option value = "test0">TEST 0</option>
+                <option value = "test1">Test 1 </option>
+            </select>
+
             
-            <input type="submit" class = "save btn" value="valider">
+            {% comment %} <label for="type1">Matière corps </label> {% endcomment %}
+            
+            {% comment %} <input type="submit" class = "save btn" value="valider"> {% endcomment %}
            
-        </form>
+        {% comment %} </form> {% endcomment %}
 
        
-        </form>
-    </div>
+        {% comment %} </form> {% endcomment %}
+    {% comment %} </div> {% endcomment %}
     
-    <footer></footer>
+    {% comment %} <footer></footer> {% endcomment %}
     
 
 </body>

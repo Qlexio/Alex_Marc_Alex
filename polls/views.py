@@ -28,9 +28,9 @@ def index_view(request):
 #         return HttpResponseRedirect("polls/index.html")
 
 def test(request):
-    form = articlesForm2()
+    
 
 
-    return render('polls/articles.html', {'form': form})
+    return render(request, 'polls/articles.html') #, {'form': form})
 
 
