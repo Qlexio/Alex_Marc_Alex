@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import articles
-from .forms import articlesForm2 
+from .models import Articles
+from .forms import Test1 
 
 
 def index(request):
@@ -28,9 +28,9 @@ def index_view(request):
 #         return HttpResponseRedirect("polls/index.html")
 
 def test(request):
-    
 
+    form = Test1()
 
-    return render(request, 'polls/articles.html') #, {'form': form})
+    return render(request, 'polls/articles.html', {'form': form})
 
 
