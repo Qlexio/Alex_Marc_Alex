@@ -12,11 +12,14 @@
             {% comment %} {% form.as_p %} {% endcomment %}
             
             <select name="test">
-                <option value = "test0">TEST 0</option>
-                <option value = "test1">Test 1 </option>
+                {% for article in articles %}
+                    <option value= {{article.type_rivet}}>{{article.type_rivet}}</option>
+                {% endfor %}
+                {% comment %} <option value = "test0">TEST 0</option>
+                <option value = "test1">Test 1 </option> {% endcomment %}
             </select>
 
-            {% form["type_rivet"] %}
+            {{form}}
             {% comment %} <label for="type1">Matière corps </label> {% endcomment %}
             
             {% comment %} <input type="submit" class = "save btn" value="valider"> {% endcomment %}

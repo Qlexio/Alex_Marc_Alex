@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Articles
-from .forms import Test1 
+# from .forms import Test1 
 
 
 def index(request):
@@ -29,8 +29,11 @@ def index_view(request):
 
 def test(request):
 
-    form = Test1()
+    # if request.method == "GET":
+    # form = Test1()
+    # print(form)
+    articles = Articles.objects.all()
 
-    return render(request, 'polls/articles.html', {'form': form})
+    return render(request, 'polls/articles.html', {'articles': articles})
 
 
