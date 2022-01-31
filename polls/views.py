@@ -32,7 +32,7 @@ def test(request):
     # if request.method == "GET":
     # form = Test1()
     # print(form)
-    articles = Articles.objects.all()
+    articles = Articles.objects.values("type_rivet").distinct()
 
     return render(request, 'polls/articles.html', {'articles': articles})
 
