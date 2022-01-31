@@ -32,8 +32,15 @@ def test(request):
     # if request.method == "GET":
     # form = Test1()
     # print(form)
-    articles = Articles.objects.values("type_rivet").distinct()
+    type_rivet = Articles.objects.values("type_rivet").distinct()
+    diametre_corps = Articles.objects.values("diametre_corps").distinct()
+    longueur_corps = Articles.objects.values("longueur_corps").distinct()
 
-    return render(request, 'polls/articles.html', {'articles': articles})
+    context = {}
+    context["type_rivet"] = type_rivet
+    context["diametre_corps"] = diametre_corps
+    context["longueur_corps"] = longueur_corps
+
+    return render(request, 'polls/articles.html', context)
 
 

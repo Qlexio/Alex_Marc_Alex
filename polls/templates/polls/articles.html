@@ -11,15 +11,24 @@
             {% comment %} {% csrf_token %} {% endcomment %}
             {% comment %} {% form.as_p %} {% endcomment %}
             
-            <select name="test">
-                {% for article in articles %}
-                    <option value= {{article.type_rivet}}>{{article.type_rivet}}</option>
+            <select name="type_rivet">
+                {% for tp in type_rivet %}
+                    <option value= {{tp.type_rivet}}>{{tp.type_rivet}}</option>
                 {% endfor %}
-                {% comment %} <option value = "test0">TEST 0</option>
-                <option value = "test1">Test 1 </option> {% endcomment %}
             </select>
 
-            {{form}}
+            <select name="diametre_corps">
+                {% for dc in diametre_corps %}
+                    <option value= {{dc.diametre_corps}}>{{dc.diametre_corps}}</option>
+                {% endfor %}
+            </select>
+
+            <select name="longueur_corps">
+                {% for lc in longueur_corps %}
+                    <option value= {{lc.longueur_corps}}>{{lc.longueur_corps}}</option>
+                {% endfor %}
+            </select>
+            
             {% comment %} <label for="type1">Matière corps </label> {% endcomment %}
             
             {% comment %} <input type="submit" class = "save btn" value="valider"> {% endcomment %}
