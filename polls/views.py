@@ -43,4 +43,6 @@ def test(request):
 
     return render(request, 'polls/articles.html', context)
 
+    
+
 

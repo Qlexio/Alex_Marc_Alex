@@ -4,43 +4,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name = "viewport" content="width=device-width, initial-scale=1.0">
     <title>Les articles GFIX</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
+    <script>
+        $(document).ready(function()
+        {
+            var $typeR = $('#type_rivet'),
+                $diametreC = $('#diametre_corps'),
+                $longueur = $('#longueur_corps'),
+                $options = $diametreC.find('option');
+                $typeR.on('change', function()
+                {
+                    $diametreC.html($options.filter('[value = "'+this.value + '"]'))
+                }).trigger('change');
+        });
+        
+    </script>
 </head>
 <body>
-    {% comment %} <div> {% endcomment %}
-        {% comment %} <form class = "post-form" method="POST"> {% endcomment %}
-            {% comment %} {% csrf_token %} {% endcomment %}
-            {% comment %} {% form.as_p %} {% endcomment %}
-            
-            <select name="type_rivet">
+            <select name="type_rivet" id = "type_rivet">
+                <option selected disabled = "true">-Selectionnez le type--</option>
                 {% for tp in type_rivet %}
                     <option value= {{tp.type_rivet}}>{{tp.type_rivet}}</option>
                 {% endfor %}
             </select>
 
-            <select name="diametre_corps">
+            <select name="diametre_corps" id = "diametre_corps">
+                <option selected disabled = "true">-Selectionnez le diamètre--</option>
                 {% for dc in diametre_corps %}
                     <option value= {{dc.diametre_corps}}>{{dc.diametre_corps}}</option>
                 {% endfor %}
             </select>
 
-            <select name="longueur_corps">
+            <select name="longueur_corps" id = "longueur_corps">
+                <option selected disabled = "true">-Selectionnez la longueur--</option>
                 {% for lc in longueur_corps %}
                     <option value= {{lc.longueur_corps}}>{{lc.longueur_corps}}</option>
                 {% endfor %}
             </select>
             
-            {% comment %} <label for="type1">Matière corps </label> {% endcomment %}
+            <label for="type1">Matière corps </label> 
             
-            {% comment %} <input type="submit" class = "save btn" value="valider"> {% endcomment %}
-           
-        {% comment %} </form> {% endcomment %}
-
-       
-        {% comment %} </form> {% endcomment %}
-    {% comment %} </div> {% endcomment %}
-    
-    {% comment %} <footer></footer> {% endcomment %}
-    
+            <input type="submit" class = "save btn" value="valider"> 
 
 </body>
 </html>
