@@ -11,34 +11,41 @@
             var $typeR = $('#type_rivet'),
                 $diametreC = $('#diametre_corps'),
                 $longueur = $('#longueur_corps'),
-                $options = $diametreC.find('option');
+                $optionsDiam = $diametreC.find('option');
+
                 $typeR.on('change', function()
                 {
-                    $diametreC.html($options.filter('[value = "'+this.value + '"]'))
+                    $diametreC.html($optionsDiam.filter('[value = "'+this.value + '"]'));
+                }).trigger('change');
+
+                $optionsLong = $longueur.find('option');
+                $longueur.on('change', function()
+                {
+                    $longueur.html($optionsLong.filter('[value = "'+this.value + '"]'));
                 }).trigger('change');
         });
         
     </script>
 </head>
 <body>
-            <select name="type_rivet" id = "type_rivet">
+            <select id = "type_rivet">
                 <option selected disabled = "true">-Selectionnez le type--</option>
                 {% for tp in type_rivet %}
-                    <option value= {{tp.type_rivet}}>{{tp.type_rivet}}</option>
+                    <option value= "{{tp.type_rivet}}">{{tp.type_rivet}}</option>
                 {% endfor %}
             </select>
 
-            <select name="diametre_corps" id = "diametre_corps">
+            <select id = "diametre_corps">
                 <option selected disabled = "true">-Selectionnez le diamètre--</option>
                 {% for dc in diametre_corps %}
-                    <option value= {{dc.diametre_corps}}>{{dc.diametre_corps}}</option>
+                    <option value= "{{tp.type_rivet}}">{{dc.diametre_corps}}</option>
                 {% endfor %}
             </select>
 
-            <select name="longueur_corps" id = "longueur_corps">
+            <select id = "longueur_corps">
                 <option selected disabled = "true">-Selectionnez la longueur--</option>
                 {% for lc in longueur_corps %}
-                    <option value= {{lc.longueur_corps}}>{{lc.longueur_corps}}</option>
+                    <option value= "{{tp.type_rivet}}">{{lc.longueur_corps}}</option>
                 {% endfor %}
             </select>
             
