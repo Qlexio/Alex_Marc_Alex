@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Articles
+from .models import Reference, Type_reference, Diametre_corps, Longueur_corps
 # from .forms import Test1 
 
 
@@ -9,11 +9,6 @@ def index(request):
 
 def index_view(request):
     return render(request, 'polls/index.html')
-
-# def articles_view(request):
-#     return render(request, 'polls/articles.html')
-    # article = articles.objects.all()
-    # return render('polls/articles.html', {'article': article})
 
 # def articles_view(request):
 #     if request.method == 'POST':
@@ -27,22 +22,36 @@ def index_view(request):
 #     else:
 #         return HttpResponseRedirect("polls/index.html")
 
-def test(request):
+# Premier test sur la class Articles avec liste déroulante
+# def test(request):
 
-    # if request.method == "GET":
-    # form = Test1()
-    # print(form)
-    type_rivet = Articles.objects.values("type_rivet").distinct()
-    diametre_corps = Articles.objects.values("diametre_corps").distinct()
-    longueur_corps = Articles.objects.values("longueur_corps").distinct()
+#     # if request.method == "GET":
+#     # form = Test1()
+#     # print(form)
+#     type_rivet = Articles.objects.values("type_rivet").distinct()
+#     diametre_corps = Articles.objects.values("diametre_corps").distinct()
+#     longueur_corps = Articles.objects.values("longueur_corps").distinct()
+
+#     context = {}
+#     context["type_rivet"] = type_rivet
+#     context["diametre_corps"] = diametre_corps
+#     context["longueur_corps"] = longueur_corps
+
+#     return render(request, 'polls/articles.html', context)
+
+# Test 2 listes déroulante mutliClass
+def test2(request):
+    reference = Reference.objects.all().distinct()
+    type = Type_reference.objects.all().distinct()
+    diametreC = Diametre_corps.objects.all().distinct()
+    longueurC = Longueur_corps.objects.all().distinct()
 
     context = {}
-    context["type_rivet"] = type_rivet
-    context["diametre_corps"] = diametre_corps
-    context["longueur_corps"] = longueur_corps
+    context["reference"] = reference
+    context["type"] = type
+    context["diametreC"] = diametreC
+    context["longueurC"] = longueurC
 
     return render(request, 'polls/articles.html', context)
-
-    
 
 

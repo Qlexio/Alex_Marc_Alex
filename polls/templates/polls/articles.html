@@ -8,7 +8,9 @@
     <script>
         $(document).ready(function()
         {
-            var $typeR = $('#type_rivet'),
+            // mettre à jour le script pour inclure en premier lieu le produit
+            var $ref = $('#reference'),
+                $typeR = $('#type_rivet'),
                 $diametreC = $('#diametre_corps'),
                 $longueur = $('#longueur_corps'),
                 $optionsDiam = $diametreC.find('option');
@@ -28,30 +30,34 @@
     </script>
 </head>
 <body>
-            <select id = "type_rivet">
-                <option selected disabled = "true">-Selectionnez le type--</option>
-                {% for tp in type_rivet %}
-                    <option value= "{{tp.type_rivet}}">{{tp.type_rivet}}</option>
-                {% endfor %}
-            </select>
+    <!-- Ordre des listes modifiés -->
+    <select id = "reference">
+        <option selected disabled = "true">-Selectionnez le produit--</option>
+        {% for ref in reference %}
+            <option value= "{{ref.idReference}}">{{ref.libelle}}</option>
+        {% endfor %}
+    </select>
 
-            <select id = "diametre_corps">
-                <option selected disabled = "true">-Selectionnez le diamètre--</option>
-                {% for dc in diametre_corps %}
-                    <option value= "{{tp.type_rivet}}">{{dc.diametre_corps}}</option>
-                {% endfor %}
-            </select>
+    <select id = "type">
+        <option selected disabled = "true">-Selectionnez le type--</option>
+        {% for tp in type %}
+            <option value= "{{tp.idType}}">{{tp.libelle}}</option>
+        {% endfor %}
+    </select>
 
-            <select id = "longueur_corps">
-                <option selected disabled = "true">-Selectionnez la longueur--</option>
-                {% for lc in longueur_corps %}
-                    <option value= "{{tp.type_rivet}}">{{lc.longueur_corps}}</option>
-                {% endfor %}
-            </select>
-            
-            <label for="type1">Matière corps </label> 
-            
-            <input type="submit" class = "save btn" value="valider"> 
+    <select id = "diametreC">
+        <option selected disabled = "true">-Selectionnez le diamètre--</option>
+        {% for dc in diametreC %}
+            <option value= "{{dc.idDiametreCorps}}">{{dc.diametreCorps}}</option>
+        {% endfor %}
+    </select>
+
+    <select id = "longueur_corps">
+        <option selected disabled = "true">-Selectionnez la longueur--</option>
+        {% for lc in longueur_corps %}
+            <option value= "{{lc.idLongueurCorps}}">{{lc.longueurCorps}}</option>
+        {% endfor %}
+    </select>
 
 </body>
 </html>

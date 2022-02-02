@@ -78,11 +78,11 @@ WSGI_APPLICATION = 'GFIX.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'charan',
+        'NAME': 'gfix',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': '3306',
         'OPTION':{
             'init_command': "SET sql_mode= 'STRICT_TRANS_TABLES'",
         }
