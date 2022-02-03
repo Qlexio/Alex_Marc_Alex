@@ -13,24 +13,30 @@
                 $typeR = $('#type_rivet'),
                 $diametreC = $('#diametre_corps'),
                 $longueur = $('#longueur_corps'),
-                $optionsDiam = $diametreC.find('option');
 
-                $typeR.on('change', function()
+                $optionsType = $typeR.find('option');
+                $ref.on('change', function()
                 {
-                    $diametreC.html($optionsDiam.filter('[value = "'+this.value + '"]'));
+                    $typeR.html($optionsType.filter('[value = "'+this.value + '"]'));
                 }).trigger('change');
 
-                $optionsLong = $longueur.find('option');
-                $longueur.on('change', function()
-                {
-                    $longueur.html($optionsLong.filter('[value = "'+this.value + '"]'));
-                }).trigger('change');
+                // $optionsDiam = $diametreC.find('option');
+                // $typeR.on('change2', function()
+                // {
+                //     $diametreC.html($optionsDiam.filter('[value = "'+this.value + '"]'));
+                // }).trigger('change2');
+
+                // $optionsLongC = $longueur.find('option');
+                // $diametreC.on('change3', function()
+                // {
+                //     $longueur.html($optionsLongC.filter('[value = "'+this.value + '"]'));
+                // }).trigger('change3');
         });
         
     </script>
 </head>
 <body>
-    <!-- Ordre des listes modifiés -->
+    
     <select id = "reference">
         <option selected disabled = "true">-Selectionnez le produit--</option>
         {% for ref in reference %}
@@ -54,7 +60,7 @@
 
     <select id = "longueur_corps">
         <option selected disabled = "true">-Selectionnez la longueur--</option>
-        {% for lc in longueur_corps %}
+        {% for lc in longueurC %}
             <option value= "{{lc.idLongueurCorps}}">{{lc.longueurCorps}}</option>
         {% endfor %}
     </select>

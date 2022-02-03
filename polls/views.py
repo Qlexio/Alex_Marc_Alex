@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Reference, Type_reference, Diametre_corps, Longueur_corps
+from .models import Reference, Type_reference, Diametre_corps, Longueur_corps, Liste_produit
 # from .forms import Test1 
 
 
@@ -45,12 +45,14 @@ def test2(request):
     type = Type_reference.objects.all().distinct()
     diametreC = Diametre_corps.objects.all().distinct()
     longueurC = Longueur_corps.objects.all().distinct()
+    listeP = Liste_produit.objects.all()
 
     context = {}
     context["reference"] = reference
     context["type"] = type
     context["diametreC"] = diametreC
     context["longueurC"] = longueurC
+    context["listeP"] = listeP
 
     return render(request, 'polls/articles.html', context)
 
