@@ -20,3 +20,7 @@ $.ajax({
         console.log(error)
     }
 })
+
+refInput.addEventListerner('change', e=>{
+    console.log('changed')
+})

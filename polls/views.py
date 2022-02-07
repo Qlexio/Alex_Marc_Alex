@@ -52,6 +52,8 @@ def test2(request):
 
     return render(request, 'polls/articles.html', context)
 
+
+
 def get_json_ref_data(request):
     js_ref = list(Reference.objects.values())
     return JsonResponse({'data':js_ref})
