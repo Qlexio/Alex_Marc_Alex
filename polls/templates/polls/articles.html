@@ -5,19 +5,16 @@
 <form action="" id = "formTest" >
     {% csrf_token %}
 
-    <select class="ui dropdown" id = "matiereC">
-        <option selected disabled = "true">-Selectionnez le produit--</option>
-        {% for mc in matiereC %}
-            <option value= "{{mc.idMatiereCorps}}">{{mc.matiereCorps}}</option>
-        {% endfor %}
-    </select>
-
-    <select class="ui dropdown" id = "matiereT">
-        <option selected disabled = "true">-Selectionnez le produit--</option>
-        {% for mt in matiereT %}
-            <option value= "{{mt.idMatiereTige}}">{{mt.matiereTige}}</option>
-        {% endfor %}
-    </select>
+    <div class = "ui selection dropdown" id = "refs">
+        <input type ="hidden" name="ref">
+        <i class ="dropdown icon"></i>
+        <div class = "default text">choisit un article</div>
+        <div class = "menu" id = 'refs-data-box'>
+            {% for ref in reference %}
+                <div value= "{{ref.idReference}}">{{ref.libelle}}</div>
+            {% endfor %}
+        </div>
+    </div>
 
     <!-- <select class="ui dropdown" id = "reference">
         <option selected disabled = "true">-Selectionnez le produit--</option>
