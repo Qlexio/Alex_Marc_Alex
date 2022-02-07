@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'GFIX.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'gfix',
+        'NAME': 'gfixtest',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',
