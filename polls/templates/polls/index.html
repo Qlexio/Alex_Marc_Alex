@@ -6,60 +6,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name = "viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Jquery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-
-    <!-- semantic UI -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
-
-    <!-- custom css & js -->
-    <script src={% static 'main.js' %} defer></script>
-    <script src={% static 'semantic.js' %} defer></script>
-    <link rel="stylesheet" href={% static 'style.css' %}>
-
     <title>Accueil</title>
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
-    <script>
-        $(document).ready(function()
-        {
-            // mettre à jour le script pour inclure en premier lieu le produit
-            var $ref = $('#reference'),
-                $typeR = $('#type_rivet'),
-                $diametreC = $('#diametre_corps'),
-                $longueur = $('#longueur_corps'),
-
-                $optionsType = $typeR.find('option');
-                $ref.on('change', function()
-                {
-                    $typeR.html($optionsType.filter('[value = "'+this.value + '"]'));
-                }).trigger('change');
-
-                // $optionsDiam = $diametreC.find('option');
-                // $typeR.on('change2', function()
-                // {
-                //     $diametreC.html($optionsDiam.filter('[value = "'+this.value + '"]'));
-                // }).trigger('change2');
-
-                // $optionsLongC = $longueur.find('option');
-                // $diametreC.on('change3', function()
-                // {
-                //     $longueur.html($optionsLongC.filter('[value = "'+this.value + '"]'));
-                // }).trigger('change3');
-        });
-        
-    </script>
+    
 </head>
 <body>
-    <div class=" ui container mt-5">
-        {% block content %}
-        {% endblock content %}
-    </div>
-    
-    
 
 </body>
 </html>

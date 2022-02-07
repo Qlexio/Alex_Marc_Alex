@@ -11,20 +11,20 @@ from django.db import models
 
 # test
 class Matiere_corps(models.Model):
-    idMatiereCorps = models.CharField(primary_key = True, max_length = 5)
+    idMatiereCorps = models.CharField( max_length = 5, primary_key = True)
     matiereCorps = models.CharField(max_length = 50)
 
 
 class Matiere_tige(models.Model):
-    idMatiereTige = models.CharField(primary_key = True, max_length = 5)
+    idMatiereTige = models.CharField( max_length = 5,  primary_key = True)
     matiereTige = models.CharField(max_length = 50)
 
 
 class Reference(models.Model):
-    idReference = models.CharField(max_length = 5, primary_key= True)
+    idReference = models.CharField(max_length = 5, primary_key = True)
     libelle = models.CharField(max_length = 50)
-    idMatiereCorps = models.ForeignKey(Matiere_corps, on_delete = models.CASCADE)
-    idMatiereTige = models.ForeignKey(Matiere_tige, on_delete = models.CASCADE)
+    idMatiereCorps = models.CharField( max_length = 5)
+    idMatiereTige = models.CharField( max_length = 5)
     class Meta:
         db_table = "Reference"
 

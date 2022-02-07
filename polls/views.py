@@ -57,12 +57,12 @@ def test2(request):
 
     return render(request, 'polls/articles.html', context)
 
-def get_json_ref_data(request):
-    js_ref = list(Reference.objects.values())
-    return JsonResponse({'data':js_ref})
+# def get_json_ref_data(request):
+#     js_ref = list(Reference.objects.values())
+#     return JsonResponse({'data':js_ref})
 
-def get_json_model_data(request, *arg, **kwargs):
-    selected_ref = kwargs.get('reference')
-    obj_models = list(Model.objects.filter(libelle = selected_ref), values())
-    return JsonResponse({'data':obj_models})
+# def get_json_model_data(request, *arg, **kwargs):
+#     selected_ref = kwargs.get('reference')
+#     obj_models = list(Model.objects.filter(libelle = selected_ref), values())
+#     return JsonResponse({'data':obj_models})
 
