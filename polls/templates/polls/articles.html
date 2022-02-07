@@ -1,69 +1,36 @@
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name = "viewport" content="width=device-width, initial-scale=1.0">
-    <title>Les articles GFIX</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
-    <script>
-        $(document).ready(function()
-        {
-            // mettre à jour le script pour inclure en premier lieu le produit
-            var $ref = $('#reference'),
-                $typeR = $('#type_rivet'),
-                $diametreC = $('#diametre_corps'),
-                $longueur = $('#longueur_corps'),
+{% extends "polls/index.html" %}
 
-                $optionsType = $typeR.find('option');
-                $ref.on('change', function()
-                {
-                    $typeR.html($optionsType.filter('[value = "'+this.value + '"]'));
-                }).trigger('change');
+{% block content %}
 
-                // $optionsDiam = $diametreC.find('option');
-                // $typeR.on('change2', function()
-                // {
-                //     $diametreC.html($optionsDiam.filter('[value = "'+this.value + '"]'));
-                // }).trigger('change2');
+<form action="" id = "formTest" >
+    {% csrf_token %}
 
-                // $optionsLongC = $longueur.find('option');
-                // $diametreC.on('change3', function()
-                // {
-                //     $longueur.html($optionsLongC.filter('[value = "'+this.value + '"]'));
-                // }).trigger('change3');
-        });
-        
-    </script>
-</head>
-<body>
-    
-    <select id = "reference">
-        <option selected disabled = "true">-Selectionnez le produit--</option>
-        {% for ref in reference %}
-            <option value= "{{ref.idReference}}">{{ref.libelle}}</option>
-        {% endfor %}
-    </select>
+<select class="ui dropdown" id = "reference">
+    <option selected disabled = "true">-Selectionnez le produit--</option>
+    {% for ref in reference %}
+        <option value= "{{ref.idReference}}">{{ref.libelle}}</option>
+    {% endfor %}
+</select>
 
-    <select id = "type">
-        <option selected disabled = "true">-Selectionnez le type--</option>
-        {% for tp in type %}
-            <option value= "{{tp.idType}}">{{tp.libelle}}</option>
-        {% endfor %}
-    </select>
+<select class="ui dropdown" id = "type">
+    <option selected disabled = "true">-Selectionnez le type--</option>
+    {% for tp in type %}
+        <option value= "{{tp.idType}}">{{tp.libelle}}</option>
+    {% endfor %}
+</select>
 
-    <select id = "diametreC">
-        <option selected disabled = "true">-Selectionnez le diamètre--</option>
-        {% for dc in diametreC %}
-            <option value= "{{dc.idDiametreCorps}}">{{dc.diametreCorps}}</option>
-        {% endfor %}
-    </select>
+<select class="ui dropdown" id = "diametreC">
+    <option selected disabled = "true">-Selectionnez le diamètre--</option>
+    {% for dc in diametreC %}
+        <option value= "{{dc.idDiametreCorps}}">{{dc.diametreCorps}}</option>
+    {% endfor %}
+</select>
 
-    <select id = "longueur_corps">
-        <option selected disabled = "true">-Selectionnez la longueur--</option>
-        {% for lc in longueurC %}
-            <option value= "{{lc.idLongueurCorps}}">{{lc.longueurCorps}}</option>
-        {% endfor %}
-    </select>
-
-</body>
-</html>
+<select class="ui dropdown" id = "longueur_corps">
+    <option selected disabled = "true">-Selectionnez la longueur--</option>
+    {% for lc in longueurC %}
+        <option value= "{{lc.idLongueurCorps}}">{{lc.longueurCorps}}</option>
+    {% endfor %}
+</select>
+</form>
+{% endblock content %}

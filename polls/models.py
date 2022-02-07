@@ -32,18 +32,18 @@ class Longueur_corps(models.Model):
 
 
 class Diametre_corps(models.Model):
-    idDiametreCorps = models.CharField(max_length= 5, primary_key= True)
+    idDiametreCorps = models.CharField(max_length= 5, primary_key = True)
     diametreCorps = models.FloatField(max_length= 5)
     class Meta:
         db_table = "diametre_corps"
 
 
-# Class association
+# Class association à revoir la structure
 class Liste_produit(models.Model):
-    idListe = models.CharField(max_length=5, primary_key= True)
-    idReference = models.CharField(max_length= 5)
-    idType = models.CharField(max_length= 5)
-    idLongueurCorps = models.CharField(max_length= 5)
-    idDiametreCorps = models.CharField(max_length= 5)
+    idListe = models.CharField(max_length=5, primary_key = True)
+    idReference = models.ForeignKey(Reference, on_delete = models.CASCADE)
+    idType = models.ForeignKey(Type_reference, on_delete = models.CASCADE)
+    idLongueurCorps = models.ForeignKey(Longueur_corps, on_delete = models.CASCADE)
+    idDiametreCorps = models.ForeignKey(Diametre_corps, on_delete = models.CASCADE)
     class Meta:
         db_table = "liste_produit"
