@@ -1,9 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
-from .models import Reference, Type_reference, Diametre_corps, Longueur_corps, Liste_produit
+from .models import Matiere_corps, Matiere_tige ,Reference, Type_reference, Diametre_corps, Longueur_corps, Liste_produit
 
-def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+
 
 def index_view(request):
     return render(request, 'polls/index.html')
@@ -39,6 +38,8 @@ def index_view(request):
 
 # Test 2 listes déroulante mutliClass
 def test2(request):
+    matiereC = Matiere_corps.objects.all().distinct()
+    matiereT = Matiere_tige.objects.all().distinct()
     reference = Reference.objects.all().distinct()
     type = Type_reference.objects.all().distinct()
     diametreC = Diametre_corps.objects.all().distinct()
@@ -46,6 +47,8 @@ def test2(request):
     listeP = Liste_produit.objects.all()
 
     context = {}
+    context["matiereC"] = matiereC
+    context["matiereT"] = matiereT
     context["reference"] = reference
     context["type"] = type
     context["diametreC"] = diametreC
