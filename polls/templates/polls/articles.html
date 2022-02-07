@@ -32,18 +32,18 @@
             <option value= "{{tp.idType}}">{{tp.libelle}}</option>
         {% endfor %}
     </select>
+
+    <select class="ui dropdown" id = "longueur_corps">
+        <option selected disabled = "true">-Selectionnez la longueur--</option>
+        {% for lc in longueurC %}
+            <option value= "{{lc.idLongueurCorps}}">{{lc.longueurCorps}}</option>
+        {% endfor %}
+    </select>
     
     <select class="ui dropdown" id = "diametreC">
         <option selected disabled = "true">-Selectionnez le diamètre--</option>
         {% for dc in diametreC %}
             <option value= "{{dc.idDiametreCorps}}">{{dc.diametreCorps}}</option>
-        {% endfor %}
-    </select>
-    
-    <select class="ui dropdown" id = "longueur_corps">
-        <option selected disabled = "true">-Selectionnez la longueur--</option>
-        {% for lc in longueurC %}
-            <option value= "{{lc.idLongueurCorps}}">{{lc.longueurCorps}}</option>
         {% endfor %}
     </select>
 
