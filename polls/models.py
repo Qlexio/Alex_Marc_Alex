@@ -11,12 +11,12 @@ from django.db import models
 
 # test
 class Matiere_corps(models.Model):
-    idMatiereCorps = models.CharField( max_length = 5, primary_key = True)
+    idMatiereCorps = models.CharField(max_length = 5, primary_key = True)
     matiereCorps = models.CharField(max_length = 50)
 
 
 class Matiere_tige(models.Model):
-    idMatiereTige = models.CharField( max_length = 5,  primary_key = True)
+    idMatiereTige = models.CharField(max_length = 5,  primary_key = True)
     matiereTige = models.CharField(max_length = 50)
 
 

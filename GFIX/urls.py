@@ -24,5 +24,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', polls_views.index_view, name="index"),
     path('articles/', polls_views.test2, name="articles"),
-    # path('articles-json/', polls_views.get_json_ref_data, name="articles")
+    
 ]   +static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

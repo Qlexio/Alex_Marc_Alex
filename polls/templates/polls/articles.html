@@ -10,15 +10,17 @@
         $(document).ready(function()
         {
             // mettre à jour le script pour inclure en premier lieu le produit
-            var $ref = $('#reference'),
+            var $matiereC = $('#matiereC'),
+                $matiereT = $('#matiereT'),
+                $ref = $('#reference'),
                 $typeR = $('#type_rivet'),
                 // $diametreC = $('#diametre_corps'),
                 // $longueur = $('#longueur_corps'),
 
-                $optionsType = $typeR.find('option');
-                $ref.on('change', function()
+                $optionsMatiereC = $ref.find('option');
+                $matiereC.on('change', function()
                 {
-                    $typeR.html($optionsType.filter('[value = "'+this.value + '"]'));
+                    $ref.html($optionsMatiereC.filter('[value = "'+this.value + '"]'));
                 }).trigger('change');
 
                 // $optionsDiam = $diametreC.find('option');
