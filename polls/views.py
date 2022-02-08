@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.core.serializers import serialize
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from .models import Matiere_corps, Matiere_tige ,Reference, Type_reference, Diametre_corps, Longueur_corps, Liste_produit
 
@@ -38,22 +39,33 @@ def index_view(request):
 
 # Test 2 listes déroulante mutliClass
 def test2(request):
-    matiereC = Matiere_corps.objects.all().distinct()
+    matiere_Corps = Matiere_corps.objects.all().distinct()
     matiereT = Matiere_tige.objects.all().distinct()
     reference = Reference.objects.all().distinct()
     type = Type_reference.objects.all().distinct()
     diametreC = Diametre_corps.objects.all().distinct()
     longueurC = Longueur_corps.objects.all().distinct()
-    listeP = Liste_produit.objects.all()
+    # listeP = Liste_produit.objects.all()
+
+
+    listeP = Liste_produit.objects.all().values('idReference', 'idType',
+         'idDiametreCorps', 'idLongueurCorps')
+    # data = serialize("json", listeP, fields = ('idReference', 'idType',
+    #      'idDiametreCorps', 'idLongueurCorps'), ensure_ascii= False)
+
+    data = list(listeP)
+    # print(data)
 
     context = {}
-    context["matiereC"] = matiereC
+    context["matiere_Corps"] = matiere_Corps
     context["matiereT"] = matiereT
     context["reference"] = reference
     context["type"] = type
     context["diametreC"] = diametreC
     context["longueurC"] = longueurC
-    context["listeP"] = listeP
+    # context["listeP"] = listeP
+    context["test"] = data
+    
 
     return render(request, 'polls/articles.html', context)
 

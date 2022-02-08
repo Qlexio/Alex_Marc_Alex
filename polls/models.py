@@ -9,42 +9,46 @@ from django.db import models
 #     def __str__(self):
 #         return f"{self.type_rivet}, {self.diametre_corps}, {self.longueur_corps}"
 
-# test
+# integer en id
 class Matiere_corps(models.Model):
-    idMatiereCorps = models.CharField(max_length = 5, primary_key = True)
+    idMatiereCorps = models.IntegerField(primary_key = True)
     matiereCorps = models.CharField(max_length = 50)
+    class Meta:
+        db_table = "matiere_corps"
 
 
 class Matiere_tige(models.Model):
-    idMatiereTige = models.CharField(max_length = 5,  primary_key = True)
+    idMatiereTige = models.IntegerField(primary_key = True)
     matiereTige = models.CharField(max_length = 50)
+    class Meta:
+        db_table = "matiere_tige"
 
 
 class Reference(models.Model):
-    idReference = models.CharField(max_length = 5, primary_key = True)
+    idReference = models.IntegerField(primary_key = True)
     libelle = models.CharField(max_length = 50)
-    idMatiereCorps = models.CharField( max_length = 5)
-    idMatiereTige = models.CharField( max_length = 5)
+    idMatiereCorps = models.IntegerField()
+    idMatiereTige = models.IntegerField()
     class Meta:
-        db_table = "Reference"
+        db_table = "reference"
 
 
 class Type_reference(models.Model):
-    idType = models.CharField(max_length = 5, primary_key = True)
+    idType = models.IntegerField(primary_key = True)
     libelle = models.CharField(max_length = 50)
     class Meta:
         db_table = "type_reference"
 
 
 class Longueur_corps(models.Model):
-    idLongueurCorps = models.CharField(max_length = 5, primary_key = True)
+    idLongueurCorps = models.IntegerField(primary_key = True)
     longueurCorps = models.FloatField(max_length = 5)
     class Meta:
         db_table = "longueur_corps"
 
 
 class Diametre_corps(models.Model):
-    idDiametreCorps = models.CharField(max_length = 5, primary_key = True)
+    idDiametreCorps = models.IntegerField(primary_key = True)
     diametreCorps = models.FloatField(max_length = 5)
     class Meta:
         db_table = "diametre_corps"
@@ -52,10 +56,10 @@ class Diametre_corps(models.Model):
 
 # Class association à revoir la structure
 class Liste_produit(models.Model):
-    idListe = models.CharField(max_length = 5, primary_key = True)
-    idReference = models.ForeignKey(Reference, on_delete = models.CASCADE)
-    idType = models.ForeignKey(Type_reference, on_delete = models.CASCADE)
-    idLongueurCorps = models.ForeignKey(Longueur_corps, on_delete = models.CASCADE)
-    idDiametreCorps = models.ForeignKey(Diametre_corps, on_delete = models.CASCADE)
+    idListe = models.IntegerField(primary_key = True)
+    idReference = models.IntegerField()
+    idType = models.IntegerField()
+    idLongueurCorps = models.IntegerField()
+    idDiametreCorps = models.IntegerField()
     class Meta:
         db_table = "liste_produit"
