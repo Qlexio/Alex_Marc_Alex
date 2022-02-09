@@ -6,7 +6,7 @@
     <title>Document</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
-    <script>
+    {% comment %} <script>
         $(document).ready(function()
         {
             // mettre à jour le script pour inclure en premier lieu le produit
@@ -38,7 +38,18 @@
                 // }).trigger('change3');
         });
         
+    </script> {% endcomment %}
+
+    <script>
+        $(document).ready(function()
+        {
+            // mettre à jour le script pour inclure en premier lieu le produit
+            var $json = '{{json|escapejs}}';
+                alert($json);   
+        });
+        
     </script>
+
 </head>
 <body>
     <!-- <form action="#" method = "POST" id = "formTest" > -->
