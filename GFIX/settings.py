@@ -81,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'gfixtest',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'MYSQLR00tP455w0rd!!!',
         'HOST': 'localhost',
         'PORT': '3306',
         'OPTION':{
