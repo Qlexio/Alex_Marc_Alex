@@ -41,63 +41,85 @@
     </script> {% endcomment %}
 
     <script>
-        $(document).ready(function()
-        {
-            // mettre à jour le script pour inclure en premier lieu le produit
-            var $json = '{{json|escapejs}}';
-                alert($json);   
-        });
+        // $(document).ready(function()
+        // {
+        //     // mettre à jour le script pour inclure en premier lieu le produit
+              
+            
+        // });
+        var $json = '{{json|escapejs}}';
+        alert($json); 
+        window.onload = function() {
+                var referenceSel = document.getElementById("reference");
+                var typeSel = document.getElementById("type");
+                var diametreSel = document.getElementById("diametre");
+                var longueurSel = document.getElementById("longueur");
+                for (var x in $json) {
+                    referenceSel.options[referenceSel.options.length] = new Option(x, x);
+                }
+
+                referenceSel.onchange = function() {
+                    //empty Chapters- and Topics- dropdowns
+                    longueurSel.length = 1;
+                    diametreSel.length = 1;
+                    typeSel.length = 1;
+                    //display correct values
+                    for (var y in $json[this.value]) {
+                        typeSel.options[typeSel.options.length] = new Option(y, y);
+                    }
+                }
+
+                typeSel.onchange = function() {
+                    //empty Chapters dropdown
+                    longueurSel.length = 1;
+                    diametreSel.length = 1;
+                    //display correct values
+                    var z = $json[referenceSel.value][this.value];
+                    for (var i = 0; i < z.length; i++) {
+                        diametreSel.options[diametreSel.options.length] = new Option(z[i], z[i]);
+                    }
+                }
+
+                diametreSel.onchange = function() {
+                    //empty Chapters dropdown
+                    longueurSel.length = 1;
+                    //display correct values
+                    var l = $json[referenceSel.value][this.value];
+                    for (var i = 0; i < l.length; i++) {
+                        longueurSel.options[longueurSel.options.length] = new Option(l[i], l[i]);
+                    }
+                }
+            }
+
+        
         
     </script>
 
 </head>
 <body>
-    <!-- <form action="#" method = "POST" id = "formTest" > -->
-        <!-- {% csrf_token %} -->
-    
-        <select class="ui dropdown" id = "matiere_Corps">
-            <option selected disabled = "true">-Selectionnez le produit--</option>
-            {% for mc in matiere_Corps %}
-                <option value= "{{mc.idMatiereCorps}}">{{mc.matiereCorps}}</option>
-            {% endfor %}
-        </select>
-    
-        <select class="ui dropdown" id = "matiereT">
-            <option selected disabled = "true">-Selectionnez le produit--</option>
-            {% for mt in matiereT %}
-                <option value= "{{mt.idMatiereTige}}">{{mt.matiereTige}}</option>
-            {% endfor %}
-        </select>
-    
-        <select class="ui dropdown" id = "reference">
-            <option selected disabled = "true">-Selectionnez le produit--</option>
-            {% for ref in reference %}
-                <option value= "{{ref.idReference}}">{{ref.libelle}}</option>
-            {% endfor %}
-        </select>
-        
-        <select class="ui dropdown" id = "type">
-            <option selected disabled = "true">-Selectionnez le type--</option>
-            {% for tp in type %}
-                <option value= "{{tp.idType}}">{{tp.libelle}}</option>
-            {% endfor %}
-        </select>
-    
-        <select class="ui dropdown" id = "longueur_corps">
-            <option selected disabled = "true">-Selectionnez la longueur--</option>
-            {% for lc in longueurC %}
-                <option value= "{{lc.idLongueurCorps}}">{{lc.longueurCorps}}</option>
-            {% endfor %}
-        </select>
-        
-        <select class="ui dropdown" id = "diametreC">
-            <option selected disabled = "true">-Selectionnez le diamètre--</option>
-            {% for dc in diametreC %}
-                <option value= "{{dc.idDiametreCorps}}">{{dc.diametreCorps}}</option>
-            {% endfor %}
-        </select>
-    
-    <!-- </form> -->
+    <h1>Cascading Dropdown GFIX products</h1>
+
+    <form name="form1" id="form1" action="/action_page.php">
+        Référence: <select name="reference" id="reference">
+            <option value="" selected="selected">Select reference</option>
+          </select>
+          <br><br>
+        Type: <select name="type" id="type">
+            <option value="" selected="selected">Please select reference first</option>
+          </select>
+          <br><br>
+        Diamètre: <select name="diametre" id="diametre">
+            <option value="" selected="selected">Please select type first</option>
+          </select>
+          <br><br>
+        Longueur: <select name="longueur" id="longueur">
+            <option value="" selected="selected">Please select diametre first</option>
+          </select>
+          <br><br>
+          
+          <input type="submit" value="Submit">  
+        </form>
+   
     
 </body>
 </html>

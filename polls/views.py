@@ -97,6 +97,7 @@ def test2(request):
         context["json"] = file.read()
 
     print(context["json"])
+    
     # context["matiere_Corps"] = matiere_Corps
     # context["matiereT"] = matiereT
     # context["reference"] = reference
