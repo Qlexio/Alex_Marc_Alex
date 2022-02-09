@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 08 Février 2022 à 14:05
+-- Généré le :  Mer 09 Février 2022 à 10:08
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -220,8 +220,8 @@ CREATE TABLE IF NOT EXISTS `liste_produit` (
   `idListe` varchar(5) NOT NULL,
   `idReference` varchar(5) NOT NULL,
   `idType` varchar(5) NOT NULL,
-  `idLongueurCorps` varchar(5) NOT NULL,
   `idDiametreCorps` varchar(5) NOT NULL,
+  `idLongueurCorps` varchar(5) NOT NULL,
   PRIMARY KEY (`idListe`),
   KEY `liste_produit_reference_FK` (`idReference`),
   KEY `liste_produit_type_reference0_FK` (`idType`),
@@ -233,20 +233,20 @@ CREATE TABLE IF NOT EXISTS `liste_produit` (
 -- Contenu de la table `liste_produit`
 --
 
-INSERT INTO `liste_produit` (`idListe`, `idReference`, `idType`, `idLongueurCorps`, `idDiametreCorps`) VALUES
-('1', '1', '1', '2', '1'),
-('10', '1', '1', '1', '4'),
+INSERT INTO `liste_produit` (`idListe`, `idReference`, `idType`, `idDiametreCorps`, `idLongueurCorps`) VALUES
+('1', '1', '1', '1', '2'),
+('10', '1', '1', '4', '1'),
 ('11', '1', '2', '1', '1'),
 ('12', '1', '2', '2', '2'),
-('13', '1', '2', '2', '3'),
-('2', '1', '1', '4', '1'),
-('3', '1', '1', '5', '1'),
-('4', '1', '1', '1', '2'),
+('13', '1', '2', '3', '2'),
+('2', '1', '1', '1', '4'),
+('3', '1', '1', '1', '5'),
+('4', '1', '1', '2', '1'),
 ('5', '1', '1', '2', '2'),
-('6', '1', '1', '5', '2'),
-('7', '1', '1', '1', '3'),
-('8', '1', '1', '2', '3'),
-('9', '1', '1', '4', '3');
+('6', '1', '1', '2', '5'),
+('7', '1', '1', '3', '1'),
+('8', '1', '1', '3', '2'),
+('9', '1', '1', '3', '4');
 
 -- --------------------------------------------------------
 
