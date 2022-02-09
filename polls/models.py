@@ -59,7 +59,8 @@ class Liste_produit(models.Model):
     idListe = models.IntegerField(primary_key = True)
     idReference = models.IntegerField()
     idType = models.IntegerField()
-    idLongueurCorps = models.IntegerField()
     idDiametreCorps = models.IntegerField()
+    idLongueurCorps = models.IntegerField()
+    
     class Meta:
         db_table = "liste_produit"

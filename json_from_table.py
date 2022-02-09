@@ -1,14 +1,14 @@
-import json
 import os
+from django.core.wsgi import get_wsgi_application
 
-# django project name is adleads, replace adleads with your project name
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "GFIX.settings")
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'GFIX.settings')
+application = get_wsgi_application()
 
-# from models import Liste_produit, Reference, Type_reference, Diametre_corps, Longueur_corps
-from .models import (Liste_produit, Reference, Type_reference,
-    Diametre_corps, Longueur_corps)
+from polls.models import Liste_produit
+# , Reference, Type_reference,
+#     Diametre_corps, Longueur_corps)
 
 
-liste_produits = Liste_produit.objects.all().values("idReference").order_by("idReference")
+liste_produits = Liste_produit.objects.all().values("idReference", "idType", "idDiamietre").order_by("idReference", "idType")
 
 print(liste_produits)
