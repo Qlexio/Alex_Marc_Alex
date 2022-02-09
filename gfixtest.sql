@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 03 Février 2022 à 16:09
+-- Généré le :  Mar 08 Février 2022 à 14:05
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données :  `gfix`
+-- Base de données :  `gfixtest`
 --
 
 -- --------------------------------------------------------
@@ -190,25 +190,25 @@ CREATE TABLE IF NOT EXISTS `django_migrations` (
 --
 
 INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
-(1, 'contenttypes', '0001_initial', '2022-02-03 14:15:30.229689'),
-(2, 'auth', '0001_initial', '2022-02-03 14:15:40.213527'),
-(3, 'admin', '0001_initial', '2022-02-03 14:15:42.295827'),
-(4, 'admin', '0002_logentry_remove_auto_add', '2022-02-03 14:15:42.393018'),
-(5, 'admin', '0003_logentry_add_action_flag_choices', '2022-02-03 14:15:42.432711'),
-(6, 'contenttypes', '0002_remove_content_type_name', '2022-02-03 14:15:43.878700'),
-(7, 'auth', '0002_alter_permission_name_max_length', '2022-02-03 14:15:45.108360'),
-(8, 'auth', '0003_alter_user_email_max_length', '2022-02-03 14:15:46.006612'),
-(9, 'auth', '0004_alter_user_username_opts', '2022-02-03 14:15:46.055929'),
-(10, 'auth', '0005_alter_user_last_login_null', '2022-02-03 14:15:46.665221'),
-(11, 'auth', '0006_require_contenttypes_0002', '2022-02-03 14:15:46.734861'),
-(12, 'auth', '0007_alter_validators_add_error_messages', '2022-02-03 14:15:46.761661'),
-(13, 'auth', '0008_alter_user_username_max_length', '2022-02-03 14:15:47.622855'),
-(14, 'auth', '0009_alter_user_last_name_max_length', '2022-02-03 14:15:48.458953'),
-(15, 'auth', '0010_alter_group_name_max_length', '2022-02-03 14:15:49.210491'),
-(16, 'auth', '0011_update_proxy_permissions', '2022-02-03 14:15:49.255513'),
-(17, 'auth', '0012_alter_user_first_name_max_length', '2022-02-03 14:15:50.155809'),
-(18, 'polls', '0001_initial', '2022-02-03 14:15:50.558937'),
-(19, 'polls', '0002_remove_articles_article_articles_diametre_corps_and_more', '2022-02-03 14:15:52.719741');
+(1, 'contenttypes', '0001_initial', '2022-02-07 10:06:20.695094'),
+(2, 'auth', '0001_initial', '2022-02-07 10:06:29.095865'),
+(3, 'admin', '0001_initial', '2022-02-07 10:06:31.348509'),
+(4, 'admin', '0002_logentry_remove_auto_add', '2022-02-07 10:06:31.385673'),
+(5, 'admin', '0003_logentry_add_action_flag_choices', '2022-02-07 10:06:31.433272'),
+(6, 'contenttypes', '0002_remove_content_type_name', '2022-02-07 10:06:32.433905'),
+(7, 'auth', '0002_alter_permission_name_max_length', '2022-02-07 10:06:33.138403'),
+(8, 'auth', '0003_alter_user_email_max_length', '2022-02-07 10:06:33.828199'),
+(9, 'auth', '0004_alter_user_username_opts', '2022-02-07 10:06:33.880230'),
+(10, 'auth', '0005_alter_user_last_login_null', '2022-02-07 10:06:34.409901'),
+(11, 'auth', '0006_require_contenttypes_0002', '2022-02-07 10:06:34.471202'),
+(12, 'auth', '0007_alter_validators_add_error_messages', '2022-02-07 10:06:34.517162'),
+(13, 'auth', '0008_alter_user_username_max_length', '2022-02-07 10:06:35.164608'),
+(14, 'auth', '0009_alter_user_last_name_max_length', '2022-02-07 10:06:35.918161'),
+(15, 'auth', '0010_alter_group_name_max_length', '2022-02-07 10:06:36.628842'),
+(16, 'auth', '0011_update_proxy_permissions', '2022-02-07 10:06:36.709027'),
+(17, 'auth', '0012_alter_user_first_name_max_length', '2022-02-07 10:06:37.465365'),
+(18, 'polls', '0001_initial', '2022-02-07 10:06:37.763993'),
+(19, 'polls', '0002_remove_articles_article_articles_diametre_corps_and_more', '2022-02-07 10:06:40.455503');
 
 -- --------------------------------------------------------
 
@@ -220,8 +220,8 @@ CREATE TABLE IF NOT EXISTS `liste_produit` (
   `idListe` varchar(5) NOT NULL,
   `idReference` varchar(5) NOT NULL,
   `idType` varchar(5) NOT NULL,
-  `idDiametreCorps` varchar(5) NOT NULL,
   `idLongueurCorps` varchar(5) NOT NULL,
+  `idDiametreCorps` varchar(5) NOT NULL,
   PRIMARY KEY (`idListe`),
   KEY `liste_produit_reference_FK` (`idReference`),
   KEY `liste_produit_type_reference0_FK` (`idType`),
@@ -233,20 +233,20 @@ CREATE TABLE IF NOT EXISTS `liste_produit` (
 -- Contenu de la table `liste_produit`
 --
 
-INSERT INTO `liste_produit` (`idListe`, `idReference`, `idType`, `idDiametreCorps`, `idLongueurCorps`) VALUES
-('1', '1', '1', '1', '2'),
-('10', '1', '1', '4', '1'),
+INSERT INTO `liste_produit` (`idListe`, `idReference`, `idType`, `idLongueurCorps`, `idDiametreCorps`) VALUES
+('1', '1', '1', '2', '1'),
+('10', '1', '1', '1', '4'),
 ('11', '1', '2', '1', '1'),
 ('12', '1', '2', '2', '2'),
-('13', '1', '2', '3', '2'),
-('2', '1', '1', '1', '4'),
-('3', '1', '1', '1', '5'),
-('4', '1', '1', '2', '1'),
+('13', '1', '2', '2', '3'),
+('2', '1', '1', '4', '1'),
+('3', '1', '1', '5', '1'),
+('4', '1', '1', '1', '2'),
 ('5', '1', '1', '2', '2'),
-('6', '1', '1', '2', '5'),
-('7', '1', '1', '3', '1'),
-('8', '1', '1', '3', '2'),
-('9', '1', '1', '3', '4');
+('6', '1', '1', '5', '2'),
+('7', '1', '1', '1', '3'),
+('8', '1', '1', '2', '3'),
+('9', '1', '1', '4', '3');
 
 -- --------------------------------------------------------
 
@@ -269,7 +269,48 @@ INSERT INTO `longueur_corps` (`idLongueurCorps`, `longueurCorps`) VALUES
 ('2', 10),
 ('3', 14),
 ('4', 16),
-('5', 20);
+('5', 20),
+('6', 50);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `matiere_corps`
+--
+
+CREATE TABLE IF NOT EXISTS `matiere_corps` (
+  `idMatiereCorps` varchar(5) NOT NULL,
+  `matiereCorps` char(5) NOT NULL,
+  PRIMARY KEY (`idMatiereCorps`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `matiere_corps`
+--
+
+INSERT INTO `matiere_corps` (`idMatiereCorps`, `matiereCorps`) VALUES
+('1', 'alumi'),
+('2', 'acier');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `matiere_tige`
+--
+
+CREATE TABLE IF NOT EXISTS `matiere_tige` (
+  `idMatiereTige` varchar(5) NOT NULL,
+  `matiereTige` char(50) NOT NULL,
+  PRIMARY KEY (`idMatiereTige`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `matiere_tige`
+--
+
+INSERT INTO `matiere_tige` (`idMatiereTige`, `matiereTige`) VALUES
+('1', 'aluminium'),
+('2', 'acier');
 
 -- --------------------------------------------------------
 
@@ -294,16 +335,22 @@ CREATE TABLE IF NOT EXISTS `polls_articles` (
 CREATE TABLE IF NOT EXISTS `reference` (
   `idReference` varchar(5) NOT NULL,
   `libelle` varchar(50) NOT NULL,
-  PRIMARY KEY (`idReference`)
+  `idMatiereCorps` varchar(5) NOT NULL,
+  `idMatiereTige` varchar(5) NOT NULL,
+  PRIMARY KEY (`idReference`),
+  KEY `reference_matiere_tige_FK` (`idMatiereTige`),
+  KEY `reference_matiere_corps0_FK` (`idMatiereCorps`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `reference`
 --
 
-INSERT INTO `reference` (`idReference`, `libelle`) VALUES
-('1', 'rivet'),
-('2', 'vice');
+INSERT INTO `reference` (`idReference`, `libelle`, `idMatiereCorps`, `idMatiereTige`) VALUES
+('1', 'rivet', '1', '2'),
+('2', 'vice', '1', '2'),
+('3', 'rivet', '2', '1'),
+('4', 'vice', '2', '2');
 
 -- --------------------------------------------------------
 
@@ -335,8 +382,8 @@ INSERT INTO `type_reference` (`idType`, `libelle`) VALUES
 -- Contraintes pour la table `auth_group_permissions`
 --
 ALTER TABLE `auth_group_permissions`
-  ADD CONSTRAINT `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
-  ADD CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`);
+  ADD CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
+  ADD CONSTRAINT `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`);
 
 --
 -- Contraintes pour la table `auth_permission`
@@ -355,15 +402,15 @@ ALTER TABLE `auth_user_groups`
 -- Contraintes pour la table `auth_user_user_permissions`
 --
 ALTER TABLE `auth_user_user_permissions`
-  ADD CONSTRAINT `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
-  ADD CONSTRAINT `auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
+  ADD CONSTRAINT `auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
+  ADD CONSTRAINT `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`);
 
 --
 -- Contraintes pour la table `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  ADD CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
-  ADD CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`);
+  ADD CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
+  ADD CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
 
 --
 -- Contraintes pour la table `liste_produit`
@@ -373,6 +420,13 @@ ALTER TABLE `liste_produit`
   ADD CONSTRAINT `liste_produit_longueur_corps1_FK` FOREIGN KEY (`idLongueurCorps`) REFERENCES `longueur_corps` (`idLongueurCorps`),
   ADD CONSTRAINT `liste_produit_reference_FK` FOREIGN KEY (`idReference`) REFERENCES `reference` (`idReference`),
   ADD CONSTRAINT `liste_produit_type_reference0_FK` FOREIGN KEY (`idType`) REFERENCES `type_reference` (`idType`);
+
+--
+-- Contraintes pour la table `reference`
+--
+ALTER TABLE `reference`
+  ADD CONSTRAINT `reference_matiere_corps0_FK` FOREIGN KEY (`idMatiereCorps`) REFERENCES `matiere_corps` (`idMatiereCorps`),
+  ADD CONSTRAINT `reference_matiere_tige_FK` FOREIGN KEY (`idMatiereTige`) REFERENCES `matiere_tige` (`idMatiereTige`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

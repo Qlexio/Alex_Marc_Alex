@@ -52,29 +52,29 @@ def test2(request):
          'idDiametreCorps', 'idLongueurCorps')
     
     # Récupération des données contenus dans les classes en lien avec la liste
-    # r = Reference.objects.all().values('idReference', 'libelle').order_by('libelle')
-    # t = Type_reference.objects.all().values('idType', 'libelle')
-    # d = Diametre_corps.objects.all().values('idDiametreCorps', 'diametreCorps')
-    # l = Longueur_corps.objects.all().values('idLongueurCorps', 'longueurCorps')
+    r = Reference.objects.all().values('idReference', 'libelle').order_by('libelle')
+    t = Type_reference.objects.all().values('idType', 'libelle')
+    d = Diametre_corps.objects.all().values('idDiametreCorps', 'diametreCorps')
+    l = Longueur_corps.objects.all().values('idLongueurCorps', 'longueurCorps')
 
     # data = serialize("json", listeP, fields = ('idReference', 'idType',
     #      'idDiametreCorps', 'idLongueurCorps'), ensure_ascii= False)
     data = list(listeP)
 
-    # data1 = list(r)
+    data1 = list(r)
     
     # incomprhésion sur le lien de l'id sur le code
 
-    # for all in listeP:
-    #     print(all)
-    #     for ref in r:
-    #         print(ref)
-    #     for typer in t:
-    #         print(typer)
-    #     for diam in d:
-    #         print(diam)
-    #     for long in l:
-    #         print(long)
+    for all in listeP:
+        print(all)
+        for ref in r:
+            print(ref)
+        for typer in t:
+            print(typer)
+        for diam in d:
+            print(diam)
+        for long in l:
+            print(long)
 
     # dt = list(t)
     # dd = list(d)
