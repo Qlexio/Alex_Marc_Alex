@@ -10,31 +10,19 @@
     
     {{ js_json|json_script:"js_json"}}
     <script>
-        // $(document).ready(function()
-        // {
-        //     // mettre à jour le script pour inclure en premier lieu le produit
-              
-            
-        // });
+        
         const json = JSON.parse(document.getElementById('js_json').textContent);
-        //var json = JSON.parse({{json|escapejs}});
          
         window.onload = function() {
                 var referenceSel = document.getElementById("reference");
                 var typeSel = document.getElementById("type");
                 var diametreSel = document.getElementById("diametre");
                 var longueurSel = document.getElementById("longueur");
-                // alert($json);
                 for (var x in json) {
-                    //alert(x);
                     referenceSel.options[referenceSel.options.length] = new Option(x, x);
                     
                 }
-                
-                // ne récupère pas les mots en entier mais élément par 
-                // élément tel que pour "mot" affiche 
-                // m , o , t
-                // ou r, i,v,e,t
+               
                 referenceSel.onchange = function() {
                     //empty Chapters- and Topics- dropdowns
                     longueurSel.length = 1;
@@ -52,10 +40,6 @@
                     longueurSel.length = 1;
                     diametreSel.length = 1;
                     //display correct values
-                    //var z = json[referenceSel.value][this.value];
-                    //for (var i = 0; i < z.length; i++) {
-                    //    diametreSel.options[diametreSel.options.length] = new Option(z[i], z[i]);   
-                    //}
                     for (var z in json[referenceSel.value][this.value]) {
                         diametreSel.options[diametreSel.options.length] = new Option(z, z);   
                     }
@@ -80,26 +64,40 @@
 <body>
     <h1>Cascading Dropdown GFIX products</h1>
 
-    <!-- <form name="form1" id="form1" action="/action_page.php"> -->
+    <!-- Ajout de des listes récupérant les matières des produits -->
+    <form name="form1" id="form1" action="/action_page.php">
+        Matière Corps: <select name="matiere_Corps" id="matiere_Corps">
+            <option value="" selected="selected">Select matiere_Corps</option>
+          </select>
+          <br><br>
+
+        Matière Tige: <select name="matiere_Tige" id="matiere_Tige">
+            <option value="" selected="selected">Select matiere_Tige</option>
+          </select>
+          <br><br>
+
         Référence: <select name="reference" id="reference">
             <option value="" selected="selected">Select reference</option>
           </select>
           <br><br>
+
         Type: <select name="type" id="type">
             <option value="" selected="selected">Please select reference first</option>
           </select>
           <br><br>
+
         Diamètre: <select name="diametre" id="diametre">
             <option value="" selected="selected">Please select type first</option>
           </select>
           <br><br>
+
         Longueur: <select name="longueur" id="longueur">
             <option value="" selected="selected">Please select diametre first</option>
           </select>
           <br><br>
           
           <input type="submit" value="Submit">  
-        <!-- </form> -->
+    </form>
    
     
 </body>

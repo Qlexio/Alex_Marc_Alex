@@ -10,6 +10,9 @@ from polls.models import (Liste_produit, Reference, Type_reference,
     Diametre_corps, Longueur_corps)
 
 
+# Mise à jour du json avec la nouvelle base de données
+# Modification faite sur la table liste_produit
+
 liste_produits = Liste_produit.objects.all().values(
     "idReference", "idType", "idDiametreCorps", "idLongueurCorps"
     ).order_by("idReference", "idType", "idDiametreCorps", "idLongueurCorps")
