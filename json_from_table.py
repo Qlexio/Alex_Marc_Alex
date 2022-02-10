@@ -38,5 +38,12 @@ for produit in liste_produits:
         json_dict[ref][type_ref][diametre] = []
     json_dict[ref][type_ref][diametre].append(longueur)
 
-with open("products.json", "w") as file:
-    json.dump(json_dict, file)
+# import pprint
+# pprint.pprint(json_dict)
+
+with open("products.json", "w", encoding= "utf-8") as file:
+    file.write(json.dumps(json_dict, indent= 4)) #, ensure_ascii= False))
+
+with open("products.json", "r") as file:
+    datas = json.load(file)
+    print(datas)

@@ -8,6 +8,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
     
+    {{ js_json|json_script:"js_json"}}
     <script>
         // $(document).ready(function()
         // {
@@ -15,8 +16,8 @@
               
             
         // });
-        var $json = '{{json|escapejs}}';
-        alert($json);
+        const json = JSON.parse(document.getElementById('js_json').textContent);
+        //var json = JSON.parse({{json|escapejs}});
          
         window.onload = function() {
                 var referenceSel = document.getElementById("reference");
@@ -24,7 +25,8 @@
                 var diametreSel = document.getElementById("diametre");
                 var longueurSel = document.getElementById("longueur");
                 // alert($json);
-                for (var x in $json) {
+                for (var x in json) {
+                    //alert(x);
                     referenceSel.options[referenceSel.options.length] = new Option(x, x);
                     
                 }
@@ -39,7 +41,7 @@
                     diametreSel.length = 1;
                     typeSel.length = 1;
                     //display correct values
-                    for (var y in $json[this.value]) {
+                    for (var y in json[this.value]) {
                         typeSel.options[typeSel.options.length] = new Option(y, y);
                         
                     }
@@ -50,10 +52,12 @@
                     longueurSel.length = 1;
                     diametreSel.length = 1;
                     //display correct values
-                    var z = $json[referenceSel.value][this.value];
-                    for (var i = 0; i < z.length; i++) {
-                        diametreSel.options[diametreSel.options.length] = new Option(z[i], z[i]);
-                        
+                    //var z = json[referenceSel.value][this.value];
+                    //for (var i = 0; i < z.length; i++) {
+                    //    diametreSel.options[diametreSel.options.length] = new Option(z[i], z[i]);   
+                    //}
+                    for (var z in json[referenceSel.value][this.value]) {
+                        diametreSel.options[diametreSel.options.length] = new Option(z, z);   
                     }
                 }
 
@@ -61,7 +65,7 @@
                     //empty Chapters dropdown
                     longueurSel.length = 1;
                     //display correct values
-                    var d = $json[referenceSel.value][this.value];
+                    var d = json[referenceSel.value][typeSel.value][this.value];
                     for (var i = 0; i < d.length; i++) {
                         longueurSel.options[longueurSel.options.length] = new Option(d[i], d[i]);
                     }

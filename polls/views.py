@@ -70,7 +70,7 @@ def test2(request):
         print(json_datas)
 
 
-    context["json"] = json_datas
+    context["js_json"] = json_datas
 
     # print(type(data))
     
