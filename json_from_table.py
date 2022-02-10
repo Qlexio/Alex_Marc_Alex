@@ -19,12 +19,16 @@ json_dict = {}
 for produit in liste_produits:
     ref = Reference.objects.filter(pk= produit["idReference"]).values("libelle")[0
         ]["libelle"]
+    # print(ref, " - ", type(ref))
     type_ref = Type_reference.objects.filter(pk= produit["idType"]).values("libelle"
         )[0]["libelle"]
+    # print(type_ref, " - ", type(type_ref))
     diametre = Diametre_corps.objects.filter(pk= produit["idDiametreCorps"]).values(
         "diametreCorps")[0]["diametreCorps"]
+    # print(diametre, " - ", type(diametre))
     longueur = Longueur_corps.objects.filter(pk= produit["idLongueurCorps"]).values(
         "longueurCorps")[0]["longueurCorps"]
+    # print(longueur, " - ", type(longueur))
     
     if json_dict.get(ref) is None:
         json_dict[ref] = {}

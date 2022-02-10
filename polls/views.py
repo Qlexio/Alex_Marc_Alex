@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.core.serializers import serialize
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from .models import Matiere_corps, Matiere_tige ,Reference, Type_reference, Diametre_corps, Longueur_corps, Liste_produit
-
+import json
 
 
 def index_view(request):
@@ -93,10 +93,14 @@ def test2(request):
 
     context = {}
 
-    with open("products.json", "r") as file:
-        context["json"] = file.read()
+    with open("products.json") as file:
+        json_datas = json.load(file)
+        print(json_datas)
 
-    print(context["json"])
+
+    context["json"] = json_datas
+
+    # print(type(data))
     
     # context["matiere_Corps"] = matiere_Corps
     # context["matiereT"] = matiereT
