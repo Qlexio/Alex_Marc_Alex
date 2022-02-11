@@ -12,49 +12,78 @@
     <script>
         
         const json = JSON.parse(document.getElementById('js_json').textContent);
-         
+        
         window.onload = function() {
-                var referenceSel = document.getElementById("reference");
-                var typeSel = document.getElementById("type");
-                var diametreSel = document.getElementById("diametre");
-                var longueurSel = document.getElementById("longueur");
-                for (var x in json) {
-                    referenceSel.options[referenceSel.options.length] = new Option(x, x);
+            var matiere_CorpsSel = document.getElementById("matiere_Corps");
+            var matiere_TigeSel = document.getElementById("matiere_Tige"); 
+            var referenceSel = document.getElementById("reference");
+            var typeSel = document.getElementById("type");
+            var diametreSel = document.getElementById("diametre");
+            var longueurSel = document.getElementById("longueur");
+            for (var x in json) {
+                matiere_CorpsSel.options[matiere_CorpsSel.options.length] = new Option(x, x);
                     
-                }
+            }
                
-                referenceSel.onchange = function() {
-                    //empty Chapters- and Topics- dropdowns
-                    longueurSel.length = 1;
-                    diametreSel.length = 1;
-                    typeSel.length = 1;
-                    //display correct values
-                    for (var y in json[this.value]) {
-                        typeSel.options[typeSel.options.length] = new Option(y, y);
-                        
-                    }
-                }
-
-                typeSel.onchange = function() {
-                    //empty Chapters dropdown
-                    longueurSel.length = 1;
-                    diametreSel.length = 1;
-                    //display correct values
-                    for (var z in json[referenceSel.value][this.value]) {
-                        diametreSel.options[diametreSel.options.length] = new Option(z, z);   
-                    }
-                }
-
-                diametreSel.onchange = function() {
-                    //empty Chapters dropdown
-                    longueurSel.length = 1;
-                    //display correct values
-                    var d = json[referenceSel.value][typeSel.value][this.value];
-                    for (var i = 0; i < d.length; i++) {
-                        longueurSel.options[longueurSel.options.length] = new Option(d[i], d[i]);
-                    }
+            matiere_CorpsSel.onchange = function() {
+                //empty Chapters- and Topics- dropdowns
+                longueurSel.length = 1;
+                diametreSel.length = 1;
+                typeSel.length = 1;
+                // referenceSel.length = 1;
+                matiere_TigeSel.length = 1;
+                //display correct values
+                for (var c in json[this.value]) {
+                    matiere_TigeSel.options[matiere_TigeSel.options.length] = new Option(c, c);                        
                 }
             }
+
+            matiere_TigeSel.onchange = function() {
+                //empty Chapters dropdown
+                longueurSel.length = 1;
+                diametreSel.length = 1;
+                typeSel.length = 1;
+                referenceSel.length = 1;
+                //display correct values
+                for (var mt in json[matiere_CorpsSel.value][this.value]) {
+                    referenceSel.options[referenceSel.options.length] = new Option(mt, mt);   
+                }
+            }
+
+            referenceSel.onchange = function() {
+                //empty Chapters dropdown
+                longueurSel.length = 1;
+                diametreSel.length = 1;
+                typeSel.length = 1;
+                //display correct values
+                // for (var tr in json[matiere_CorpsSel.value][matiere_TigeSel.value][this.value = "rivet"]) {
+                for (var tr in json[matiere_CorpsSel.value][matiere_TigeSel.value][this.value]) {
+                    typeSel.options[typeSel.options.length] = new Option(tr, tr);
+                    
+                }
+            }
+
+            typeSel.onchange = function() {
+                //empty Chapters dropdown
+                longueurSel.length = 1;
+                diametreSel.length = 1;
+                //display correct values
+                for (var tr in json[matiere_CorpsSel.value][matiere_TigeSel.value][referenceSel.value("rivet")][this.value]) {
+                    diametreSel.options[diametreSel.options.length] = new Option(tr, tr);   
+                }
+            }
+
+            diametreSel.onchange = function() {
+                //empty Chapters dropdown
+                longueurSel.length = 1;
+                //display correct values
+                var dc = json[matiere_CorpsSel.value][matiere_TigeSel.value][referenceSel.value][typeSel.value][this.value];
+                alert(dc);
+                for (var i = 0; i < dc.length; i++) {
+                    longueurSel.options[longueurSel.options.length] = new Option(dc[i], dc[i]);
+                }
+            }
+        }
 
         
         
@@ -64,39 +93,40 @@
 <body>
     <h1>Cascading Dropdown GFIX products</h1>
 
-    <!-- Ajout de des listes récupérant les matières des produits -->
     <form name="form1" id="form1" action="/action_page.php">
         Matière Corps: <select name="matiere_Corps" id="matiere_Corps">
-            <option value="" selected="selected">Select matiere_Corps</option>
+            <option value="" selected="selected">Select matiere_Corps <p>(TEST)</p> </option>
           </select>
           <br><br>
 
         Matière Tige: <select name="matiere_Tige" id="matiere_Tige">
-            <option value="" selected="selected">Select matiere_Tige</option>
+            <option value="" selected="selected">Select matiere_Tige <p>(TEST)</p> </option>
           </select>
           <br><br>
 
         Référence: <select name="reference" id="reference">
-            <option value="" selected="selected">Select reference</option>
+            <option value="" selected="selected">Select reference <p>(TEST)</p> </option>
           </select>
           <br><br>
 
         Type: <select name="type" id="type">
-            <option value="" selected="selected">Please select reference first</option>
+            <option value="" selected="selected">Please select reference first <p>(TEST)</p> </option>
           </select>
           <br><br>
 
         Diamètre: <select name="diametre" id="diametre">
-            <option value="" selected="selected">Please select type first</option>
+            <option value="" selected="selected">Please select type first <p>(TEST)</p> </option>
           </select>
           <br><br>
 
         Longueur: <select name="longueur" id="longueur">
-            <option value="" selected="selected">Please select diametre first</option>
+            <option value="" selected="selected">Please select diametre first <p>(TEST)</p></option>
           </select>
           <br><br>
           
-          <input type="submit" value="Submit">  
+          <input type="submit" value="Submit">
+
+          <p>Il y a X produits</p>
     </form>
    
     

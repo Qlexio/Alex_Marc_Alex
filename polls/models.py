@@ -51,7 +51,7 @@ class Liste_produit(models.Model):
     idType = models.IntegerField()
     idDiametreCorps = models.IntegerField()
     idLongueurCorps = models.IntegerField()
-    quantite = models.IntegerField
+    quantite = models.IntegerField()
     prix = models.FloatField()
     class Meta:
         db_table = "liste_produit"

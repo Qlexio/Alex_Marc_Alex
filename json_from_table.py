@@ -6,20 +6,25 @@ application = get_wsgi_application()
 
 import json
 from collections import defaultdict
-from polls.models import (Liste_produit, Reference, Type_reference,
+from polls.models import (Liste_produit, Matiere_corps, Matiere_tige, Reference, Type_reference,
     Diametre_corps, Longueur_corps)
 
 
 # Mise à jour du json avec la nouvelle base de données
 # Modification faite sur la table liste_produit
 
-liste_produits = Liste_produit.objects.all().values(
-    "idReference", "idType", "idDiametreCorps", "idLongueurCorps"
-    ).order_by("idReference", "idType", "idDiametreCorps", "idLongueurCorps")
+liste_produits = Liste_produit.objects.all().values("idMatiereCorps",
+     "idMatiereTige","idReference", "idType", "idDiametreCorps", "idLongueurCorps",
+     "quantite", "prix"
+    ).order_by("idMatiereCorps", "idMatiereTige", "idReference", "idType", "idDiametreCorps", "idLongueurCorps")
 
 
 json_dict = {}
 for produit in liste_produits:
+    matiere_corps = Matiere_corps.objects.filter(pk= produit["idMatiereCorps"]).values("matiereCorps")[0
+        ]["matiereCorps"]
+    matiere_tige = Matiere_tige.objects.filter(pk= produit["idMatiereTige"]).values("matiereTige")[0
+        ]["matiereTige"]
     ref = Reference.objects.filter(pk= produit["idReference"]).values("libelle")[0
         ]["libelle"]
     # print(ref, " - ", type(ref))
@@ -33,13 +38,28 @@ for produit in liste_produits:
         "longueurCorps")[0]["longueurCorps"]
     # print(longueur, " - ", type(longueur))
     
-    if json_dict.get(ref) is None:
-        json_dict[ref] = {}
-    if json_dict[ref].get(type_ref) is None:
-        json_dict[ref][type_ref] = {}
-    if json_dict[ref][type_ref].get(diametre) is None:
-        json_dict[ref][type_ref][diametre] = []
-    json_dict[ref][type_ref][diametre].append(longueur)
+    # Liste matière corps
+    if json_dict.get(matiere_corps) is None:
+        json_dict[matiere_corps] = {}
+    
+    # Liste matière tige dependant de matière corps
+    if json_dict[matiere_corps].get(matiere_tige) is None:
+        json_dict[matiere_corps][matiere_tige] = {}
+
+    # Liste référence dépendant des listes précédantes
+    if json_dict[matiere_corps][matiere_tige].get(ref) is None:
+        json_dict[matiere_corps][matiere_tige][ref] = {}
+    
+    # Liste type dépendant des listes précédantes
+    if json_dict[matiere_corps][matiere_tige][ref].get(type_ref) is None:
+        json_dict[matiere_corps][matiere_tige][ref][type_ref] = {}
+   
+    # Liste diamètre dépendant des listes précédantes
+    if json_dict[matiere_corps][matiere_tige][ref][type_ref].get(diametre) is None:
+        json_dict[matiere_corps][matiere_tige][ref][type_ref][diametre] = []
+    
+    # Liste longueur dépendant des listes précédantes
+    json_dict[matiere_corps][matiere_tige][ref][type_ref][diametre].append(longueur)
 
 # import pprint
 # pprint.pprint(json_dict)
