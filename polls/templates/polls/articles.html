@@ -20,12 +20,18 @@
             var typeSel = document.getElementById("type");
             var diametreSel = document.getElementById("diametre");
             var longueurSel = document.getElementById("longueur");
+            var conteur = document.getElementById("conteur");
+            var num = 0;
+
             for (var x in json) {
+                // alert(json.length);
                 matiere_CorpsSel.options[matiere_CorpsSel.options.length] = new Option(x, x);
-                    
+                num++;
+                
             }
                
             matiere_CorpsSel.onchange = function() {
+                var num = 0;
                 //empty Chapters- and Topics- dropdowns
                 longueurSel.length = 1;
                 diametreSel.length = 1;
@@ -34,11 +40,13 @@
                 matiere_TigeSel.length = 1;
                 //display correct values
                 for (var c in json[this.value]) {
-                    matiere_TigeSel.options[matiere_TigeSel.options.length] = new Option(c, c);                        
+                    matiere_TigeSel.options[matiere_TigeSel.options.length] = new Option(c, c);
+                    num++;                        
                 }
             }
 
             matiere_TigeSel.onchange = function() {
+                var num = 0;
                 //empty Chapters dropdown
                 longueurSel.length = 1;
                 diametreSel.length = 1;
@@ -46,11 +54,13 @@
                 referenceSel.length = 1;
                 //display correct values
                 for (var mt in json[matiere_CorpsSel.value][this.value]) {
-                    referenceSel.options[referenceSel.options.length] = new Option(mt, mt);   
+                    referenceSel.options[referenceSel.options.length] = new Option(mt, mt);
+                    num++;   
                 }
             }
 
             referenceSel.onchange = function() {
+                var num = 0;
                 //empty Chapters dropdown
                 longueurSel.length = 1;
                 diametreSel.length = 1;
@@ -59,21 +69,25 @@
                 // for (var tr in json[matiere_CorpsSel.value][matiere_TigeSel.value][this.value = "rivet"]) {
                 for (var tr in json[matiere_CorpsSel.value][matiere_TigeSel.value][this.value]) {
                     typeSel.options[typeSel.options.length] = new Option(tr, tr);
+                    num++;
                     
                 }
             }
 
             typeSel.onchange = function() {
+                var num = 0;
                 //empty Chapters dropdown
                 longueurSel.length = 1;
                 diametreSel.length = 1;
                 //display correct values
-                for (var tr in json[matiere_CorpsSel.value][matiere_TigeSel.value][referenceSel.value("rivet")][this.value]) {
-                    diametreSel.options[diametreSel.options.length] = new Option(tr, tr);   
+                for (var tr in json[matiere_CorpsSel.value][matiere_TigeSel.value][referenceSel.value][this.value]) {
+                    diametreSel.options[diametreSel.options.length] = new Option(tr, tr);
+                    num++;   
                 }
             }
 
             diametreSel.onchange = function() {
+                var num = 0;
                 //empty Chapters dropdown
                 longueurSel.length = 1;
                 //display correct values
@@ -81,8 +95,14 @@
                 alert(dc);
                 for (var i = 0; i < dc.length; i++) {
                     longueurSel.options[longueurSel.options.length] = new Option(dc[i], dc[i]);
+                    num++;
                 }
             }
+            
+            conteur = num;
+            alert(conteur);
+            
+
         }
 
         
@@ -94,40 +114,52 @@
     <h1>Cascading Dropdown GFIX products</h1>
 
     <form name="form1" id="form1" action="/action_page.php">
+        
         Matière Corps: <select name="matiere_Corps" id="matiere_Corps">
-            <option value="" selected="selected">Select matiere_Corps <p>(TEST)</p> </option>
+            <option value="" selected="selected">Select matiere_Corps  </option> <p id = "counteur">(TEST)</p>
           </select>
           <br><br>
 
         Matière Tige: <select name="matiere_Tige" id="matiere_Tige">
-            <option value="" selected="selected">Select matiere_Tige <p>(TEST)</p> </option>
+            <option value="" selected="selected">Select matiere_Tige <p id = "counteur">(TEST) </option>
           </select>
           <br><br>
 
         Référence: <select name="reference" id="reference">
-            <option value="" selected="selected">Select reference <p>(TEST)</p> </option>
+            <option value="" selected="selected">Select reference <p id = "counteur">(TEST) </option>
           </select>
           <br><br>
 
         Type: <select name="type" id="type">
-            <option value="" selected="selected">Please select reference first <p>(TEST)</p> </option>
+            <option value="" selected="selected">Please select reference first <p id = "counteur">(TEST) </option>
           </select>
           <br><br>
 
         Diamètre: <select name="diametre" id="diametre">
-            <option value="" selected="selected">Please select type first <p>(TEST)</p> </option>
+            <option value="" selected="selected">Please select type first <p id = "counteur">(TEST) </option>
           </select>
           <br><br>
 
         Longueur: <select name="longueur" id="longueur">
-            <option value="" selected="selected">Please select diametre first <p>(TEST)</p></option>
+            <option value="" selected="selected">Please select diametre first <p id = "counteur">(TEST)</option>
           </select>
           <br><br>
           
           <input type="submit" value="Submit">
 
-          <p>Il y a X produits</p>
+          <p id = "total">>Il y a X produits</p>
     </form>
+
+    <!-- Affichage de tous les articles en fonction des critères -->
+    <section>
+        <div>
+            <article>
+                
+
+            </article>
+        </div> 
+
+    </section>
    
     
 </body>

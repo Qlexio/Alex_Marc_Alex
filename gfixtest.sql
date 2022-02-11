@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 10 Février 2022 à 17:00
+-- Généré le :  Ven 11 Février 2022 à 17:01
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -224,6 +224,7 @@ CREATE TABLE IF NOT EXISTS `liste_produit` (
   `idType` varchar(5) NOT NULL,
   `idDiametreCorps` varchar(5) NOT NULL,
   `idLongueurCorps` varchar(5) NOT NULL,
+  `couleur` varchar(50) NOT NULL,
   `quantite` int(11) NOT NULL,
   `prix` float NOT NULL,
   PRIMARY KEY (`idListe`),
@@ -239,20 +240,20 @@ CREATE TABLE IF NOT EXISTS `liste_produit` (
 -- Contenu de la table `liste_produit`
 --
 
-INSERT INTO `liste_produit` (`idListe`, `idMatiereCorps`, `idMatiereTige`, `idReference`, `idType`, `idDiametreCorps`, `idLongueurCorps`, `quantite`, `prix`) VALUES
-('1', '1', '2', '1', '1', '1', '2', 5, 0.02),
-('10', '1', '2', '1', '1', '4', '1', 5, 0.02),
-('11', '1', '2', '1', '2', '1', '1', 5, 0.02),
-('12', '1', '2', '1', '2', '2', '2', 50, 0.07),
-('13', '1', '2', '1', '2', '3', '2', 5, 0.02),
-('2', '1', '2', '1', '1', '1', '4', 100, 0.03),
-('3', '1', '2', '1', '1', '1', '5', 5, 0.02),
-('4', '1', '2', '1', '1', '2', '1', 5, 0.04),
-('5', '1', '2', '1', '1', '2', '2', 30, 0.02),
-('6', '1', '2', '1', '1', '2', '5', 5, 0.02),
-('7', '1', '2', '1', '1', '3', '1', 25, 0.02),
-('8', '1', '2', '1', '1', '3', '2', 10, 0.02),
-('9', '1', '2', '1', '1', '3', '4', 89, 0.05);
+INSERT INTO `liste_produit` (`idListe`, `idMatiereCorps`, `idMatiereTige`, `idReference`, `idType`, `idDiametreCorps`, `idLongueurCorps`, `couleur`, `quantite`, `prix`) VALUES
+('1', '1', '2', '1', '1', '1', '2', '', 5, 0.02),
+('10', '1', '2', '1', '1', '4', '1', 'Noir', 5, 0.02),
+('11', '1', '2', '1', '2', '1', '1', 'RAL8014', 5, 0.02),
+('12', '1', '2', '1', '2', '2', '2', 'Blanc', 50, 0.07),
+('13', '1', '2', '1', '2', '3', '2', 'Noir', 5, 0.02),
+('2', '1', '2', '1', '1', '1', '4', 'RAL7035', 100, 0.03),
+('3', '1', '2', '1', '1', '1', '5', 'RAL7022', 5, 0.02),
+('4', '1', '2', '1', '1', '2', '1', 'Noir', 5, 0.04),
+('5', '1', '2', '1', '1', '2', '2', '', 30, 0.02),
+('6', '1', '2', '1', '1', '2', '5', 'RAL7037', 5, 0.02),
+('7', '1', '2', '1', '1', '3', '1', '', 25, 0.02),
+('8', '1', '2', '1', '1', '3', '2', 'RAL9003', 10, 0.02),
+('9', '1', '2', '1', '1', '3', '4', '', 89, 0.05);
 
 -- --------------------------------------------------------
 
@@ -383,8 +384,8 @@ INSERT INTO `type_reference` (`idType`, `libelle`) VALUES
 -- Contraintes pour la table `auth_group_permissions`
 --
 ALTER TABLE `auth_group_permissions`
-  ADD CONSTRAINT `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
-  ADD CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`);
+  ADD CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
+  ADD CONSTRAINT `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`);
 
 --
 -- Contraintes pour la table `auth_permission`
@@ -403,15 +404,15 @@ ALTER TABLE `auth_user_groups`
 -- Contraintes pour la table `auth_user_user_permissions`
 --
 ALTER TABLE `auth_user_user_permissions`
-  ADD CONSTRAINT `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
-  ADD CONSTRAINT `auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
+  ADD CONSTRAINT `auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
+  ADD CONSTRAINT `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`);
 
 --
 -- Contraintes pour la table `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  ADD CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
-  ADD CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`);
+  ADD CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
+  ADD CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
 
 --
 -- Contraintes pour la table `liste_produit`
