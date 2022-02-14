@@ -3,15 +3,14 @@ from django.db import models
 
 class Teinte(models.Model):
     idTeinte = models.IntegerField(primary_key= True)
-    idRal = models.IntegerField()
-    libelle = models.CharField(max_length = 50)
-    
+    libelle = models.CharField(max_length = 50)  
     class Meta:
         db_table = "teinte"
 
 
 class Ral(models.Model):
     idRal = models.IntegerField(primary_key= True)
+    idTeinte = models.IntegerField()
     numeroRal = models.IntegerField()
     class Meta:
         db_table = "ral"
