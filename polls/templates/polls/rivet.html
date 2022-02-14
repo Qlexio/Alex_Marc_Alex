@@ -1,4 +1,4 @@
-
+<!-- {% import polls/script_js_template%} -->
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -66,8 +66,8 @@
                 diametreSel.length = 1;
                 typeSel.length = 1;
                 //display correct values
-                // for (var tr in json[matiere_CorpsSel.value][matiere_TigeSel.value][this.value = "rivet"]) {
-                for (var tr in json[matiere_CorpsSel.value][matiere_TigeSel.value][this.value]) {
+                for (var tr in json[matiere_CorpsSel.value][matiere_TigeSel.value]["rivet"]) {
+                // for (var tr in json[matiere_CorpsSel.value][matiere_TigeSel.value][this.value]) {
                     typeSel.options[typeSel.options.length] = new Option(tr, tr);
                     num++;
                     
@@ -113,7 +113,9 @@
 <body>
     <h1>Cascading Dropdown GFIX products</h1>
 
-    <form name="form1" id="form1" action="/action_page.php">
+
+    <form name="form1" id="form1" action="#" method = "POST">
+        {% csrf_token %}
         
         Matière Corps: <select name="matiere_Corps" id="matiere_Corps">
             <option value="" selected="selected">Select matiere_Corps  </option> <p id = "counteur">(TEST)</p>
@@ -154,7 +156,7 @@
     <section>
         <div>
             <article>
-                
+
 
             </article>
         </div> 

@@ -1,25 +1,27 @@
 from django.db import models
 
 
-class Matiere_corps(models.Model):
+class Teinte(models.Model):
+    idTeinte = models.IntegerField(primary_key= True)
+    idRal = models.IntegerField()
+    libelle = models.CharField(max_length = 50)
+    
+    class Meta:
+        db_table = "teinte"
+
+
+class Ral(models.Model):
+    idRal = models.IntegerField(primary_key= True)
+    numeroRal = models.IntegerField()
+    class Meta:
+        db_table = "ral"
+    
+
+class Matiere(models.Model):
     idMatiereCorps = models.IntegerField(primary_key = True)
     matiereCorps = models.CharField(max_length = 50)
     class Meta:
-        db_table = "matiere_corps"
-
-
-class Matiere_tige(models.Model):
-    idMatiereTige = models.IntegerField(primary_key = True)
-    matiereTige = models.CharField(max_length = 50)
-    class Meta:
-        db_table = "matiere_tige"
-
-
-class Reference(models.Model):
-    idReference = models.IntegerField(primary_key = True)
-    libelle = models.CharField(max_length = 50)
-    class Meta:
-        db_table = "reference"
+        db_table = "matiere"
 
 
 class Type_reference(models.Model):
@@ -43,16 +45,14 @@ class Diametre_corps(models.Model):
         db_table = "diametre_corps"
 
 
-class Liste_produit(models.Model):
+class Rivet(models.Model):
     idListe = models.IntegerField(primary_key = True)
     idMatiereCorps = models.IntegerField()
     idMatiereTige = models.IntegerField()
-    idReference = models.IntegerField()
     idType = models.IntegerField()
     idDiametreCorps = models.IntegerField()
     idLongueurCorps = models.IntegerField()
-    couleur = models.CharField(max_length = 50)
     quantite = models.IntegerField()
     prix = models.FloatField()
     class Meta:
-        db_table = "liste_produit"
+        db_table = "rivet"
