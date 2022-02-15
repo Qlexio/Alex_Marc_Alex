@@ -23,7 +23,6 @@ urlpatterns = [
     path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
     path('', polls_views.index_view, name="index"),
-    path('articles/', polls_views.test2, name="articles"),
-    # path('rivet')
+    path('rivet/', polls_views.test2, name="rivet"),
     
 ]   +static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

@@ -1,12 +1,6 @@
 
-{% load static %}
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-    <title>Document</title>
+    
+    {% block script %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
     
     {{ js_json_products|json_script:"js_json_products"}}
@@ -27,14 +21,11 @@
 
             var teinteSel = document.getElementById("teinte");
             var ralSel = document.getElementById("ral");
-            var matiere_corps_stocker = document.getElementById("testmatiere");
-            
 
             for (var x in json_products) {
                 // alert(json.length);
                 matiere_CorpsSel.options[matiere_CorpsSel.options.length] = new Option(x, x);
                 num++;
-                matiere_corps_stocker= x;
                 
             }
                
@@ -105,74 +96,17 @@
                     num++;                        
                 }
             }
-            alert(matiere_corps_stocker);
+            
+            
             conteur = num;
             // alert(conteur);
             
-        }   
+
+        }
+
+        
+
+        
+        
     </script>
-    
-</head>
-<body>
-    <h1>Cascading Dropdown GFIX products</h1>
-
-    <form class ="form1" name="form1" id="form1" action="#" method = "POST">
-        {% csrf_token %}
-        
-        Matière Corps: <select name="matiere_Corps" id="matiere_Corps">
-            <option value="" selected="selected">Select matiere_Corps  </option> 
-          </select>
-          <br><br>
-
-        Matière Tige: <select name="matiere_Tige" id="matiere_Tige">
-            <option value="" selected="selected">Select matiere_Tige  </option>
-          </select>
-          <br><br>
-
-        Type: <select name="type" id="type">
-            <option value="" selected="selected">Please select reference first  </option>
-          </select>
-          <br><br>
-
-        Diamètre: <select name="diametre" id="diametre">
-            <option value="" selected="selected">Please select type first </option>
-          </select>
-          <br><br>
-
-        Longueur: <select name="longueur" id="longueur">
-            <option value="" selected="selected">Please select diametre first </option>
-          </select>
-          <br><br>
-        
-        Teinte: <select name="teinte" id="teinte">
-            <option value="" selected="selected">Please select teinte first </option>
-          </select>
-          <br><br>
-
-        Ral: <select name="ral" id="ral">
-            <option value="" selected="selected">Please select teinte first </option>
-          </select>
-          <br><br>
-          
-          <input type="submit" value="Submit">
-
-          <p id = "total">>Il y a X produits</p>
-          <p id ="testmatiere"></p>
-    </form>
-    
-
-
-    <!-- Affichage de tous les articles en fonction des critères -->
-    <section>
-        <div>
-            <article>
-
-
-            </article>
-        </div> 
-
-    </section>
-    
-    
-</body>
-</html>
+    {% endblock %}

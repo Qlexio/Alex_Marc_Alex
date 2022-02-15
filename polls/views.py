@@ -12,17 +12,22 @@ def test2(request):
 
     if request.method == "POST":
 
-        return HttpResponse("YOUPI!!! ☺☺☺")
+        # return HttpResponse("YOUPI!!! ☺☺☺")
+        return render(request, 'polls/liste_rivet.html',)
     else:
         context = {}
 
         with open("products.json") as file:
-            json_datas = json.load(file)
+            json_datas_products = json.load(file)
+        
+        with open("colors.json") as file:
+            json_datas_colors = json.load(file)
 
-        context["js_json"] = json_datas
+        context["js_json_products"] = json_datas_products
+        context["js_json_colors"] = json_datas_colors
 
 
-        return render(request, 'polls/articles.html', context)
+        return render(request, 'polls/rivet.html', context)
 
 
 

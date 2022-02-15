@@ -17,8 +17,8 @@ class Ral(models.Model):
     
 
 class Matiere(models.Model):
-    idMatiereCorps = models.IntegerField(primary_key = True)
-    matiereCorps = models.CharField(max_length = 50)
+    idMatiere = models.IntegerField(primary_key = True)
+    libelle = models.CharField(max_length = 50)
     class Meta:
         db_table = "matiere"
 
