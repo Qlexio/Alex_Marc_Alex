@@ -13,7 +13,7 @@ def test2(request):
     if request.method == "POST":
 
         # return HttpResponse("YOUPI!!! ☺☺☺")
-        return render(request, 'polls/liste_rivet.html',)
+        return render(request, 'polls/rivet.html',)
     else:
         context = {}
 

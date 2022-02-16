@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 14 Février 2022 à 17:12
+-- Généré le :  Mer 16 Février 2022 à 17:02
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -277,6 +277,7 @@ CREATE TABLE IF NOT EXISTS `ral` (
   `idRal` varchar(5) NOT NULL,
   `idTeinte` varchar(5) NOT NULL,
   `numeroRal` int(11) NOT NULL,
+  `code_hex` varchar(50) NOT NULL,
   PRIMARY KEY (`idRal`),
   KEY `Ral_Teinte_FK` (`idTeinte`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -285,19 +286,19 @@ CREATE TABLE IF NOT EXISTS `ral` (
 -- Contenu de la table `ral`
 --
 
-INSERT INTO `ral` (`idRal`, `idTeinte`, `numeroRal`) VALUES
-('1', '2', 1000),
-('10', '4', 3001),
-('11', '4', 3002),
-('12', '4', 3003),
-('2', '2', 1001),
-('3', '2', 1002),
-('4', '2', 1003),
-('5', '3', 2000),
-('6', '3', 2001),
-('7', '3', 2002),
-('8', '3', 2003),
-('9', '4', 3000);
+INSERT INTO `ral` (`idRal`, `idTeinte`, `numeroRal`, `code_hex`) VALUES
+('1', '2', 1000, '#cdba88'),
+('10', '4', 3001, '	#9b2423'),
+('11', '4', 3002, '	#9b2321'),
+('12', '4', 3003, '	#861a22'),
+('2', '2', 1001, '#d0b084'),
+('3', '2', 1002, '#d2aa6d'),
+('4', '2', 1003, '	#f9a800'),
+('5', '3', 2000, '	#da6e00'),
+('6', '3', 2001, '	#ba481b'),
+('7', '3', 2002, '	#bf3922'),
+('8', '3', 2003, '#f67828'),
+('9', '4', 3000, '	#a72920');
 
 -- --------------------------------------------------------
 
@@ -399,8 +400,8 @@ INSERT INTO `type_reference` (`idType`, `libelle`) VALUES
 -- Contraintes pour la table `auth_group_permissions`
 --
 ALTER TABLE `auth_group_permissions`
-  ADD CONSTRAINT `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
-  ADD CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`);
+  ADD CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
+  ADD CONSTRAINT `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`);
 
 --
 -- Contraintes pour la table `auth_permission`
@@ -419,15 +420,15 @@ ALTER TABLE `auth_user_groups`
 -- Contraintes pour la table `auth_user_user_permissions`
 --
 ALTER TABLE `auth_user_user_permissions`
-  ADD CONSTRAINT `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
-  ADD CONSTRAINT `auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
+  ADD CONSTRAINT `auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
+  ADD CONSTRAINT `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`);
 
 --
 -- Contraintes pour la table `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  ADD CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
-  ADD CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`);
+  ADD CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
+  ADD CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
 
 --
 -- Contraintes pour la table `ral`

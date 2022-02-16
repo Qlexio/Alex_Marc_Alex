@@ -12,6 +12,7 @@ class Ral(models.Model):
     idRal = models.IntegerField(primary_key= True)
     idTeinte = models.IntegerField()
     numeroRal = models.IntegerField()
+    code_hex = models.CharField(max_length = 50)
     class Meta:
         db_table = "ral"
     

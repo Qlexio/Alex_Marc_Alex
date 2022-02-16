@@ -1,4 +1,11 @@
-form1 {
+.form1 {
     display: inline-block;
     color: red;
+}
+.total {
+    border: 5px solid black;
+    color: red;
+}
+body{
+    background-color: red;
 }
