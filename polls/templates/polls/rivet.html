@@ -26,7 +26,9 @@
             var num = 0;
 
             var teinteSel = document.getElementById("teinte");
+            var type_teinteSel = document.getElementById("type_teinte");
             var ralSel = document.getElementById("ral");
+
             var matiere_corps_stocker = document.getElementById("testmatiere");
             
 
@@ -50,8 +52,8 @@
                     matiere_TigeSel.options[matiere_TigeSel.options.length] = new Option(c, c);
                     num++;                        
                 }
-                matiere_corps_stocker= json_products[this.value];
-                alert(matiere_corps_stocker);
+                // matiere_corps_stocker= json_products[this.value];
+                // alert(matiere_corps_stocker);
             }
 
             matiere_TigeSel.onchange = function() {
@@ -99,10 +101,22 @@
             }
 
             teinteSel.onchange = function() {
+                var num = 0;
+                //empty Chapters dropdown
+                ralSel.length = 1;
+                type_teinteSel.length = 1;
+                //display correct values
+                for (var g in json_colors[this.value]) {
+                    type_teinteSel.options[type_teinteSel.options.length] = new Option(g, g);
+                    num++;   
+                }
+            }
+
+            type_teinteSel.onchange = function() {
                 //empty Chapters- and Topics- dropdowns
                 ralSel.length = 1;
                 //display correct values
-                var r = json_products[teinteSel.value][this.value];
+                var r = json_colors[teinteSel.value][this.value];
                 for (var i = 0; i < r.length; i++) {
                     ralSel.options[ralSel.options.length] = new Option(r[i], r[i]);
                     num++;
@@ -122,42 +136,41 @@
         {% csrf_token %}
 
         
-        Matière Corps: <select name="matiere_Corps" id="matiere_Corps" onclick=this.form.texte.value=this.options
-        [this.selectedIndex].text ;>
+        <select name="matiere_Corps" id="matiere_Corps" onclick=this.texte.value=this.options
+            [this.selectedIndex].text ;>
             <option value="" selected="selected">Select matiere_Corps  </option> 
-          </select>
-          <br><br>
+        </select>
 
-        Matière Tige: <select name="matiere_Tige" id="matiere_Tige" onclick=this.form.texte.value=this.options
-        [this.selectedIndex].text ;>
+        <select name="matiere_Tige" id="matiere_Tige" onclick=this.form.texte.value=this.options
+            [this.selectedIndex].text ;>
             <option value="" selected="selected">Select matiere_Tige  </option>
-          </select>
-          <br><br>
+        </select>
 
-        Type: <select name="type" id="type">
+        <select name="type" id="type">
             <option value="" selected="selected">Please select reference first  </option>
-          </select>
-          <br><br>
+        </select>
 
-        Diamètre: <select name="diametre" id="diametre">
+        <select name="diametre" id="diametre">
             <option value="" selected="selected">Please select type first </option>
-          </select>
-          <br><br>
+        </select>
 
-        Longueur: <select name="longueur" id="longueur">
+        <select name="longueur" id="longueur">
             <option value="" selected="selected">Please select diametre first </option>
-          </select>
-          <br><br>
+        </select>
         
-        Teinte: <select name="teinte" id="teinte">
+        <select name="teinte" id="teinte">
             <option value="" selected="selected">Please select teinte first </option>
-          </select>
-          <br><br>
+        </select>
+        
+        <select name="type_teinte" id="type_teinte">
+            <option value="" selected="selected">Please select teinte first </option>
+        </select>
+        
+        <select name="ral" id="ral">
+            <option value="" selected="selected">Please select type teinte first </option>
+        </select>
 
-        Ral: <select name="ral" id="ral">
-            <option value="" selected="selected">Please select teinte first </option>
-          </select>
-          <br><br>
+        <br><br>
           
         <input type="submit" value="Submit">
           
@@ -167,12 +180,35 @@
     <p class = "total">Il y a X produits</p>
         
     <table border="1">
-        <tr><td colspan="2">Matière corps</td> <td colspan="2">Matière tige</td> <td colspan="2">Forme de tête</td>
-             <td colspan="2">Diamètre corps</td><td colspan="2">Longueur corps</td><td colspan="2">Teinte</td></tr>
+        <tr>
+            <td colspan="2">Matière corps</td> 
+            <td colspan="2">Matière tige</td> 
+            <td colspan="2">Forme de tête</td>
+            <td colspan="2">Diamètre corps</td>
+            <td colspan="2">Longueur corps</td>
+            <td colspan="2">Teinte</td>
+            <td colspan="2">RAL</td>
+            <td colspan="2">Prix</td>
+
+        </tr>
             
-        {% for i in range(5) %}
-        <tr><td colspan="2">Col 1</td> <td colspan="2">Col 2</td> <td colspan="2">Col 3</td></tr>
-        {% endfor%}
+        
+        <tr><td colspan="2">{{ matiere_corps }}</td>
+            <td colspan="2">{{ matiere_tige }}</td> 
+            <td colspan="2">{{ type }}</td>
+            <td colspan="2">{{ diametre }}</td>
+            <td colspan="2">{{ longueur }}</td>
+            <td colspan="2">{{ teinte }}</td>
+            <td colspan="2">{{ ral }}</td>
+            {% for n in testId %}
+                {% if "{{ type }}" == "{{ n.idType }}" and "{{ diametre }}" == "{{ n.idDiametreCorps }}" 
+                    and "{{ longueur }}" == "{{ n.idLongueurCorps }}" %}
+                    <td colspan="2"> {{ n.prix }}</td>
+                {% endif %}
+        {% endfor %}
+            
+        </tr>
+        
 
            
     </table>
@@ -182,7 +218,7 @@
 
           
     <p id ="testmatiere"></p>
-    
+
 
 
     <!-- Affichage de tous les articles en fonction des critères -->

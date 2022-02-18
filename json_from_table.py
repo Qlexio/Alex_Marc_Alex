@@ -6,13 +6,13 @@ application = get_wsgi_application()
 
 import json
 from collections import defaultdict
-from polls.models import (Rivet,Teinte, Ral, Matiere, Type_reference,
+from polls.models import (Rivet,Teinte,Type_teinte, Ral, Matiere, Type_reference,
     Diametre_corps, Longueur_corps)
 
-rivet = Rivet.objects.all().values("idMatiereCorps",
+rivet = Rivet.objects.all().values("idRivet", "idMatiereCorps",
      "idMatiereTige", "idType", "idDiametreCorps", "idLongueurCorps",
         "quantite", "prix"
-    ).order_by("idMatiereCorps", "idMatiereTige", "idType", "idDiametreCorps", "idLongueurCorps")
+    ).order_by("idRivet", "idMatiereCorps", "idMatiereTige", "idType", "idDiametreCorps", "idLongueurCorps")
 
 
 json_dict_rivet = {}
@@ -56,8 +56,9 @@ with open("products.json", "r") as file:
 
 
 # Création du json pour la couleur du produit
-ral_couleur = Ral.objects.all().values("idRal","idTeinte", "numeroRal"
-    ).order_by("idTeinte", "numeroRal")
+ral_couleur = Ral.objects.all().values("idRal", "idTeinte", "idType", "numeroRal", "libelle",
+    
+    "code_hex").order_by("idTeinte","idType", "numeroRal")
 
 json_dict_couleur = {}
 for couleur in ral_couleur:
@@ -65,49 +66,54 @@ for couleur in ral_couleur:
         "libelle")[0]["libelle"]
     ral = Ral.objects.filter(pk= couleur["idRal"]).values("numeroRal")[0
         ]["numeroRal"]
-    print(teinte)
+    type_teinte = Type_teinte.objects.filter(pk= couleur["idType"]).values("libelle")[0
+        ]["libelle"]
     
     # Liste Teinte
     if json_dict_couleur.get(teinte) is None:
-        json_dict_couleur[teinte] = []
+        json_dict_couleur[teinte] = {}
+    
+    # Liste type de teinte
+    if json_dict_couleur[teinte].get(type_teinte) is None:
+        json_dict_couleur[teinte][type_teinte] = []
 
 
     # Liste Ral de chaque teinte
     if ral >= 1000 and ral <2000:
         ral_jaune = ral
-        json_dict_couleur[teinte].append(ral_jaune)
+        json_dict_couleur[teinte][type_teinte].append(ral_jaune)
 
     if ral >= 2000 and ral <3000:
         ral_orange = ral
-        json_dict_couleur[teinte].append(ral_orange)
+        json_dict_couleur[teinte][type_teinte].append(ral_orange)
 
     if ral >= 3000 and ral <4000:
         ral_rouge = ral
-        json_dict_couleur[teinte].append(ral_rouge)
+        json_dict_couleur[teinte][type_teinte].append(ral_rouge)
     
     if ral >= 4000 and ral <5000:
         ral_violet = ral
-        json_dict_couleur[teinte].append(ral_violet)
+        json_dict_couleur[teinte][type_teinte].append(ral_violet)
     
     if ral >= 5000 and ral <6000:
         ral_bleu = ral
-        json_dict_couleur[teinte].append(ral_bleu)
+        json_dict_couleur[teinte][type_teinte].append(ral_bleu)
     
     if ral >= 6000 and ral <7000:
         ral_vert = ral
-        json_dict_couleur[teinte].append(ral_vert)
+        json_dict_couleur[teinte][type_teinte].append(ral_vert)
     
     if ral >= 7000 and ral <8000:
         ral_gris = ral
-        json_dict_couleur[teinte].append(ral_gris)
+        json_dict_couleur[teinte][type_teinte].append(ral_gris)
 
     if ral >= 8000 and ral <9000:
         ral_brun = ral
-        json_dict_couleur[teinte].append(ral_brun)
+        json_dict_couleur[teinte][type_teinte].append(ral_brun)
 
     if ral >= 9000 and ral <10000:
         ral_blanc_noir = ral
-        json_dict_couleur[teinte].append(ral_blanc_noir)
+        json_dict_couleur[teinte][type_teinte].append(ral_blanc_noir)
 
 with open("colors.json", "w", encoding= "utf-8") as file:
     file.write(json.dumps(json_dict_couleur, indent= 4))

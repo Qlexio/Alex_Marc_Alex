@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 16 Février 2022 à 17:02
+-- Généré le :  Ven 18 Février 2022 à 17:06
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -256,49 +256,48 @@ INSERT INTO `matiere` (`idMatiere`, `libelle`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `polls_articles`
---
-
-CREATE TABLE IF NOT EXISTS `polls_articles` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `diametre_corps` double NOT NULL,
-  `longueur_corps` int(11) NOT NULL,
-  `type_rivet` varchar(150) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `ral`
 --
 
 CREATE TABLE IF NOT EXISTS `ral` (
-  `idRal` varchar(5) NOT NULL,
-  `idTeinte` varchar(5) NOT NULL,
+  `idRal` varchar(10) NOT NULL,
+  `idTeinte` varchar(10) NOT NULL,
+  `idType` varchar(10) NOT NULL,
   `numeroRal` int(11) NOT NULL,
+  `libelle` char(50) NOT NULL,
   `code_hex` varchar(50) NOT NULL,
   PRIMARY KEY (`idRal`),
-  KEY `Ral_Teinte_FK` (`idTeinte`)
+  KEY `ral_teinte_FK` (`idTeinte`),
+  KEY `ral_type_teinte0_FK` (`idType`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `ral`
 --
 
-INSERT INTO `ral` (`idRal`, `idTeinte`, `numeroRal`, `code_hex`) VALUES
-('1', '2', 1000, '#cdba88'),
-('10', '4', 3001, '	#9b2423'),
-('11', '4', 3002, '	#9b2321'),
-('12', '4', 3003, '	#861a22'),
-('2', '2', 1001, '#d0b084'),
-('3', '2', 1002, '#d2aa6d'),
-('4', '2', 1003, '	#f9a800'),
-('5', '3', 2000, '	#da6e00'),
-('6', '3', 2001, '	#ba481b'),
-('7', '3', 2002, '	#bf3922'),
-('8', '3', 2003, '#f67828'),
-('9', '4', 3000, '	#a72920');
+INSERT INTO `ral` (`idRal`, `idTeinte`, `idType`, `numeroRal`, `libelle`, `code_hex`) VALUES
+('1', '2', '2', 1000, 'Beige vert', '#cdba88'),
+('10', '3', '3', 2000, 'Orangé jaune', '	#da6e00'),
+('11', '3', '2', 2001, 'Orangé rouge', '	#ba481b'),
+('12', '3', '3', 2001, 'Orangé rouge', '	#ba481b'),
+('13', '3', '2', 2002, 'Orangé sang', '	#bf3922'),
+('14', '3', '3', 2002, 'Orangé sang', '	#bf3922'),
+('15', '3', '2', 2003, 'Orangé pastel', '#f67828'),
+('16', '3', '3', 2003, 'Orangé pastel', '#f67828'),
+('17', '4', '2', 3000, 'Rouge feu', '	#a72920'),
+('18', '4', '3', 3000, 'Rouge feu', '	#a72920'),
+('19', '4', '2', 3001, 'Rouge de sécurité', '	#9b2423'),
+('2', '2', '3', 1000, 'Beige vert', '#cdba88'),
+('20', '4', '3', 3001, 'Rouge de sécurité', '	#9b2423'),
+('21', '4', '2', 3002, 'Rouge carmin', '	#9b2321'),
+('22', '4', '3', 3003, 'Rouge rubis', '	#861a22'),
+('3', '2', '2', 1001, 'Beige', '#d0b084'),
+('4', '2', '3', 1001, 'Beige', '#d0b084'),
+('5', '2', '2', 1002, 'Jaune sable', '#d2aa6d'),
+('6', '2', '3', 1002, 'Jaune sable', '#d2aa6d'),
+('7', '2', '2', 1003, 'Jaune de sécurité', '	#f9a800'),
+('8', '2', '3', 1003, 'Jaune de sécurité', '	#f9a800'),
+('9', '3', '2', 2000, 'Orangé jaune', '	#da6e00');
 
 -- --------------------------------------------------------
 
@@ -392,6 +391,27 @@ INSERT INTO `type_reference` (`idType`, `libelle`) VALUES
 ('3', 'large'),
 ('4', 'extra_large');
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `type_teinte`
+--
+
+CREATE TABLE IF NOT EXISTS `type_teinte` (
+  `idType` varchar(10) NOT NULL,
+  `libelle` char(50) NOT NULL,
+  PRIMARY KEY (`idType`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `type_teinte`
+--
+
+INSERT INTO `type_teinte` (`idType`, `libelle`) VALUES
+('1', 'aucun'),
+('2', 'mat'),
+('3', 'brillant');
+
 --
 -- Contraintes pour les tables exportées
 --
@@ -434,7 +454,8 @@ ALTER TABLE `django_admin_log`
 -- Contraintes pour la table `ral`
 --
 ALTER TABLE `ral`
-  ADD CONSTRAINT `Ral_Teinte_FK` FOREIGN KEY (`idTeinte`) REFERENCES `teinte` (`idTeinte`);
+  ADD CONSTRAINT `ral_teinte_FK` FOREIGN KEY (`idTeinte`) REFERENCES `teinte` (`idTeinte`),
+  ADD CONSTRAINT `ral_type_teinte0_FK` FOREIGN KEY (`idType`) REFERENCES `type_teinte` (`idType`);
 
 --
 -- Contraintes pour la table `rivet`

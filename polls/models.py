@@ -1,5 +1,11 @@
 from django.db import models
 
+class Type_teinte(models.Model):
+    idType = models.IntegerField(primary_key= True)
+    libelle = models.CharField(max_length = 50)
+    class Meta:
+        db_table = "type_teinte"
+
 
 class Teinte(models.Model):
     idTeinte = models.IntegerField(primary_key= True)
@@ -11,7 +17,9 @@ class Teinte(models.Model):
 class Ral(models.Model):
     idRal = models.IntegerField(primary_key= True)
     idTeinte = models.IntegerField()
+    idType = models.IntegerField()
     numeroRal = models.IntegerField()
+    libelle = models.CharField(max_length= 50)
     code_hex = models.CharField(max_length = 50)
     class Meta:
         db_table = "ral"
@@ -46,7 +54,7 @@ class Diametre_corps(models.Model):
 
 
 class Rivet(models.Model):
-    idListe = models.IntegerField(primary_key = True)
+    idRivet = models.IntegerField(primary_key = True)
     idMatiereCorps = models.IntegerField()
     idMatiereTige = models.IntegerField()
     idType = models.IntegerField()
