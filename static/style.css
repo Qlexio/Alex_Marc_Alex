@@ -1,8 +1,15 @@
 
 .total {
-    border: 5px solid black;
     color: red;
 }
-tr{
+
+ul {
+    list-style-type: none;
     font-family: Georgia;
+    
+}
+li {
+    border: 1px solid black;
+    display: inline-block;
+
 }

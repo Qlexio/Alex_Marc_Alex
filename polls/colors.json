@@ -1,42 +1,57 @@
 {
+    "aucune":{
+        
+    },
     "jaune": {
-        "mat": [
-            1000,
-            1001,
-            1002,
-            1003
+        "1000 / Beige vert": [
+            "mat",
+            "brillant"
         ],
-        "brillant": [
-            1000,
-            1001,
-            1002,
-            1003
+        "1001 / Beige": [
+            "mat",
+            "brillant"
+        ],
+        "1002 / Jaune sable": [
+            "mat",
+            "brillant"
+        ],
+        "1003 / Jaune de s\u00e9curit\u00e9": [
+            "mat",
+            "brillant"
         ]
     },
     "orange": {
-        "mat": [
-            2000,
-            2001,
-            2002,
-            2003
+        "2000 / Orang\u00e9 jaune": [
+            "mat",
+            "brillant"
         ],
-        "brillant": [
-            2000,
-            2001,
-            2002,
-            2003
+        "2001 / Orang\u00e9 rouge": [
+            "mat",
+            "brillant"
+        ],
+        "2002 / Orang\u00e9 sang": [
+            "mat",
+            "brillant"
+        ],
+        "2003 / Orang\u00e9 pastel": [
+            "mat",
+            "brillant"
         ]
     },
     "rouge": {
-        "mat": [
-            3000,
-            3001,
-            3002
+        "3000 / Rouge feu": [
+            "mat",
+            "brillant"
         ],
-        "brillant": [
-            3000,
-            3001,
-            3003
+        "3001 / Rouge de s\u00e9curit\u00e9": [
+            "mat",
+            "brillant"
+        ],
+        "3002 / Rouge carmin": [
+            "mat"
+        ],
+        "3003 / Rouge rubis": [
+            "brillant"
         ]
     }
 }

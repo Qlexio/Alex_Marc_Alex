@@ -98,6 +98,7 @@
             for (var x in json_colors) {
                 // alert(json.length);
                 teinteSel.options[teinteSel.options.length] = new Option(x, x);
+                alert(x);
             }
 
             teinteSel.onchange = function() {
@@ -180,34 +181,18 @@
     <p class = "total">Il y a X produits</p>
         
     <table border="1">
-        <tr>
-            <td colspan="2">Matière corps</td> 
-            <td colspan="2">Matière tige</td> 
-            <td colspan="2">Forme de tête</td>
-            <td colspan="2">Diamètre corps</td>
-            <td colspan="2">Longueur corps</td>
-            <td colspan="2">Teinte</td>
-            <td colspan="2">RAL</td>
-            <td colspan="2">Prix</td>
-
-        </tr>
+        <ul>
+            <li colspan="2">Matière corps: {{ matiere_corps }}</li> 
+            <li colspan="2">Matière tige: {{ matiere_tige }}</li> 
+            <li colspan="2">Forme de tête: {{ type }}</td>
+            <li colspan="2">Diamètre corps: {{ diametre }}</li>
+            <li colspan="2">Longueur corps:  {{ longueur }}</li>
+            <li colspan="2">RAL: {{ ral }}</li>
+            <li colspan="2">Prix: {{ prix }}</li>
+        </ul>
             
         
-        <tr><td colspan="2">{{ matiere_corps }}</td>
-            <td colspan="2">{{ matiere_tige }}</td> 
-            <td colspan="2">{{ type }}</td>
-            <td colspan="2">{{ diametre }}</td>
-            <td colspan="2">{{ longueur }}</td>
-            <td colspan="2">{{ teinte }}</td>
-            <td colspan="2">{{ ral }}</td>
-            {% for n in testId %}
-                {% if "{{ type }}" == "{{ n.idType }}" and "{{ diametre }}" == "{{ n.idDiametreCorps }}" 
-                    and "{{ longueur }}" == "{{ n.idLongueurCorps }}" %}
-                    <td colspan="2"> {{ n.prix }}</td>
-                {% endif %}
-        {% endfor %}
-            
-        </tr>
+        
         
 
            

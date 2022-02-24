@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 import json
-from polls.models import (Type_teinte, Ral, Rivet)
+from polls.models import (Rivet,Teinte,Type_teinte, Ral, Matiere, Type_reference,
+    Diametre_corps, Longueur_corps)
 
 
 def index_view(request):
@@ -13,18 +13,13 @@ def test2(request):
 
     if request.method == "POST":
 
-        # Test de recupération de l'id pour affichage du prix
-        testId = Rivet.objects.all()
-
-    
-        matiere_corps = request.POST.get("matiere_Corps")
-        matiere_tige = request.POST.get("matiere_Tige")
-        type = request.POST.get("type")
-        diametre = request.POST.get("diametre")
-        longueur = request.POST.get("longueur")
-        teinte = request.POST.get("teinte")
-        ral = request.POST.get("ral")
-
+        post_matiere_corps = request.POST.get("matiere_Corps")
+        post_matiere_tige = request.POST.get("matiere_Tige")
+        post_type = request.POST.get("type")
+        post_diametre = request.POST.get("diametre")
+        post_longueur = request.POST.get("longueur")
+        post_ral = request.POST.get("ral")
+        
         context = {}
 
         with open("products.json") as file:
@@ -35,14 +30,49 @@ def test2(request):
 
         context["js_json_products"] = json_datas_products
         context["js_json_colors"] = json_datas_colors
-        context["matiere_corps"] = matiere_corps
-        context["matiere_tige"] = matiere_tige
-        context["type"] = type
-        context["diametre"] = diametre
-        context["longueur"] = longueur
-        context["teinte"] = teinte
-        context["ral"] = ral
-        context["testId"] = testId
+
+        if post_matiere_corps != "":
+            pk_matiere_corps = Matiere.objects.filter(libelle=post_matiere_corps).values("idMatiere")[0]["idMatiere"]
+
+            
+
+        else:
+            print("Veuillez chosir la matière du corps")
+            # return 
+        
+        print(pk_matiere_corps)
+        
+        # if post_ral == "" or liste_teinte == "" :
+        # rivet = Rivet.objects.filter("idMatiereCorps","idMatiereTige", 
+        # "idType", "idDiametreCorps", "idLongueurCorps").values("prix_brut")[0]["prix_brut"]
+        rivet = Rivet.objects.filter(idMatiereCorps=pk_matiere_corps).values("prix_brut")[0]["prix_brut"]
+        print(rivet)
+
+        # rivet = Rivet.objects.filter(idDiametreCorps=liste_diametre, idLongueurCorps=liste_longueur).values("prix_brut")
+
+
+
+        # else:
+        # rivet = Rivet.objects.filter("idMatiereCorps","idMatiereTige", 
+        # "idType", "idDiametreCorps", "idLongueurCorps").values("prix_peint")[0]["prix_peint"]
+
+        # t=  Rivet.objects.values("prix")
+        # print(t)
+        # rivet = Rivet.objects.filter("idDiametreCorps"==liste_diametre, "idLongueurCorps"==liste_longueur).values("prix_peint")
+        # print(rivet)
+        
+        
+
+        
+        context["matiere_corps"] = liste_matiere_corps
+        context["matiere_tige"] = liste_matiere_tige
+        context["type"] = liste_type
+        context["diametre"] = liste_diametre
+        context["longueur"] = liste_longueur
+        context["teinte"] = liste_teinte
+        context["ral"] = liste_ral
+        
+        
 
         # return HttpResponse("YOUPI!!! ☺☺☺")
         return render(request, 'polls/rivet.html', context)

@@ -31,6 +31,9 @@ class Matiere(models.Model):
     class Meta:
         db_table = "matiere"
 
+        def __str__(self):
+            return [self.idMatiere , self.libelle]
+
 
 class Type_reference(models.Model):
     idType = models.IntegerField(primary_key = True)
@@ -61,6 +64,7 @@ class Rivet(models.Model):
     idDiametreCorps = models.IntegerField()
     idLongueurCorps = models.IntegerField()
     quantite = models.IntegerField()
-    prix = models.FloatField()
+    prix_brut = models.FloatField()
+    prix_peint = models.FloatField()
     class Meta:
         db_table = "rivet"
