@@ -41,6 +41,9 @@ class Type_reference(models.Model):
     class Meta:
         db_table = "type_reference"
 
+        def __str__(self):
+            return [self.idType , self.libelle]
+
 
 class Longueur_corps(models.Model):
     idLongueurCorps = models.IntegerField(primary_key = True)
@@ -48,12 +51,18 @@ class Longueur_corps(models.Model):
     class Meta:
         db_table = "longueur_corps"
 
+        def __str__(self):
+            return [self.idLongueurCorps , self.longueurCorps]
+
 
 class Diametre_corps(models.Model):
     idDiametreCorps = models.IntegerField(primary_key = True)
     diametreCorps = models.FloatField()
     class Meta:
         db_table = "diametre_corps"
+
+        def __str__(self):
+            return [self.idDiametreCorps , self.diametreCorps]
 
 
 class Rivet(models.Model):

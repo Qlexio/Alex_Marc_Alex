@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Matiere, Ral,Teinte, Type_reference, Diametre_corps, Longueur_corps, Rivet
+from .models import Matiere, Ral,Teinte, Type_reference, Longueur_corps, Rivet, Diametre_corps
 
 admin.site.register(Teinte)
 admin.site.register(Ral)

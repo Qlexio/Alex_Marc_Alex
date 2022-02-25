@@ -8,10 +8,9 @@ import json
 from polls.models import (Rivet,Teinte,Type_teinte, Ral, Matiere, Type_reference,
     Diametre_corps, Longueur_corps)
 
-rivet = Rivet.objects.all().values("idRivet", "idMatiereCorps",
+rivet = Rivet.objects.all().values("idMatiereCorps",
      "idMatiereTige", "idType", "idDiametreCorps", "idLongueurCorps",
-        "quantite", "prix"
-    ).order_by("idRivet", "idMatiereCorps", "idMatiereTige", "idType", "idDiametreCorps", "idLongueurCorps")
+    ).order_by( "idMatiereCorps", "idMatiereTige", "idType", "idDiametreCorps", "idLongueurCorps")
 
 
 json_dict_rivet = {}
