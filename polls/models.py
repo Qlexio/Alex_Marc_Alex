@@ -1,3 +1,4 @@
+from tkinter import Place
 from django.db import models
 
 class Type_teinte(models.Model):
@@ -47,7 +48,7 @@ class Type_reference(models.Model):
 
 class Longueur_corps(models.Model):
     idLongueurCorps = models.IntegerField(primary_key = True)
-    longueurCorps = models.FloatField()
+    longueurCorps = models.IntegerField()
     class Meta:
         db_table = "longueur_corps"
 
@@ -57,7 +58,7 @@ class Longueur_corps(models.Model):
 
 class Diametre_corps(models.Model):
     idDiametreCorps = models.IntegerField(primary_key = True)
-    diametreCorps = models.FloatField()
+    diametreCorps = models.DecimalField(max_digits=2 , decimal_places=1)
     class Meta:
         db_table = "diametre_corps"
 

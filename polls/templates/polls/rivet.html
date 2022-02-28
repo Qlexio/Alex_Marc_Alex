@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
     
@@ -22,26 +22,16 @@
             var typeSel = document.getElementById("type");
             var diametreSel = document.getElementById("diametre");
             var longueurSel = document.getElementById("longueur");
-            var conteur = document.getElementById("conteur");
-            var num = 0;
-
             var teinteSel = document.getElementById("teinte");
             var type_teinteSel = document.getElementById("type_teinte");
             var ralSel = document.getElementById("ral");
 
-            var matiere_corps_stocker = document.getElementById("testmatiere");
-            
-
             for (var x in json_products) {
                 // alert(json.length);
                 matiere_CorpsSel.options[matiere_CorpsSel.options.length] = new Option(x, x);
-                num++;
-                
-                
             }
                
             matiere_CorpsSel.onchange = function() {
-                var num = 0;
                 //empty Chapters- and Topics- dropdowns
                 longueurSel.length = 1;
                 diametreSel.length = 1;
@@ -50,14 +40,10 @@
                 //display correct values
                 for (var c in json_products[this.value]) {
                     matiere_TigeSel.options[matiere_TigeSel.options.length] = new Option(c, c);
-                    num++;                        
                 }
-                // matiere_corps_stocker= json_products[this.value];
-                // alert(matiere_corps_stocker);
             }
 
             matiere_TigeSel.onchange = function() {
-                var num = 0;
                 //empty Chapters dropdown
                 longueurSel.length = 1;
                 diametreSel.length = 1;
@@ -65,32 +51,26 @@
                 //display correct values
                 for (var mt in json_products[matiere_CorpsSel.value][this.value]) {
                     typeSel.options[typeSel.options.length] = new Option(mt, mt);
-                    num++;   
                 }
             }
 
-
             typeSel.onchange = function() {
-                var num = 0;
                 //empty Chapters dropdown
                 longueurSel.length = 1;
                 diametreSel.length = 1;
                 //display correct values
                 for (var tr in json_products[matiere_CorpsSel.value][matiere_TigeSel.value][this.value]) {
                     diametreSel.options[diametreSel.options.length] = new Option(tr, tr);
-                    num++;   
                 }
             }
 
             diametreSel.onchange = function() {
-                var num = 0;
                 //empty Chapters dropdown
                 longueurSel.length = 1;
                 //display correct values
                 var dc = json_products[matiere_CorpsSel.value][matiere_TigeSel.value][typeSel.value][this.value];
                 for (var i = 0; i < dc.length; i++) {
                     longueurSel.options[longueurSel.options.length] = new Option(dc[i], dc[i]);
-                    num++;
                 }
             }
 
@@ -102,29 +82,24 @@
             }
 
             teinteSel.onchange = function() {
-                var num = 0;
                 //empty Chapters dropdown
                 ralSel.length = 1;
                 type_teinteSel.length = 1;
                 //display correct values
                 for (var g in json_colors[this.value]) {
-                    type_teinteSel.options[type_teinteSel.options.length] = new Option(g, g);
-                    num++;   
+                    ralSel.options[ralSel.options.length] = new Option(g, g);
                 }
             }
 
-            type_teinteSel.onchange = function() {
+            ralSel.onchange = function() {
                 //empty Chapters- and Topics- dropdowns
-                ralSel.length = 1;
+                type_teinteSel.length = 1;
                 //display correct values
                 var r = json_colors[teinteSel.value][this.value];
                 for (var i = 0; i < r.length; i++) {
-                    ralSel.options[ralSel.options.length] = new Option(r[i], r[i]);
-                    num++;
+                    type_teinteSel.options[type_teinteSel.options.length] = new Option(r[i], r[i]);
                 }
             }
-            conteur = num;
-            // alert(conteur);
             
         }   
     </script>
@@ -135,46 +110,46 @@
 
     <form class ="form1" name="form1" id="form1" action="" method = "POST">
         {% csrf_token %}
-
         
         <select name="matiere_Corps" id="matiere_Corps" onclick=this.texte.value=this.options
             [this.selectedIndex].text ;>
-            <option value="" selected="selected">Select matiere_Corps  </option> 
+            <option value="" selected="selected">Choisissez une matiere corps  </option> 
         </select>
 
         <select name="matiere_Tige" id="matiere_Tige" onclick=this.form.texte.value=this.options
             [this.selectedIndex].text ;>
-            <option value="" selected="selected">Select matiere_Tige  </option>
+            <option value="" selected="selected">Choisissez une matiere tige  </option>
         </select>
 
         <select name="type" id="type">
-            <option value="" selected="selected">Please select reference first  </option>
+            <option value="" selected="selected">Choisissez la forme de la tête  </option>
         </select>
 
         <select name="diametre" id="diametre">
-            <option value="" selected="selected">Please select type first </option>
+            <option value="" selected="selected">Choisissez un diamètre </option>
         </select>
 
         <select name="longueur" id="longueur">
-            <option value="" selected="selected">Please select diametre first </option>
+            <option value="" selected="selected">Choisissez une longueur </option>
         </select>
-        
+        <br>
         <select name="teinte" id="teinte">
-            <option value="" selected="selected">Please select teinte first </option>
+            <option value="" selected="selected">Choisissez une teinte</option>
         </select>
-        
-        <select name="type_teinte" id="type_teinte">
-            <option value="" selected="selected">Please select teinte first </option>
-        </select>
-        
+
         <select name="ral" id="ral">
             <option value="" selected="selected">Please select type teinte first </option>
         </select>
-
+        
+        <select name="type_teinte" id="type_teinte">
+            <option value="" selected="selected">Choisissez un type de teinte </option>
+        </select>
+        
         <br><br>
           
         <input type="submit" value="Submit">
-          
+
+        <button class = "btn btn-danger" type="button" name="button"> POST</button>
         
     </form>
 
@@ -188,23 +163,10 @@
             <li colspan="2">Diamètre corps: {{ diametre }}</li>
             <li colspan="2">Longueur corps:  {{ longueur }}</li>
             <li colspan="2">RAL: {{ ral }}</li>
-            <li colspan="2">Prix: {{ prix }}</li>
+            <li colspan="2">Prix: {{ prix }} €</li>
         </ul>
             
-        
-        
-        
-
-           
     </table>
-          
-
-    <input name="texte" type="TEXT"/> 
-
-          
-    <p id ="testmatiere"></p>
-
-
 
     <!-- Affichage de tous les articles en fonction des critères -->
     <section>

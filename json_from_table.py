@@ -21,8 +21,8 @@ for produit in rivet:
         ]["libelle"]
     type_ref = Type_reference.objects.filter(pk= produit["idType"]).values("libelle"
         )[0]["libelle"]
-    diametre = Diametre_corps.objects.filter(pk= produit["idDiametreCorps"]).values(
-        "diametreCorps")[0]["diametreCorps"]
+    diametre = float(Diametre_corps.objects.filter(pk= produit["idDiametreCorps"]).values(
+        "diametreCorps")[0]["diametreCorps"])
     longueur = Longueur_corps.objects.filter(pk= produit["idLongueurCorps"]).values(
         "longueurCorps")[0]["longueurCorps"]
     
@@ -52,13 +52,19 @@ with open("products.json", "r") as file:
     datas_rivet = json.load(file)
     print(datas_rivet)
 
-
 # Création du json pour la couleur du produit
 ral_couleur = Ral.objects.all().values("idRal", "idTeinte", "idType", "numeroRal", "libelle",
     
     "code_hex").order_by("idTeinte","idType", "numeroRal")
 
-json_dict_couleur = {}
+json_dict_couleur = {
+    "Aucune": {
+        "Aucune": [
+            "Aucune"
+            
+        ]
+
+},}
 for couleur in ral_couleur:
     teinte = Teinte.objects.filter(pk= couleur["idTeinte"]).values(
         "libelle")[0]["libelle"]
