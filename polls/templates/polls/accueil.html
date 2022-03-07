@@ -1,0 +1,45 @@
+{% extends 'polls/index.html' %}
+<!doctype htmll>
+<html lang="fr">
+<head>
+    <!-- Required meta flags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+
+
+    
+</head>
+<body>
+    {% block contenu %}
+
+    
+    <h1>ACCUEIL</h1>
+    <br>
+    <h2>Bienvenue sur Rivecol.</h2>
+    <p>Ce site a été créé à l’initiative de deux <a href="">métalliers-ferronniers</a>  de la région bordelaise 
+        qui n’arrivent pas toujours à trouver les accessoires liés à ce métier du bâtiment sans avoir à les fabriquer eux-mêmes.</p>
+    
+    <p>Parce que l’entraide et le partage du savoir-faire font parti de nos valeurs, nous vous proposons de vous 
+        <a href="">fournir en rivets de couleurs</a> et autres produit du milieu du BTP.<b><a href="">Posez-nous la question.</a></b> </p>
+    
+    <p>Avec Rivecol, vous pouvez trouver toutes les <a href="">couleurs classiques</a>(soit 213 RAL) et 165 références de rivets 
+        Alu/Inox directement sur le site et plus encore en <a href="">nous contactant</a>. <b>Donc si vous désirez un produit 
+        non visible sur le site et/ou peint, quelque soit le domaine, faites-nous le savoir.</b></p>
+
+   <p>Dans cet optique de partage du savoir-faire, nous mettons à votre disposition nos partenaires comme la <a href=""></a>galvanisation et 
+       autres traitements contre la rouille, le <a href=""></a>thermolaquage, la découpe laser, le travail du verre et des serrures.</p>
+
+    <p>Nous vous souhaitons une agréable expérience sur Rivecol et nous tenons à votre service.</p>
+
+    <p></p>
+    
+    <p>Pour suivre votre commande veuillez saisir votre ID de commande dans la boite ci-dessous et cliquer le bouton « Suivre ». 
+        Il vous a été donné sur votre reçu et dans l’e-mail de confirmation que vous avez du recevoir.</p>
+
+    {% endblock %}
+</body>
+</html>

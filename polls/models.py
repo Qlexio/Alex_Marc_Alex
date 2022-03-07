@@ -19,7 +19,6 @@ class Ral(models.Model):
     idRal = models.IntegerField(primary_key= True)
     idTeinte = models.IntegerField()
     idType = models.IntegerField()
-    numeroRal = models.IntegerField()
     libelle = models.CharField(max_length= 50)
     code_hex = models.CharField(max_length = 50)
     class Meta:
@@ -78,3 +77,26 @@ class Rivet(models.Model):
     prix_peint = models.FloatField()
     class Meta:
         db_table = "rivet"
+
+
+class Utilisateur(models.Model):
+    idUtilisateur = models.IntegerField(primary_key = True)
+    nom = models.CharField(max_length = 50)
+    prenom = models.CharField(max_length = 50)
+    adresse = models.CharField(max_length = 50)
+    telephone = models.IntegerField()
+    mail = models.CharField(max_length = 50)
+    statut = models.CharField(max_length = 50)
+    class Meta:
+        db_table = "utilisateur"
+
+class Commande(models.Model):
+    idCommande = models.IntegerField(primary_key = True)
+    class Meta:
+        db_table = "commande"
+
+
+class Vente(models.Model):
+    idVente = models.IntegerField(primary_key = True)
+    class Meta:
+        db_table = "vente"

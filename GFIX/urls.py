@@ -22,7 +22,11 @@ from django.conf import settings
 urlpatterns = [
     path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
-    path('', polls_views.index_view, name="index"),
+    path('', polls_views.accueil_view, name="accueil"),
+    path('contact/', polls_views.contact_view, name="contact"),
+    path('boutique/', polls_views.boutique_view, name="boutique"),
+    path('couleurs-disponibles/', polls_views.couleur_view, name="couleur"),
+    # path('', polls_views.index_view, name="index"),
     path('rivet/', polls_views.test2, name="rivet"),
     
 ]   +static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

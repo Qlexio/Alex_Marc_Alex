@@ -1,15 +1,4 @@
-
-.total {
-    color: red;
-}
-
-ul {
-    list-style-type: none;
-    font-family: Georgia;
-    
-}
 li {
-    border: 1px solid black;
-    display: inline-block;
+    background-color: s;
 
 }

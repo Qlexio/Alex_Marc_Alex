@@ -25,7 +25,7 @@ for produit in rivet:
         "diametreCorps")[0]["diametreCorps"])
     longueur = Longueur_corps.objects.filter(pk= produit["idLongueurCorps"]).values(
         "longueurCorps")[0]["longueurCorps"]
-    
+
     # Liste matière corps
     if json_dict_rivet.get(matiere_corps) is None:
         json_dict_rivet[matiere_corps] = {}
@@ -50,46 +50,33 @@ with open("products.json", "w", encoding= "utf-8") as file:
 
 with open("products.json", "r") as file:
     datas_rivet = json.load(file)
-    print(datas_rivet)
 
 # Création du json pour la couleur du produit
-ral_couleur = Ral.objects.all().values("idRal", "idTeinte", "idType", "numeroRal", "libelle",
+ral_couleur = Ral.objects.all().values("idRal", "idTeinte", "idType", "libelle",
     
-    "code_hex").order_by("idTeinte","idType", "numeroRal")
+    "code_hex").order_by("idTeinte","idType", "libelle")
 
 json_dict_couleur = {
     "Aucune": {
-        "Aucune": [
-            "Aucune"
-            
-        ]
-
+        
 },}
 for couleur in ral_couleur:
     teinte = Teinte.objects.filter(pk= couleur["idTeinte"]).values(
         "libelle")[0]["libelle"]
-    ral = Ral.objects.filter(pk= couleur["idRal"]).values("numeroRal")[0
-        ]["numeroRal"], Ral.objects.filter(pk= couleur["idRal"]).values("libelle")[0
+    ral = Ral.objects.filter(pk= couleur["idRal"]).values("libelle")[0
         ]["libelle"]
     type_teinte = Type_teinte.objects.filter(pk= couleur["idType"]).values("libelle")[0
         ]["libelle"]
     
-    print(ral)
     # Liste Teinte
     if json_dict_couleur.get(teinte) is None:
         json_dict_couleur[teinte] = {}
 
     # Liste Teinte
-    if json_dict_couleur[teinte].get(str(ral[0]) + " / " + ral[1]) is None:
-        json_dict_couleur[teinte][str(ral[0]) + " / " + ral[1]] = []
+    if json_dict_couleur[teinte].get(ral) is None:
+        json_dict_couleur[teinte][ral] = []
    
-    json_dict_couleur[teinte][str(ral[0]) + " / " + ral[1]].append(type_teinte)
-
-
-    # type de teinte brillant ou mat
-    # json_dict_couleur[teinte] = []
-
-    # print(json_dict_couleur)
+    json_dict_couleur[teinte][ral].append(type_teinte)
 
 with open("colors.json", "w", encoding= "utf-8") as file:
     file.write(json.dumps(json_dict_couleur, indent= 4))

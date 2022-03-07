@@ -1,114 +1,20 @@
-<html lang="fr">
+{% extends 'polls/script_js.html' %}
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
-    
-    {{ js_json_products|json_script:"js_json_products"}}
-    {{ js_json_colors|json_script:"js_json_colors"}}
-    <script>
-        
-        const json_products = JSON.parse(document.getElementById('js_json_products').textContent);
-        const json_colors = JSON.parse(document.getElementById('js_json_colors').textContent);
-        
-        window.onload = function() {
-            var matiere_CorpsSel = document.getElementById("matiere_Corps");
-            var matiere_TigeSel = document.getElementById("matiere_Tige"); 
-            var typeSel = document.getElementById("type");
-            var diametreSel = document.getElementById("diametre");
-            var longueurSel = document.getElementById("longueur");
-            var teinteSel = document.getElementById("teinte");
-            var type_teinteSel = document.getElementById("type_teinte");
-            var ralSel = document.getElementById("ral");
-
-            for (var x in json_products) {
-                // alert(json.length);
-                matiere_CorpsSel.options[matiere_CorpsSel.options.length] = new Option(x, x);
-            }
-               
-            matiere_CorpsSel.onchange = function() {
-                //empty Chapters- and Topics- dropdowns
-                longueurSel.length = 1;
-                diametreSel.length = 1;
-                typeSel.length = 1;
-                matiere_TigeSel.length = 1;
-                //display correct values
-                for (var c in json_products[this.value]) {
-                    matiere_TigeSel.options[matiere_TigeSel.options.length] = new Option(c, c);
-                }
-            }
-
-            matiere_TigeSel.onchange = function() {
-                //empty Chapters dropdown
-                longueurSel.length = 1;
-                diametreSel.length = 1;
-                typeSel.length = 1;
-                //display correct values
-                for (var mt in json_products[matiere_CorpsSel.value][this.value]) {
-                    typeSel.options[typeSel.options.length] = new Option(mt, mt);
-                }
-            }
-
-            typeSel.onchange = function() {
-                //empty Chapters dropdown
-                longueurSel.length = 1;
-                diametreSel.length = 1;
-                //display correct values
-                for (var tr in json_products[matiere_CorpsSel.value][matiere_TigeSel.value][this.value]) {
-                    diametreSel.options[diametreSel.options.length] = new Option(tr, tr);
-                }
-            }
-
-            diametreSel.onchange = function() {
-                //empty Chapters dropdown
-                longueurSel.length = 1;
-                //display correct values
-                var dc = json_products[matiere_CorpsSel.value][matiere_TigeSel.value][typeSel.value][this.value];
-                for (var i = 0; i < dc.length; i++) {
-                    longueurSel.options[longueurSel.options.length] = new Option(dc[i], dc[i]);
-                }
-            }
-
-            // Teinte et Ral
-            for (var x in json_colors) {
-                // alert(json.length);
-                teinteSel.options[teinteSel.options.length] = new Option(x, x);
-                
-            }
-
-            teinteSel.onchange = function() {
-                //empty Chapters dropdown
-                ralSel.length = 1;
-                type_teinteSel.length = 1;
-                //display correct values
-                for (var g in json_colors[this.value]) {
-                    ralSel.options[ralSel.options.length] = new Option(g, g);
-                }
-            }
-
-            ralSel.onchange = function() {
-                //empty Chapters- and Topics- dropdowns
-                type_teinteSel.length = 1;
-                //display correct values
-                var r = json_colors[teinteSel.value][this.value];
-                for (var i = 0; i < r.length; i++) {
-                    type_teinteSel.options[type_teinteSel.options.length] = new Option(r[i], r[i]);
-                }
-            }
-            
-        }   
-    </script>
-    
+    {% block meta %}
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rivecol - Produits - Rivets</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    {% endblock %}
 </head>
 <body>
-    <h1>Cascading Dropdown GFIX products</h1>
+    {% block script %}
 
-    <form class ="form1" name="form1" id="form1" action="" method = "POST">
+
+    <br><br>
+    <form class ="form1" name="form1" id="form1" action="" method = "POST" style=" text-align: center;">
         {% csrf_token %}
         
         <select name="matiere_Corps" id="matiere_Corps" onclick=this.texte.value=this.options
@@ -132,7 +38,9 @@
         <select name="longueur" id="longueur">
             <option value="" selected="selected">Choisissez une longueur </option>
         </select>
-        <br>
+        <p class="alert alert-danger">{{ erreur_produit }}</p> 
+        <br><br>
+
         <select name="teinte" id="teinte">
             <option value="" selected="selected">Choisissez une teinte</option>
         </select>
@@ -144,29 +52,33 @@
         <select name="type_teinte" id="type_teinte">
             <option value="" selected="selected">Choisissez un type de teinte </option>
         </select>
+        <p class="alert alert-danger">{{ erreur_couleur }}</p> 
         
-        <br><br>
           
-        <input type="submit" value="Submit">
+        
 
-        <button class = "btn btn-danger" type="button" name="button"> POST</button>
+        <button class = "btn btn-danger" type="submit" name="button"> POST</button>
         
     </form>
 
-    <p class = "total">Il y a X produits</p>
-        
-    <table border="1">
-        <ul>
-            <li colspan="2">Matière corps: {{ matiere_corps }}</li> 
-            <li colspan="2">Matière tige: {{ matiere_tige }}</li> 
-            <li colspan="2">Forme de tête: {{ type }}</td>
-            <li colspan="2">Diamètre corps: {{ diametre }}</li>
-            <li colspan="2">Longueur corps:  {{ longueur }}</li>
-            <li colspan="2">RAL: {{ ral }}</li>
-            <li colspan="2">Prix: {{ prix }} €</li>
-        </ul>
-            
-    </table>
+        <table border="1">
+            <ul style = "background-color:  code_hex; text-align: center;" >
+                <li style="display: inline-block; border: 1px solid black;" colspan="2">Matière corps: {{ matiere_corps }}</li> 
+                <li style="display: inline-block; border: 1px solid black;" colspan="2">Matière tige: {{ matiere_tige }}</li> 
+                <li style="display: inline-block; border: 1px solid black;" colspan="2">Forme de tête: {{ type }}</li>
+                <li style="display: inline-block; border: 1px solid black;" colspan="2">Diamètre corps: {{ diametre }}</li>
+                <li style="display: inline-block; border: 1px solid black;" colspan="2">Longueur corps:  {{ longueur }}</li>
+                
+                {% if sans_couleur is False %}
+                <li style="display: inline-block; border: 1px solid black;" colspan="2">RAL: {{ ral }}</li>
+                {% endif %}
+                
+
+                <li style="display: inline-block; border: 1px solid black;" colspan="2">Prix: {{ prix }} €</li>
+            </ul>
+                
+        </table>
+        <p style="text-align: center;">Il y a {{ quantite }} produits</p>
 
     <!-- Affichage de tous les articles en fonction des critères -->
     <section>
@@ -178,7 +90,7 @@
         </div> 
 
     </section>
-    
+    {% endblock %}
     
 </body>
 </html>
