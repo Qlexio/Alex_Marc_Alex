@@ -1,0 +1,84 @@
+{% extends 'rivets/script_js.html' %}
+
+<body>
+    {% block contenu %}
+
+    <form class ="form1" name="form1" id="form1" action="" method = "POST" style=" text-align: center;">
+        {% csrf_token %}
+        
+        {% if  matiere_corps != ""%}
+        <select name="matiere_Corps" id="matiere_Corps">
+            <option value="" selected="selected">Choisissez une matiere corps  </option> 
+        </select>
+        {% endif %}
+        <select name="matiere_Tige" id="matiere_Tige">
+            <option value="" selected="selected">Choisissez une matiere tige  </option>
+        </select>
+
+        <select name="type" id="type">
+            <option value="" selected="selected">Choisissez la forme de la tête  </option>
+        </select>
+
+        <select name="diametre" id="diametre">
+            <option value="" selected="selected">Choisissez un diamètre </option>
+        </select>
+
+        <select name="longueur" id="longueur">
+            <option value="" selected="selected">Choisissez une longueur </option>
+        </select>
+        <p style="color: red">{{ erreur_produit }}</p> 
+        <br><br>
+
+        <select name="teinte" id="teinte">
+            <option value="" selected="selected">Choisissez une teinte</option>
+        </select>
+
+        <select name="ral" id="ral">
+            <option value="" selected="selected">Choisissez un ral </option>
+        </select>
+        
+        <select name="type_teinte" id="type_teinte">
+            <option value="" selected="selected">Choisissez un type de teinte</option>
+        </select>
+        <p style="color: red">{{ erreur_couleur }}</p> 
+        
+          
+        
+
+        <button type="submit" name="button"> Validez</button>
+        
+    </form>
+
+        <table border="1">
+            <ul style = "background-color:  code_hex; text-align: center;" >
+                <li style="display: inline-block; border: 1px solid black;" colspan="2">&nbsp; Matière corps: {{ matiere_corps }} &nbsp; </li> 
+                <li style="display: inline-block; border: 1px solid black;" colspan="2">&nbsp; Matière tige: {{ matiere_tige }} &nbsp;</li> 
+                <li style="display: inline-block; border: 1px solid black;" colspan="2">&nbsp; Forme de tête: {{ type }} &nbsp;</li>
+                <li style="display: inline-block; border: 1px solid black;" colspan="2">&nbsp; Diamètre corps: {{ diametre }} &nbsp;</li>
+                <li style="display: inline-block; border: 1px solid black;" colspan="2">&nbsp; Longueur corps:  {{ longueur }} &nbsp;</li>
+                
+                {% if sans_couleur is False %}
+                <li style="display: inline-block; border: 1px solid black;" colspan="2">&nbsp; RAL: {{ ral }} &nbsp;</li>
+                {% endif %}
+                
+
+                <li style="display: inline-block; border: 1px solid black;" colspan="2">&nbsp; Prix: {{ prix }} € &nbsp;</li>
+            </ul>
+                
+        </table>
+        <p style="text-align: center;">Il y a {{ quantite }} produits</p>
+
+    <!-- Affichage de tous les articles en fonction des critères -->
+    <section>
+        <div>
+            <article>
+
+
+            </article>
+        </div> 
+
+    </section>
+    {% endblock %}
+    
+</body>
+</html>
