@@ -87,3 +87,6 @@ def ral():
         datas_colors = json.load(file)
 
     
+rivet()
+
+ral()

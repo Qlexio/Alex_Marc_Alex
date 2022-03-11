@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'rivecol',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,8 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rivets',
-    'rivecol',
-    'connexion_non_terminé'
+    
 ]
 
 MIDDLEWARE = [
@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'rivecol',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'MYSQLR00tP455w0rd!!!',
         'HOST': 'localhost',
         'PORT': '3306',
         'OPTION':{
