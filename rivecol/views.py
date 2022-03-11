@@ -12,8 +12,11 @@ def contact_view(request):
 def couleur_view(request):
     return render(request, 'rivecol/nuancier.html')
 
-def mentions_legales_view(request):
-    return render(request, 'rivecol/mention_legale.html')
+# def mentions_legales_view(request):
+#     return render(request, 'rivecol/mention_legale.html')
 
 # def panier_view(request):
 #     return render(request, 'rivecol/panier.html')
+
+def condition_vente_view(request):
+    return render(request, 'rivecol/condition_vente.html')
