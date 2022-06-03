@@ -1,0 +1,52 @@
+<!doctype htmll>
+<html lang="fr">
+<head>
+    <!-- Required meta flags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rivecol - Vente de rivets de couleur et produits du BTP</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    {% block script%}
+    {% endblock %}
+
+    
+</head>
+<body>
+    <!-- header style background-image à changer -->
+    <header style="background-image:url(https://www.rivecol.fr/wp-content/uploads/2020/03/pop-rivets.jpg); background-size: cover;">
+        <h1 style=" text-align: center;"><a href="http://127.0.0.1:8000/">Rivecol</a></h1>
+    
+        <nav style="width: 100%;">
+            <div  >
+                <ul style="text-align: center; ">
+                    <li style="text-decoration: none; display: inline-block;"><a href="http://127.0.0.1:8000/">Accueil</a></li>
+                    <li style="text-decoration: none; display: inline-block;"><a href="http://127.0.0.1:8000/couleurs-disponibles/">Couleurs disponibles</a></li>
+                    <li style="text-decoration: none; display: inline-block;"><a href="http://127.0.0.1:8000/boutique/">Boutique</a></li>
+                    <li style="text-decoration: none; display: inline-block;"><a href="http://127.0.0.1:8000/panier/">Panier</a></li>
+                    <li style="text-decoration: none; display: inline-block;"><a href="http://127.0.0.1:8000/connexion-enregistrement/">connexion</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    {% block contenu %}
+
+    {% endblock %}
+</body>
+<footer>
+    <!-- Ajoutez les liens -->
+    <nav>
+        <a href="http://127.0.0.1:8000/">Contactez-nous</a>
+        <a href="http://127.0.0.1:8000/">Contact us</a>
+        <a href="http://127.0.0.1:8000/mentions-legales/">Mentions légales</a>
+        <a href="http://127.0.0.1:8000/conditions-générales-de-vente/">Conditions générales de vente</a>
+        <a href="http://127.0.0.1:8000/">Plan du site</a>
+        <br>
+        <img src="" alt="">
+        <br>
+        <p>Fait avec ♡ par  <a href="https://ab-it-solution.tk/">AB IT Solution</a></p>
+    </nav>
+
+</footer>
+</html>

@@ -1,0 +1,109 @@
+{% extends 'rivecol/index.html' %}
+<html lang="fr">
+<head>
+    
+    {% block script%}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
+    
+    {{ js_json_products|json_script:"js_json_products"}}
+    {{ js_json_colors|json_script:"js_json_colors"}}
+    <script>
+        
+        const json_products = JSON.parse(document.getElementById('js_json_products').textContent);
+        const json_colors = JSON.parse(document.getElementById('js_json_colors').textContent);
+        
+        window.onload = function() {
+            var matiere_CorpsSel = document.getElementById("matiere_Corps");
+            var matiere_TigeSel = document.getElementById("matiere_Tige"); 
+            var typeSel = document.getElementById("type");
+            var diametreSel = document.getElementById("diametre");
+            var longueurSel = document.getElementById("longueur");
+            var teinteSel = document.getElementById("teinte");
+            var type_teinteSel = document.getElementById("type_teinte");
+            var ralSel = document.getElementById("ral");
+
+            for (var x in json_products) {
+                // alert(json.length);
+                matiere_CorpsSel.options[matiere_CorpsSel.options.length] = new Option(x, x);
+            }
+               
+            matiere_CorpsSel.onchange = function() {
+                //empty Chapters- and Topics- dropdowns
+                longueurSel.length = 1;
+                diametreSel.length = 1;
+                typeSel.length = 1;
+                matiere_TigeSel.length = 1;
+                //display correct values
+                for (var c in json_products[this.value]) {
+                    matiere_TigeSel.options[matiere_TigeSel.options.length] = new Option(c, c);
+                }
+            }
+
+            matiere_TigeSel.onchange = function() {
+                //empty Chapters dropdown
+                longueurSel.length = 1;
+                diametreSel.length = 1;
+                typeSel.length = 1;
+                //display correct values
+                for (var mt in json_products[matiere_CorpsSel.value][this.value]) {
+                    typeSel.options[typeSel.options.length] = new Option(mt, mt);
+                }
+            }
+
+            typeSel.onchange = function() {
+                //empty Chapters dropdown
+                longueurSel.length = 1;
+                diametreSel.length = 1;
+                //display correct values
+                for (var tr in json_products[matiere_CorpsSel.value][matiere_TigeSel.value][this.value]) {
+                    diametreSel.options[diametreSel.options.length] = new Option(tr, tr);
+                }
+            }
+
+            diametreSel.onchange = function() {
+                //empty Chapters dropdown
+                longueurSel.length = 1;
+                //display correct values
+                var dc = json_products[matiere_CorpsSel.value][matiere_TigeSel.value][typeSel.value][this.value];
+                for (var i = 0; i < dc.length; i++) {
+                    longueurSel.options[longueurSel.options.length] = new Option(dc[i], dc[i]);
+                }
+            }
+
+            // Teinte et Ral
+            for (var x in json_colors) {
+                // alert(json.length);
+                teinteSel.options[teinteSel.options.length] = new Option(x, x);
+                
+            }
+
+            teinteSel.onchange = function() {
+                //empty Chapters dropdown
+                ralSel.length = 1;
+                type_teinteSel.length = 1;
+                //display correct values
+                for (var g in json_colors[this.value]) {
+                    ralSel.options[ralSel.options.length] = new Option(g, g);
+                }
+            }
+
+            ralSel.onchange = function() {
+                //empty Chapters- and Topics- dropdowns
+                type_teinteSel.length = 1;
+                //display correct values
+                var r = json_colors[teinteSel.value][this.value];
+                for (var i = 0; i < r.length; i++) {
+                    type_teinteSel.options[type_teinteSel.options.length] = new Option(r[i], r[i]);
+                }
+            }
+            
+        }   
+    </script>
+   {% endblock %}
+</head>
+<body>
+
+    
+    
+</body>
+</html>
