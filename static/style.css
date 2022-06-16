@@ -1,9 +1,83 @@
-<<<<<<< HEAD
 li {
     background-color: s;
 
-=======
-.mt-5{
-    margin-top: 5px !important;
->>>>>>> master
 }
+
+.masthead{
+    background-size: cover;
+    position: relative;
+    
+
+}
+
+@media (max-width: 768px) {
+    .masthead {
+        min-height: 30vh;
+    }
+}
+
+
+
+p a:hover{
+    color:#000000;
+    border-bottom: 3px solid black;
+}
+.bas_de_page{
+    color : white; 
+    text-decoration:none;
+    border-bottom: 1px solid white;
+
+}
+
+p a{
+    color:#000000;
+    text-decoration:none;
+    border-bottom: 1px solid black;
+}
+nav a:hover{
+    border-bottom: 2px solid black;
+    color: black;
+} 
+
+tr a{
+    color:black;
+    text-decoration:none;
+    border-bottom: 1px solid black;
+}
+
+.ral-table{
+    
+    border-collapse: separate;
+    border-spacing: 10px;
+    text-align: center;
+}
+
+tbody{
+    border-top: 1px solid black;
+
+}
+
+.couleurL{
+    color:gray;
+    text-decoration:none;
+    border-bottom: 1px solid black;
+    font-weight: bold;
+}
+
+.couleurL:hover{
+    color:black;
+    text-decoration:none;
+    border-bottom: 2px solid black;
+}
+
+.BigRed{
+    color:Red;
+    font-size: 35px;
+    font-weight: bold;
+
+}
+.LittleRed{
+    font-size: 20px;
+    color:Red;
+}
+

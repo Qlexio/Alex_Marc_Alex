@@ -1,8 +1,30 @@
 {% extends 'rivecol/index.html' %}
 {% block contenu %}
 
+<div class="container" style = "margin-top: 10%;margin-bottom: 10%;">
+        <h2 class ="titre" style = "color: #222;font-size: 0.875rem;font-weight: 800;letter-spacing: 0.14em;text-transform: uppercase;margin-bottom: 5%;">Couleurs disponibles</h2>
+        <br>
+	<div class="entry-content">
+		<p>Voici la liste des couleurs disponibles pour la personnalisation de vos rivets:</p>
+		<p class="BigRed">Attention!</p>
+		<p class="LittleRed">Les couleurs peuvent varier légèrement en fonction de la configuration de votre écran.</p>
+		<p class="LittleRed">Les écrans ou une imprimante ne permettent pas une reproduction parfaite des couleurs.</p>
+		<p> Vous pouvez directement commander une couleur en cliquant sur le RAL correspondant.</p>
+		<ul class="couleur-liste">
+    		<li><a class="couleurL" href="#jaune">Jaune / RAL 1000-1037</a></li>
+    		<li><a class="couleurL" href="#orange">Orange / RAL 2000-2013</a></li>
+    		<li><a class="couleurL" href="#rouge">Rouge / RAL 3000-3033</a></li>
+    		<li><a class="couleurL" href="#rose-et-violet">Rose et violet / RAL 4001-4012</a></li>
+    		<li><a class="couleurL" href="#bleu">Bleu / RAL 5000-5026</a></li>
+    		<li><a class="couleurL" href="#vert">Vert / RAL 6000-6038</a></li>
+    		<li><a class="couleurL" href="#gris">Gris / RAL 7000-7048</a></li>
+    		<li><a class="couleurL" href="#brun">Brun / RAL 8000-8029</a></li>
+    		<li><a class="couleurL" href="#blanc-et-noir">Blanc et noir / RAL 9001-9023</a></li>
+		</ul>
 
-<table class="ral-table" style="text-align: center">
+</div>
+<div class="container">
+<table class="ral-table" style="text-align: start">
 	<thead>
 		<tr>
 			<th colspan="5" id="jaune">Teintes de jaune</th>
@@ -10,11 +32,12 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-1000-beige-vert.png">RAL 1000</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-1001-beige.png">RAL 1001</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-1002-jaune-sable.png">RAL 1002</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-1003-jaune-de-securite.png">RAL 1003</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-1004-jaune-or.png">RAL 1004</a></td>
+			{% load static %}
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Jaune/ral-1000-beige-vert.png' %}">RAL 1000</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Jaune/ral-1001-beige.png' %}">RAL 1001</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Jaune/ral-1002-jaune-sable.png' %}">RAL 1002</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Jaune/ral-1003-jaune-de-securite.png' %}">RAL 1003</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Jaune/ral-1004-jaune-or.png' %}">RAL 1004</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#cdba88" class="ral-texte">&nbsp;</td>
@@ -32,11 +55,11 @@
 		</tr>
 		
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-1005-jaune-miel.png">RAL 1005</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-1006-jaune-mais.png">RAL 1006</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-1007-jaune-narcisse.png">RAL 1007</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-1011-beige-brun.png">RAL 1011</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-1012-jaune-citron.png">RAL 1012</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Jaune/ral-1005-jaune-miel.png' %}">RAL 1005</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Jaune/ral-1006-jaune-mais.png' %}">RAL 1006</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Jaune/ral-1007-jaune-narcisse.png' %}">RAL 1007</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Jaune/ral-1011-beige-brun.png' %}">RAL 1011</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Jaune/ral-1012-jaune-citron.png' %}">RAL 1012</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#cb8e00" class="ral-texte">&nbsp;</td>
@@ -54,11 +77,11 @@
 		</tr>
 		
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-1013-blanc-perle.png">RAL 1013</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-1014-ivoire.png">RAL 1014</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-1015-ivoire-clair.png">RAL 1015</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-1016-jaune-soufre.png">RAL 1016</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-1017-jaune-safran.png">RAL 1017</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Jaune/ral-1013-blanc-perle.png' %}">RAL 1013</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Jaune/ral-1014-ivoire.png' %}">RAL 1014</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Jaune/ral-1015-ivoire-clair.png' %}">RAL 1015</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Jaune/ral-1016-jaune-soufre.png' %}">RAL 1016</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Jaune/ral-1017-jaune-safran.png' %}">RAL 1017</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#e3d9c6" class="ral-texte">&nbsp;</td>
@@ -76,11 +99,11 @@
 		</tr>
 		
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-1018-jaune-zinc.png">RAL 1018</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-1019-beige-gris.png">RAL 1019</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-1020-jaune-olive.png">RAL 1020</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-1021-jaune-colza.png">RAL 1021</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-1023-jaune-signalisation.png">RAL 1023</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Jaune/ral-1018-jaune-zinc.png' %}">RAL 1018</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Jaune/ral-1019-beige-gris.png' %}">RAL 1019</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Jaune/ral-1020-jaune-olive.png' %}">RAL 1020</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Jaune/ral-1021-jaune-colza.png' %}">RAL 1021</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Jaune/ral-1023-jaune-signalisation.png' %}">RAL 1023</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#faca30" class="ral-texte">&nbsp;</td>
@@ -98,11 +121,11 @@
 		</tr>
 		
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-1024-jaune-ocre.png">RAL 1024</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-1026-jaune-brillant.png">RAL 1026</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-1027-jaune-curry.png">RAL 1027</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-1028-jaune-melon.png">RAL 1028</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-1032-jaune-genet.png">RAL 1032</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Jaune/ral-1024-jaune-ocre.png' %}">RAL 1024</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Jaune/ral-1026-jaune-brillant.png' %}">RAL 1026</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Jaune/ral-1027-jaune-curry.png' %}">RAL 1027</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Jaune/ral-1028-jaune-melon.png' %}">RAL 1028</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Jaune/ral-1032-jaune-genet.png' %}">RAL 1032</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#ba8f4c" class="ral-texte">&nbsp;</td>
@@ -120,11 +143,11 @@
 		</tr>
 		
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-1033-jaune-dahlia.png">RAL 1033</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-1034-jaune-pastel.png">RAL 1034</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-1035-beige-nacre.png">RAL 1035</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-1036-or-nacre.png">RAL 1036</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-1037-jaune-soleil.png">RAL 1037</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Jaune/ral-1033-jaune-dahlia.png' %}">RAL 1033</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Jaune/ral-1034-jaune-pastel.png' %}">RAL 1034</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Jaune/ral-1035-beige-nacre.png' %}">RAL 1035</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Jaune/ral-1036-or-nacre.png' %}">RAL 1036</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Jaune/ral-1037-jaune-soleil.png' %}">RAL 1037</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#f99a1c" class="ral-texte">&nbsp;</td>
@@ -151,11 +174,11 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-2000-orange-jaune.png">RAL 2000</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-2001-orange-rouge.png">RAL 2001</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-2002-orange-sang.png">RAL 2002</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-2003-orange-pastel.png">RAL 2003</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-2004-orange-pur.png">RAL 2004</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Orange/ral-2000-orange-jaune.png' %}">RAL 2000</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Orange/ral-2001-orange-rouge.png' %}">RAL 2001</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Orange/ral-2002-orange-sang.png' %}">RAL 2002</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Orange/ral-2003-orange-pastel.png' %}">RAL 2003</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Orange/ral-2004-orange-pur.png' %}">RAL 2004</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#da6e00" class="ral-texte">&nbsp;</td>
@@ -173,11 +196,11 @@
 		</tr>
 		
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-2005-orange-brillant.png">RAL 2005</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-2007-orange-clair.png">RAL 2007</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-2008-orange-rouge-clair.png">RAL 2008</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-2009-orange-signalisation.png">RAL 2009</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-2010-orange-de-securite.png">RAL 2010</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Orange/ral-2005-orange-brillant.png' %}">RAL 2005</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Orange/ral-2007-orange-clair.png' %}">RAL 2007</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Orange/ral-2008-orange-rouge-clair.png' %}">RAL 2008</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Orange/ral-2009-orange-signalisation.png' %}">RAL 2009</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Orange/ral-2010-orange-de-securite.png' %}">RAL 2010</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#ff4d06" class="ral-texte">&nbsp;</td>
@@ -195,9 +218,9 @@
 		</tr>
 		
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-2011-orange-fonce.png">RAL 2011</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-2012-orange-saumon.png">RAL 2012</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-2013-orange-nacre.png">RAL 2013</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Orange/ral-2011-orange-fonce.png' %}">RAL 2011</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Orange/ral-2012-orange-saumon.png' %}">RAL 2012</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Orange/ral-2013-orange-nacre.png' %}">RAL 2013</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#e26e0e" class="ral-texte">&nbsp;</td>
@@ -220,11 +243,11 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-3000-rouge-feu.png">RAL 3000</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-3001-rouge-de-securite.png">RAL 3001</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-3002-rouge-carmin.png">RAL 3002</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-3003-rouge-rubis.png">RAL 3003</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-3004-rouge-pourpre.png">RAL 3004</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Rouge/ral-3000-rouge-feu.png' %}">RAL 3000</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Rouge/ral-3001-rouge-de-securite.png' %}">RAL 3001</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Rouge/ral-3002-rouge-carmin.png' %}">RAL 3002</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Rouge/ral-3003-rouge-rubis.png' %}">RAL 3003</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Rouge/ral-3004-rouge-pourpre.png' %}">RAL 3004</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#a72920" class="ral-texte">&nbsp;</td>
@@ -241,11 +264,11 @@
 			<td class="ral-texte">Rouge pourpre</td>
 		</tr>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-3005-rouge-vin.png">RAL 3005</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-3007-rouge-noir.png">RAL 3007</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-3009-rouge-oxyde.png">RAL 3009</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-3011-rouge-brun.png">RAL 3011</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-3012-rouge-beige.png">RAL 3012</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Rouge/ral-3005-rouge-vin.png' %}">RAL 3005</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Rouge/ral-3007-rouge-noir.png' %}">RAL 3007</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Rouge/ral-3009-rouge-oxyde.png' %}">RAL 3009</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Rouge/ral-3011-rouge-brun.png' %}">RAL 3011</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Rouge/ral-3012-rouge-beige.png' %}">RAL 3012</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#59191f" class="ral-texte">&nbsp;</td>
@@ -262,11 +285,11 @@
 			<td class="ral-texte">Rouge beige</td>
 		</tr>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-3013-rouge-tomate.png">RAL 3013</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-3014-vieux-rose.png">RAL 3014</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-3015-rose-clair.png">RAL 3015</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-3016-rouge-corail.png">RAL 3016</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-3017-rose.png">RAL 3017</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Rouge/ral-3013-rouge-tomate.png' %}">RAL 3013</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Rouge/ral-3014-vieux-rose.png' %}">RAL 3014</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Rouge/ral-3015-rose-clair.png' %}">RAL 3015</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Rouge/ral-3016-rouge-corail.png' %}">RAL 3016</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Rouge/ral-3017-rose.png' %}">RAL 3017</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#972e25" class="ral-texte">&nbsp;</td>
@@ -283,11 +306,11 @@
 			<td class="ral-texte">Rosé</td>
 		</tr>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-3018-rouge-fraise.png">RAL 3018</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-3020-rouge-signalisation.png">RAL 3020</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-3022-rouge-saumon.png">RAL 3022</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-3024-rouge-brillant.png">RAL 3024</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-3026-rouge-clair-brillant.png">RAL 3026</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Rouge/ral-3018-rouge-fraise.png' %}">RAL 3018</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Rouge/ral-3020-rouge-signalisation.png' %}">RAL 3020</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Rouge/ral-3022-rouge-saumon.png' %}">RAL 3022</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Rouge/ral-3024-rouge-brillant.png' %}">RAL 3024</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Rouge/ral-3026-rouge-clair-brillant.png' %}">RAL 3026</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#c73f4a" class="ral-texte">&nbsp;</td>
@@ -304,11 +327,11 @@
 			<td class="ral-texte">Clair brillant</td>
 		</tr>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-3027-rouge-framboise.png">RAL 3027</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-3028-rouge-pur.png">RAL 3028</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-3031-rouge-oriental.png">RAL 3031</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-3032-rouge-rubis-nacre.png">RAL 3032</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-3033-rose-nacre.png">RAL 3033</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Rouge/ral-3027-rouge-framboise.png' %}">RAL 3027</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Rouge/ral-3028-rouge-pur.png' %}">RAL 3028</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Rouge/ral-3031-rouge-oriental.png' %}">RAL 3031</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Rouge/ral-3032-rouge-rubis-nacre.png' %}">RAL 3032</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Rouge/ral-3033-rose-nacre.png' %}">RAL 3033</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#ab273c" class="ral-texte">&nbsp;</td>
@@ -335,11 +358,11 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-4001-lilas-rouge.png">RAL 4001</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-4002-violet-rouge.png">RAL 4002</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-4003-violet-bruyere.png">RAL 4003</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-4004-violet-bordeaux.png">RAL 4004</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-4005-lilas-bleu.png">RAL 4005</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Violet/ral-4001-lilas-rouge.png' %}">RAL 4001</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Violet/ral-4001-lilas-rouge.png' %}ral-4002-violet-rouge.png">RAL 4002</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Violet/ral-4001-lilas-rouge.png' %}ral-4003-violet-bruyere.png">RAL 4003</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Violet/ral-4001-lilas-rouge.png' %}ral-4004-violet-bordeaux.png">RAL 4004</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Violet/ral-4001-lilas-rouge.png' %}ral-4005-lilas-bleu.png">RAL 4005</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#816183" class="ral-texte">&nbsp;</td>
@@ -356,11 +379,11 @@
 			<td class="ral-texte">Lilas bleu</td>
 		</tr>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-4006-pourpre-signalisation.png">RAL 4006</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-4007-violet-pourpre.png">RAL 4007</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-4008-violet-de-securite.png">RAL 4008</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-4009-violet-pastel.png">RAL 4009</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-4010-telemagenta.png">RAL 4010</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Violet/ral-4006-pourpre-signalisation.png' %}">RAL 4006</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Violet/ral-4007-violet-pourpre.png' %}">RAL 4007</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Violet/ral-4008-violet-de-securite.png' %}">RAL 4008</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Violet/ral-4009-violet-pastel.png' %}">RAL 4009</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Violet/ral-4010-telemagenta.png' %}">RAL 4010</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#903373" class="ral-texte">&nbsp;</td>
@@ -377,8 +400,8 @@
 			<td class="ral-texte">Télé magenta</td>
 		</tr>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-4011-violet-nacre.png">RAL 4011</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-4012-mure-nacre.png">RAL 4012</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Violet/ral-4011-violet-nacre.png' %}">RAL 4011</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Violet/ral-4012-mure-nacre.png' %}">RAL 4012</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#6e6387" class="ral-texte">&nbsp;</td>
@@ -399,11 +422,11 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-5000-bleu-violet.png">RAL 5000</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-5001-bleu-vert.png">RAL 5001</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-5002-bleu-outremer.png">RAL 5002</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-5003-bleu-saphir.png">RAL 5003</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-5004-bleu-noir.png">RAL 5004</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Bleu/ral-5000-bleu-violet.png' %}">RAL 5000</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Bleu/ral-5001-bleu-vert.png' %}">RAL 5001</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Bleu/ral-5002-bleu-outremer.png' %}">RAL 5002</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Bleu/ral-5003-bleu-saphir.png' %}">RAL 5003</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Bleu/ral-5004-bleu-noir.png' %}">RAL 5004</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#314f6f" class="ral-texte">&nbsp;</td>
@@ -420,11 +443,11 @@
 			<td class="ral-texte">Bleu noir</td>
 		</tr>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-5005-bleu-de-securite.png">RAL 5005</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-5007-bleu-brillant.png">RAL 5007</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-5008-bleu-gris.png">RAL 5008</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-5009-bleu-azur.png">RAL 5009</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-5010-bleu-gentiane.png">RAL 5010</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Bleu/ral-5005-bleu-de-securite.png' %}">RAL 5005</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Bleu/ral-5007-bleu-brillant.png' %}">RAL 5007</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Bleu/ral-5008-bleu-gris.png' %}">RAL 5008</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Bleu/ral-5009-bleu-azur.png' %}">RAL 5009</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Bleu/ral-5010-bleu-gentiane.png' %}">RAL 5010</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#005387" class="ral-texte">&nbsp;</td>
@@ -441,11 +464,11 @@
 			<td class="ral-texte">Bleu gentiane</td>
 		</tr>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-5011-bleu-acier.png">RAL 5011</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-5012-bleu-clair.png">RAL 5012</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-5013-bleu-cobalt.png">RAL 5013</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-5014-bleu-pigeon.png">RAL 5014</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-5015-bleu-ciel.png">RAL 5015</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Bleu/ral-5011-bleu-acier.png' %}">RAL 5011</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Bleu/ral-5012-bleu-clair.png' %}">RAL 5012</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Bleu/ral-5013-bleu-cobalt.png' %}">RAL 5013</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Bleu/ral-5014-bleu-pigeon.png' %}">RAL 5014</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Bleu/ral-5015-bleu-ciel.png' %}">RAL 5015</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#1a2b3c" class="ral-texte">&nbsp;</td>
@@ -462,11 +485,11 @@
 			<td class="ral-texte">Bleu ciel</td>
 		</tr>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-5017-bleu-signalisation.png">RAL 5017</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-5018-bleu-turquoise.png">RAL 5018</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-5019-bleu-capri.png">RAL 5019</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-5020-bleu-ocean.png">RAL 5020</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-5021-bleu-d-eau.png">RAL 5021</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Bleu/ral-5017-bleu-signalisation.png' %}">RAL 5017</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Bleu/ral-5018-bleu-turquoise.png' %}">RAL 5018</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Bleu/ral-5019-bleu-capri.png' %}">RAL 5019</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Bleu/ral-5020-bleu-ocean.png' %}">RAL 5020</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Bleu/ral-5021-bleu-d-eau.png' %}">RAL 5021</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#005b8c" class="ral-texte">&nbsp;</td>
@@ -483,11 +506,11 @@
 			<td class="ral-texte">Bleu d'eau</td>
 		</tr>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-5022-bleu-nocturne.png">RAL 5022</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-5023-bleu-distant.png">RAL 5023</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-5024-bleu-pastel.png">RAL 5024</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-5025-gentiane-nacre.png">RAL 5025</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-5026-bleu-nuit-nacre.png">RAL 5026</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Bleu/ral-5022-bleu-nocturne.png' %}">RAL 5022</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Bleu/ral-5023-bleu-distant.png' %}">RAL 5023</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Bleu/ral-5024-bleu-pastel.png' %}">RAL 5024</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Bleu/ral-5025-gentiane-nacre.png' %}">RAL 5025</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Bleu/ral-5026-bleu-nuit-nacre.png' %}">RAL 5026</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#222d5a" class="ral-texte">&nbsp;</td>
@@ -514,11 +537,11 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6000-vert-patine.png">RAL 6000</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6001-vert-emeraude.png">RAL 6001</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6002-vert-feuillage.png">RAL 6002</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6003-vert-olive.png">RAL 6003</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6004-vert-bleu.png">RAL 6004</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6000-vert-patine.png' %}">RAL 6000</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6001-vert-emeraude.png' %}">RAL 6001</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6002-vert-feuillage.png' %}">RAL 6002</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6003-vert-olive.png' %}">RAL 6003</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6004-vert-bleu.png' %}">RAL 6004</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#3c7460" class="ral-texte">&nbsp;</td>
@@ -535,11 +558,11 @@
 			<td class="ral-texte">Vert bleu</td>
 		</tr>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6005-vert-mousse.png">RAL 6005</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6006-olive-gris.png">RAL 6006</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6007-vert-bouteille.png">RAL 6007</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6008-vert-brun.png">RAL 6008</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6009-vert-sapin.png">RAL 6009</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6005-vert-mousse.png' %}">RAL 6005</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6006-olive-gris.png' %}">RAL 6006</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6007-vert-bouteille.png' %}">RAL 6007</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6008-vert-brun.png' %}">RAL 6008</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6009-vert-sapin.png' %}">RAL 6009</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#114232" class="ral-texte">&nbsp;</td>
@@ -556,11 +579,11 @@
 			<td class="ral-texte">Vert sapin</td>
 		</tr>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6010-vert-herbe.png">RAL 6010</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6011-vert-reseda.png">RAL 6011</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6012-vert-noir.png">RAL 6012</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6013-vert-jonc.png">RAL 6013</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6014-olive-jaune.png">RAL 6014</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6010-vert-herbe.png' %}">RAL 6010</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6011-vert-reseda.png' %}">RAL 6011</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6012-vert-noir.png' %}">RAL 6012</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6013-vert-jonc.png' %}">RAL 6013</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6014-olive-jaune.png' %}">RAL 6014</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#4d6f39" class="ral-texte">&nbsp;</td>
@@ -577,11 +600,11 @@
 			<td class="ral-texte">Olive jaune</td>
 		</tr>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6015-olive-noir.png">RAL 6015</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6016-vert-turquoise.png">RAL 6016</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6017-vert-mai.png">RAL 6017</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6018-vert-jaune.png">RAL 6018</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6019-vert-blanc.png">RAL 6019</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6015-olive-noir.png' %}">RAL 6015</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6016-vert-turquoise.png' %}">RAL 6016</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6017-vert-mai.png' %}">RAL 6017</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6018-vert-jaune.png' %}">RAL 6018</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6019-vert-blanc.png' %}">RAL 6019</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#3d3d36" class="ral-texte">&nbsp;</td>
@@ -598,11 +621,11 @@
 			<td class="ral-texte">Vert blanc</td>
 		</tr>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6019-vert-blanc.png">RAL 6020</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6021-vert-pale.png">RAL 6021</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6022-olive-brun.png">RAL 6022</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6024-vert-signalisation.png">RAL 6024</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6025-vert-fougere.png">RAL 6025</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6019-vert-blanc.png' %}">RAL 6020</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6021-vert-pale.png' %}">RAL 6021</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6022-olive-brun.png' %}">RAL 6022</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6024-vert-signalisation.png' %}">RAL 6024</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6025-vert-fougere.png' %}">RAL 6025</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#37422f" class="ral-texte">&nbsp;</td>
@@ -619,11 +642,11 @@
 			<td class="ral-texte">Vert fougère</td>
 		</tr>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6026-vert-opale.png">RAL 6026</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6027-vert-clair.png">RAL 6027</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6028-vert-pin.png">RAL 6028</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6029-vert-menthe.png">RAL 6029</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6032-vert-de-securite.png">RAL 6032</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6026-vert-opale.png' %}">RAL 6026</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6027-vert-clair.png' %}">RAL 6027</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6028-vert-pin.png' %}">RAL 6028</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6029-vert-menthe.png' %}">RAL 6029</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6032-vert-de-securite.png' %}">RAL 6032</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#005f4e" class="ral-texte">&nbsp;</td>
@@ -640,11 +663,11 @@
 			<td class="ral-texte">Vert de sécurité</td>
 		</tr>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6033-turquoise-menthe.png">RAL 6033</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6034-turquoise-pastel.png">RAL 6034</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6035-vert-nacre.png">RAL 6035</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6036-vert-opale-nacre.png">RAL 6036</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6037-vert-pur.png">RAL 6037</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6033-turquoise-menthe.png' %}">RAL 6033</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6034-turquoise-pastel.png' %}">RAL 6034</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6035-vert-nacre.png' %}">RAL 6035</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6036-vert-opale-nacre.png' %}">RAL 6036</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6037-vert-pur.png' %}">RAL 6037</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#46877f" class="ral-texte">&nbsp;</td>
@@ -661,7 +684,7 @@
 			<td class="ral-texte">Vert pur</td>
 		</tr>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-6038-vert-brillant.png">RAL 6038</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Vert/ral-6038-vert-brillant.png' %}">RAL 6038</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#00b51a" class="ral-texte">&nbsp;</td>
@@ -680,11 +703,11 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7000-gris-petit-gris.png">RAL 7000</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7001-gris-argent.png">RAL 7001</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7002-gris-olive.png">RAL 7002</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7003-gris-mousse.png">RAL 7003</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7004-gris-de-securite.png">RAL 7004</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7000-gris-petit-gris.png' %}">RAL 7000</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7001-gris-argent.png' %}">RAL 7001</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7002-gris-olive.png' %}">RAL 7002</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7003-gris-mousse.png' %}">RAL 7003</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7004-gris-de-securite.png' %}">RAL 7004</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#7a888e" class="ral-texte">&nbsp;</td>
@@ -701,11 +724,11 @@
 			<td class="ral-texte">Gris de sécurité</td>
 		</tr>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7005-gris-souris.png">RAL 7005</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7006-gris-beige.png">RAL 7006</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7008-gris-kaki.png">RAL 7008</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7009-gris-vert.png">RAL 7009</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7010-gris-tente.png">RAL 7010</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7005-gris-souris.png' %}">RAL 7005</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7006-gris-beige.png' %}">RAL 7006</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7008-gris-kaki.png' %}">RAL 7008</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7009-gris-vert.png' %}">RAL 7009</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7010-gris-tente.png' %}">RAL 7010</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#6c6e6b" class="ral-texte">&nbsp;</td>
@@ -722,11 +745,11 @@
 			<td class="ral-texte">Gris tente</td>
 		</tr>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7011-gris-fer.png">RAL 7011</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7012-gris-basalte.png">RAL 7012</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7013-gris-brun.png">RAL 7013</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7015-gris-ardoise.png">RAL 7015</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7016-gris-anthracite.png">RAL 7016</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7011-gris-fer.png' %}">RAL 7011</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7012-gris-basalte.png' %}">RAL 7012</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7013-gris-brun.png' %}">RAL 7013</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7015-gris-ardoise.png' %}">RAL 7015</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7016-gris-anthracite.png' %}">RAL 7016</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#52595d" class="ral-texte">&nbsp;</td>
@@ -743,11 +766,11 @@
 			<td class="ral-texte">Gris anthracite</td>
 		</tr>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7021-gris-noir.png">RAL 7021</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7022-gris-terre-d-ombre.png">RAL 7022</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7023-gris-beton.png">RAL 7023</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7024-gris-graphite.png">RAL 7024</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7026-gris-granit.png">RAL 7026</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7021-gris-noir.png' %}">RAL 7021</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7022-gris-terre-d-ombre.png' %}">RAL 7022</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7023-gris-beton.png' %}">RAL 7023</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7024-gris-graphite.png' %}">RAL 7024</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7026-gris-granit.png' %}">RAL 7026</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#2f3234" class="ral-texte">&nbsp;</td>
@@ -764,11 +787,11 @@
 			<td class="ral-texte">Gris granit</td>
 		</tr>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7030-gris-pierre.png">RAL 7030</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7031-gris-bleu.png">RAL 7031</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7032-gris-silex.png">RAL 7032</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7033-gris-ciment.png">RAL 7033</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7034-gris-jaune.png">RAL 7034</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7030-gris-pierre.png' %}">RAL 7030</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7031-gris-bleu.png' %}">RAL 7031</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7032-gris-silex.png' %}">RAL 7032</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7033-gris-ciment.png' %}">RAL 7033</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7034-gris-jaune.png' %}">RAL 7034</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#928e85" class="ral-texte">&nbsp;</td>
@@ -785,11 +808,11 @@
 			<td class="ral-texte">Gris jaune</td>
 		</tr>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7035-gris-clair.png">RAL 7035</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7036-gris-platine.png">RAL 7036</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7037-gris-poussiere.png">RAL 7037</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7038-gris-agate.png">RAL 7038</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7039-gris-quartz.png">RAL 7039</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7035-gris-clair.png' %}">RAL 7035</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7036-gris-platine.png' %}">RAL 7036</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7037-gris-poussiere.png' %}">RAL 7037</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7038-gris-agate.png' %}">RAL 7038</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7039-gris-quartz.png' %}">RAL 7039</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#c5c7c4" class="ral-texte">&nbsp;</td>
@@ -806,11 +829,11 @@
 			<td class="ral-texte">Gris quartz</td>
 		</tr>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7040-gris-fenetre.png">RAL 7040</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7042-gris-signalisation-a.png">RAL 7042</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7043-gris-signalisation-b.png">RAL 7043</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7044-gris-soie.png">RAL 7044</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7045-telegris-1.png">RAL 7045</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7040-gris-fenetre.png' %}">RAL 7040</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7042-gris-signalisation-a.png' %}">RAL 7042</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7043-gris-signalisation-b.png' %}">RAL 7043</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7044-gris-soie.png' %}">RAL 7044</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7045-telegris-1.png' %}">RAL 7045</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#989ea1" class="ral-texte">&nbsp;</td>
@@ -827,9 +850,9 @@
 			<td class="ral-texte">Telegris 1</td>
 		</tr>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7046-telegris-2.png">RAL 7046</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7047-telegris-4.png">RAL 7047</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-7048-gris-souris-nacre.png">RAL 7048</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7046-telegris-2.png' %}">RAL 7046</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7047-telegris-4.png' %}">RAL 7047</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Gris/ral-7048-gris-souris-nacre.png' %}">RAL 7048</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#7f868a" class="ral-texte">&nbsp;</td>
@@ -852,11 +875,11 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-8000-brun-vert.png">RAL 8000</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-8001-brun-terre-de-sienne.png">RAL 8001</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-8002-brun-de-securite.png">RAL 8002</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-8003-brun-argile.png">RAL 8003</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-8004-brun-cuivre.png">RAL 8004</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Brun/ral-8000-brun-vert.png' %}">RAL 8000</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Brun/ral-8001-brun-terre-de-sienne.png' %}">RAL 8001</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Brun/ral-8002-brun-de-securite.png' %}">RAL 8002</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Brun/ral-8003-brun-argile.png' %}">RAL 8003</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Brun/ral-8004-brun-cuivre.png' %}">RAL 8004</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#89693e" class="ral-texte">&nbsp;</td>
@@ -873,11 +896,11 @@
 			<td class="ral-texte">Brun cuivré</td>
 		</tr>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-8007-brun-fauve.png">RAL 8007</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-8008-brun-olive.png">RAL 8008</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-8011-brun-noisette.png">RAL 8011</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-8012-brun-rouge.png">RAL 8012</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-8014-brun-sepia.png">RAL 8014</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Brun/ral-8007-brun-fauve.png' %}">RAL 8007</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Brun/ral-8008-brun-olive.png' %}">RAL 8008</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Brun/ral-8011-brun-noisette.png' %}">RAL 8011</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Brun/ral-8012-brun-rouge.png' %}">RAL 8012</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Brun/ral-8014-brun-sepia.png' %}">RAL 8014</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#70452a" class="ral-texte">&nbsp;</td>
@@ -894,11 +917,11 @@
 			<td class="ral-texte">Brun sépia</td>
 		</tr>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-8015-marron.png">RAL 8015</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-8016-brun-acajou.png">RAL 8016</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-8017-brun-chocolat.png">RAL 8017</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-8019-brun-gris.png">RAL 8019</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-8022-brun-noir.png">RAL 8022</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Brun/ral-8015-marron.png' %}">RAL 8015</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Brun/ral-8016-brun-acajou.png' %}">RAL 8016</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Brun/ral-8017-brun-chocolat.png' %}">RAL 8017</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Brun/ral-8019-brun-gris.png' %}">RAL 8019</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Brun/ral-8022-brun-noir.png' %}">RAL 8022</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#5e2f26" class="ral-texte">&nbsp;</td>
@@ -915,11 +938,11 @@
 			<td class="ral-texte">Brun noir</td>
 		</tr>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-8023-brun-orange.png">RAL 8023</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-8024-brun-beige.png">RAL 8024</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-8025-brun-pale.png">RAL 8025</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-8028-brun-terre.png">RAL 8028</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-8029-cuivre-nacre.png">RAL 8029</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Brun/ral-8023-brun-orange.png' %}">RAL 8023</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Brun/ral-8024-brun-beige.png' %}">RAL 8024</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Brun/ral-8025-brun-pale.png' %}">RAL 8025</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Brun/ral-8028-brun-terre.png' %}">RAL 8028</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Brun/ral-8029-cuivre-nacre.png' %}">RAL 8029</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#a45729" class="ral-texte">&nbsp;</td>
@@ -946,11 +969,11 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-9001-blanc-creme.png">RAL 9001</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-9002-blanc-gris.png">RAL 9002</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-9003-blanc-de-securite.png">RAL 9003</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-9004-noir-de-securite.png">RAL 9004</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-9005-noir-fonce.png">RAL 9005</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Blanc_Noir/ral-9001-blanc-creme.png' %}">RAL 9001</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Blanc_Noir/ral-9002-blanc-gris.png' %}">RAL 9002</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Blanc_Noir/ral-9003-blanc-de-securite.png' %}">RAL 9003</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Blanc_Noir/ral-9004-noir-de-securite.png' %}">RAL 9004</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Blanc_Noir/ral-9005-noir-fonce.png' %}">RAL 9005</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#e9e0d2" class="ral-texte">&nbsp;</td>
@@ -967,11 +990,11 @@
 			<td class="ral-texte">Noir foncé</td>
 		</tr>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-9006-aluminium-blanc.png">RAL 9006</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-9007-aluminium-gris.png">RAL 9007</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-9010-blanc-pur.png">RAL 9010</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-9011-noir-graphite.png">RAL 9011</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-9016-blanc-signalisation.png">RAL 9016</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Blanc_Noir/ral-9006-aluminium-blanc.png' %}">RAL 9006</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Blanc_Noir/ral-9007-aluminium-gris.png' %}">RAL 9007</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Blanc_Noir/ral-9010-blanc-pur.png' %}">RAL 9010</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Blanc_Noir/ral-9011-noir-graphite.png' %}">RAL 9011</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Blanc_Noir/ral-9016-blanc-signalisation.png' %}">RAL 9016</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#a1a1a0" class="ral-texte">&nbsp;</td>
@@ -988,10 +1011,10 @@
 			<td class="ral-texte">Blanc signalisation</td>
 		</tr>
 		<tr>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-9017-noir-signalisation.png">RAL 9017</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-9018-blanc-papyrus.png">RAL 9018</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-9022-gris-clair-nacre.png">RAL 9022</a></td>
-			<td class="ral-texte"><a href="https://www.rivecol.fr/wp-content/uploads/2021/05/ral-9023-gris-fonce-nacre.png">RAL 9023</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Blanc_Noir/ral-9017-noir-signalisation.png' %}">RAL 9017</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Blanc_Noir/ral-9018-blanc-papyrus.png' %}">RAL 9018</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Blanc_Noir/ral-9022-gris-clair-nacre.png' %}">RAL 9022</a></td>
+			<td class="ral-texte"><a href="{%static 'images/CouleurR/Blanc_Noir/ral-9023-gris-fonce-nacre.png' %}">RAL 9023</a></td>
 		</tr>
 		<tr>
 			<td bgcolor="#2a292a" class="ral-texte">&nbsp;</td>
@@ -1008,4 +1031,5 @@
 	</tbody>
 </table>
 <br>
+</div>
 {% endblock %}

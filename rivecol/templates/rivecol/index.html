@@ -8,45 +8,98 @@
     <title>Rivecol - Vente de rivets de couleur et produits du BTP</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="shortcut icon" href="{%static 'images/logo_onglet.ico' %}" type="image/x-icon">
     {% block script%}
     {% endblock %}
 
     
 </head>
-<body>
+<body class="has-bg-img" class = "masthead" style = " background-image: url('{% static 'images/pop-rivets.jpg' %}') ; width: 100%;position: absolute; ">
     <!-- header style background-image à changer -->
-    <header style="background-image:url(https://www.rivecol.fr/wp-content/uploads/2020/03/pop-rivets.jpg); background-size: cover;">
-        <h1 style=" text-align: center;"><a href="http://127.0.0.1:8000/">Rivecol</a></h1>
-    
-        <nav style="width: 100%;">
-            <div  >
-                <ul style="text-align: center; ">
-                    <li style="text-decoration: none; display: inline-block;"><a href="http://127.0.0.1:8000/">Accueil</a></li>
-                    <li style="text-decoration: none; display: inline-block;"><a href="http://127.0.0.1:8000/couleurs-disponibles/">Couleurs disponibles</a></li>
-                    <li style="text-decoration: none; display: inline-block;"><a href="http://127.0.0.1:8000/boutique/">Boutique</a></li>
-                    <li style="text-decoration: none; display: inline-block;"><a href="http://127.0.0.1:8000/panier/">Panier</a></li>
-                    <li style="text-decoration: none; display: inline-block;"><a href="http://127.0.0.1:8000/connexion-enregistrement/">connexion</a></li>
-                </ul>
-            </div>
-        </nav>
+    {% comment %} <header> style="background-image:url(https://www.rivecol.fr/wp-content/uploads/2020/03/pop-rivets.jpg); background-size: cover;"> {% endcomment %}
+    <header style="background-color:#f9f9f9 ; margin-bottom: 800px; " >
+        <div class="col-md-4">
+            <h1 style=" text-align: center; margin-bottom: 10%;"><a href="http://127.0.0.1:8000/">{% load static %}<img src ="{% static 'images/Rivecol-logo.png' %}" alt= "Rivecol" width="250"  ></a></h1>
+        </div>
+        <div class="sticky-top">
+            <nav class="navbar navbar-expand-md navbar-light bg-light ">
+                <div class="container-fluid">
+                    <button class = "navbar-toggler" type ="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class = "navbar-toggler-icon"></span>
+                        <span>Menu</span>
+                    </button>
+                    <div class="d-flex collapse navbar-collapse justify-content-center" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="http://127.0.0.1:8000/" style="text-decoration:none" >Accueil</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="http://127.0.0.1:8000/couleurs-disponibles/" style="text-decoration:none" >Couleurs disponibles</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="http://127.0.0.1:8000/boutique/" style="text-decoration:none" >Boutique</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="http://127.0.0.1:8000/panier/" style="text-decoration:none" >Panier</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="http://127.0.0.1:8000/connexion-enregistrement/" style="text-decoration:none" >Connexion</a>
+                            </li>
+                        </ul> 
+                    </div>
+                </div>
+            </nav>
+        </div>
     </header>
-    {% block contenu %}
+    <main>
+    {% load static %}
+    <div style = "background-color:#f9f9f9 ; padding : 50 0 50 0 ">
+    {% block contenu %} 
 
     {% endblock %}
-</body>
-<footer>
+    </div>
+    </main>
+    
+    {% comment %} <img class="bg-img" src="static\images\pop-rivets.jpg" alt="..."> {% endcomment %}
+
+
+
+
+<footer style="background-color: #d0a100;border-top: 1px solid #eee; ">
     <!-- Ajoutez les liens -->
-    <nav>
-        <a href="http://127.0.0.1:8000/">Contactez-nous</a>
-        <a href="http://127.0.0.1:8000/">Contact us</a>
-        <a href="http://127.0.0.1:8000/mentions-legales/">Mentions légales</a>
-        <a href="http://127.0.0.1:8000/conditions-générales-de-vente/">Conditions générales de vente</a>
-        <a href="http://127.0.0.1:8000/">Plan du site</a>
-        <br>
-        <img src="" alt="">
-        <br>
-        <p>Fait avec ♡ par  <a href="https://ab-it-solution.tk/">AB IT Solution</a></p>
-    </nav>
+    <div class="container">
+        <nav >
+            <br>
+            
+            <ul style ="list-style: none;">
+                <li style="display: inline-flex;place-content: stretch space-evenly;padding: 0 10px 0 0;">
+                    <a href="http://127.0.0.1:8000/" class="bas_de_page" >Contactez-nous</a>
+                </li>
+                <li style="display: inline-flex;place-content: stretch space-evenly;padding: 0 10px 0 0;">
+                     <a href="http://127.0.0.1:8000/" class="bas_de_page" >Contact us</a>
+                </li>
+                <li style="display: inline-flex;place-content: stretch space-evenly;padding: 0 10px 0 0;">
+                    <a href="http://127.0.0.1:8000/mentions-legales/" class="bas_de_page" >Mentions légales</a>
+                </li>
+                <li style="display: inline-flex;place-content: stretch space-evenly;padding: 0 10px 0 0;">
+                    <a href="http://127.0.0.1:8000/conditions-générales-de-vente/" class="bas_de_page" >Conditions générales de vente</a>
+                </li>
+                <li style="display: inline-flex;place-content: stretch space-evenly;padding: 0 10px 0 0;">
+                    <a href="http://127.0.0.1:8000/" class="bas_de_page" >Plan du site</a>
+                </li>
+            </ul>
+        </nav>
+            
+            <br>
+            {% load static %}
+            <img src="{% static 'images/3dsecure.png' %}" alt="3dsecure">
+            
+            <br>
+            <p>Fait avec ♡ par  <a href="https://ab-it-solution.tk/" class="bas_de_page">AB IT Solution</a></p>
+            <br>
+    </div>
 
 </footer>
+</body>
 </html>

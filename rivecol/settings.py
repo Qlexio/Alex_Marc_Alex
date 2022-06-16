@@ -82,13 +82,9 @@ WSGI_APPLICATION = 'rivecol.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-<<<<<<< HEAD:rivecol/settings.py
         'NAME': 'rivecol',
-=======
-        'NAME': 'gfixtest',
->>>>>>> master:GFIX/settings.py
         'USER': 'root',
-        'PASSWORD': 'MYSQLR00tP455w0rd!!!',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306',
         'OPTION':{
