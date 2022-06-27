@@ -1,6 +1,7 @@
-from django.test import TestCase
+Modification réaliser par Lenny 
 
-
-Le projet le plus abouti se trouve dans la branche TEST
-
-git checkout TEST 
+Css sur les pages créé avec boostrap :
+  - le nav
+  - le footer
+  - l'acceuil
+  - les couleur 
