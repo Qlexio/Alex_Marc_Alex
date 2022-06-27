@@ -15,22 +15,33 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from rivets import views as rivet_views
+# from rivets import views as rivet_views
 from rivecol import views as rivecol_views
 # from connexion_non_terminé import views as connexion_views
 from django.conf.urls.static import static
 from django.conf import settings
+from accounts.views import signup, logout_user
+from rivets.views import boutique_view, rivet, script_js, produit_detail
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', rivecol_views.accueil_view, name="accueil"),
-    path('contact/', rivecol_views.contact_view, name="contact"),
-    # path('boutique/', rivecol_views.boutique_view, name="boutique"),
     path('couleurs-disponibles/', rivecol_views.couleur_view, name="couleur"),
-    # path('mentions-legales/', rivecol_views.mentions_legales_view, name="mentions-légales"),
-    # path('connexion-enregistrement/', connexion_views.connexion_view, name="connexion"),
-    # path('panier/', rivecol_views.panier_view, name="panier"),
-    path('condetions-de-vente/', rivecol_views.condition_vente_view, name="panier"),
-    path('rivet/', rivet_views.rivet, name="rivet"),
+
+    path('contact/', include('sendemail.urls')),
+    path('mention_legale/', rivecol_views.mention_legal_view, name="mention-legale"),
+    path('condetions-de-vente/', rivecol_views.condition_vente_view, name="condition"),
+
+    path('signup/', signup, name="signup"), 
+    path('logout/', logout_user, name="logout"),
+    path('boutique/', boutique_view, name="boutique"),
+    path('detail/<str:slug>/', produit_detail, name="produit"),
+    # path('panier/', rivecol_views.panier_view, name="panier"), 
+
+
+    path('rivet/', rivet, name="rivet"),
+    path('script/', script_js, name="script"),
     
 ]   +static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

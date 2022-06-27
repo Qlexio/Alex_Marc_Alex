@@ -20,6 +20,9 @@
 <body> {% endcomment %}
 
     {% block contenu %}
+    {% load static %}
+    <div style = " background-image: url('{% static 'images/pop-rivets.jpg' %}') ; width: 100%;position: absolute; "><div>
+    
     <div class="container" style = "margin-top: 10%;margin-bottom: 10%;">
         <h2 class ="titre" style = "color: #222;font-size: 0.875rem;font-weight: 800;letter-spacing: 0.14em;text-transform: uppercase;margin-bottom: 5%;">ACCUEIL</h2>
         <br>
@@ -50,6 +53,6 @@
             </p>
         </div>
     </div>
-    {% endblock %}
+{% endblock %}
 {% comment %} </body>
 </html> {% endcomment %}

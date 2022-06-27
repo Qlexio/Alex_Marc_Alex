@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rivets',
+    'accounts',
+    'sendemail.apps.SendemailConfig' , 
     
 ]
 
@@ -116,7 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fr-fr'
 
 TIME_ZONE = 'UTC'
 
@@ -139,3 +141,18 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# MEDIA_URL = "/media/"
+# MEDIA_ROOT = BASE_DIR / "media"
+
+AUTH_USER_MODEL = "accounts.Shopper"
+
+
+#Setting Email 
+DEFAULT_FROM_EMAIL = 'lennyjeux33@gmail.com'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' 
+EMAIL_HOST = 'smtp.sendgrid.net' 
+EMAIL_HOST_USER = 'apikey' 
+EMAIL_HOST_PASSWORD = 'contact-lenny' 
+EMAIL_PORT = 587 
+EMAIL_USE_TLS = True 

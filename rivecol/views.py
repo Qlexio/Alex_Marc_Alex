@@ -1,3 +1,4 @@
+import re
 from django.shortcuts import render
 
 def accueil_view(request):
@@ -20,3 +21,6 @@ def couleur_view(request):
 
 def condition_vente_view(request):
     return render(request, 'rivecol/condition_vente.html')
+
+def mention_legal_view(request):
+    return render(request,'rivecol/mention_legale.html')

@@ -1,5 +1,8 @@
+from pyexpat import model
 from tkinter import Place
 from django.db import models
+from django.core.files.storage import FileSystemStorage
+from django.urls import reverse
 
 class Type_teinte(models.Model):
     idType = models.IntegerField(primary_key= True)
@@ -75,6 +78,8 @@ class Rivet(models.Model):
     quantite = models.IntegerField()
     prix_brut = models.FloatField()
     prix_peint = models.FloatField()
+    def __str__(self):
+            return f"{self.idRivet} ({self.quantite})"
     class Meta:
         db_table = "rivet"
 
@@ -100,3 +105,52 @@ class Vente(models.Model):
     idVente = models.IntegerField(primary_key = True)
     class Meta:
         db_table = "vente"
+
+
+
+
+
+# fs = FileSystemStorage(location='/photos')
+
+
+class Category(models.Model):
+    id_Produit = models.IntegerField(primary_key = True)
+    slug=models.SlugField(max_length= 128)
+    nom_Produit = models.CharField(max_length = 50)
+    img_Produit = models.ImageField(upload_to ="products", blank = True, null=True)
+    def __str__(self):
+        return self.nom_Produit
+    def get_absolute_url(self):
+        return reverse("produit", kwargs= {"slug": self.slug} )
+
+    class Meta:
+        db_table = "Produits"
+
+
+class Products(models.Model):
+    name = models.CharField(max_length=60)
+    price = models.IntegerField(default=0)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
+    description = models.CharField(
+        max_length=250, default='', blank=True, null=True)
+    image = models.ImageField(upload_to='uploads/products/')
+  
+    @staticmethod
+    def get_products_by_id(ids):
+        return Products.objects.filter(id__in=ids)
+  
+    @staticmethod
+    def get_all_products():
+        return Products.objects.all()
+  
+    @staticmethod
+    def get_all_products_by_categoryid(category_id):
+        if category_id:
+            return Products.objects.filter(category=category_id)
+        else:
+            return Products.get_all_products()
+
+
+
+
+

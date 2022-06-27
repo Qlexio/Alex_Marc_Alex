@@ -1,9 +1,12 @@
 from decimal import Decimal
-from unicodedata import decimal
-from django.shortcuts import render
+from itertools import product
+from unicodedata import category, decimal
+from django.http import HttpRequest, HttpResponse
+from django.shortcuts import get_object_or_404, render
 import json
+# from Alex_Marc_Alex.rivets.models import Category , Products
 from rivets.models import (Rivet,Teinte,Type_teinte, Ral, Matiere, Type_reference
-    , Longueur_corps, Diametre_corps)
+    , Longueur_corps, Diametre_corps, Products,Category)
 
 def rivet(request):
 
@@ -55,7 +58,6 @@ def rivet(request):
             
         if post_teinte == "" or post_teinte == "Aucune":
 
-
             rivet = Rivet.objects.filter(idMatiereCorps=pk_matiere_corps, idMatiereTige = pk_matiere_tige, idType = pk_type,
                 idDiametreCorps = pk_diametre, idLongueurCorps = pk_longueur).values("prix_brut")[0]["prix_brut"]
             
@@ -106,4 +108,18 @@ def rivet(request):
 
 
         return render(request, 'rivets/rivet.html', context)
+
+
+def boutique_view(request):
+    categories = Category.objects.all()
+    return render(request,'rivets/boutique.html', context = {"categories":categories})
+
+def script_js(request):
+    return render(request,'rivets/script_js.html')
+
+
+def produit_detail(request, slug):
+    categories = get_object_or_404(Category, slug = slug)
+    return render(request, 'rivets/detail.html', context = {"categories":categories}) 
+
 
