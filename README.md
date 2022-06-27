@@ -1,6 +1,5 @@
-from django.test import TestCase
+Cettre branche concerne les modifications apporter au site afin qu'il ai les fonctionnaliter d'un site de e-commerce
 
-
-Le projet le plus abouti se trouve dans la branche TEST
-
-git checkout TEST 
+il y a eu :
+  - Une page création de compte et de connection
+  - Une page boutique 
