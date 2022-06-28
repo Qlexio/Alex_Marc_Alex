@@ -10,4 +10,4 @@ Mes sources e-commerce  :
   - https://www.geeksforgeeks.org/e-commerce-website-using-django/
   
  Mes sources referencements : 
-  - 
+  - https://efficaceweb.fr/articles/balises-html-pour-le-referencement-google-comment-les-utiliser/
