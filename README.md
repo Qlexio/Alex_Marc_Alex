@@ -2,7 +2,7 @@ Cettre branche concerne les modifications apporter au site afin qu'il ai les fon
 
 il y a eu :
   - Une page création de compte et de connection
-  - Une page boutique 
+  - Une page boutique ( en cours )    
 
 
 Mes sources e-commerce  : 
