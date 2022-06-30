@@ -11,3 +11,8 @@ Mes sources e-commerce  :
   
  Mes sources referencements : 
   - https://efficaceweb.fr/articles/balises-html-pour-le-referencement-google-comment-les-utiliser/
+
+
+Identifiant admin :
+  Nom admin : lenny
+  mdp : azerty
