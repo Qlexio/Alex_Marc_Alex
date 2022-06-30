@@ -1,0 +1,9 @@
+{% extends 'rivecol/index.html' %}
+{% block contenu %}
+
+
+<h2>{{categorie.nom_Produit}}</h2>
+    {% for produit in products %}
+        <img src="{{produit.image.url}}" alt="{{produit.name}}">
+    {% endfor %}
+{% endblock %}

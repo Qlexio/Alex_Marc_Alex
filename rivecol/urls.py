@@ -21,7 +21,7 @@ from rivecol import views as rivecol_views
 from django.conf.urls.static import static
 from django.conf import settings
 from accounts.views import signup, logout_user
-from rivets.views import boutique_view, rivet, script_js, produit_detail
+from rivets.views import boutique_view, rivet, script_js, category_products ,produit_detail
 
 
 
@@ -37,7 +37,9 @@ urlpatterns = [
     path('signup/', signup, name="signup"), 
     path('logout/', logout_user, name="logout"),
     path('boutique/', boutique_view, name="boutique"),
-    path('detail/<str:slug>/', produit_detail, name="produit"),
+    path('produit/<str:slug>/',  category_products, name="produit"),
+    path('detail/<slug:slug>',produit_detail , name="boutique"),
+
     # path('panier/', rivecol_views.panier_view, name="panier"), 
 
 

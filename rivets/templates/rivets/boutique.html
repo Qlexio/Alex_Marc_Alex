@@ -5,7 +5,7 @@
     <h2>Bienvenue sur Rivecol.</h2>
     <p>Bienvenue dans notre boutique dédiée aussi bien aux professionnels qu’aux particuliers.</p>
     
-    <p><b>En cas de besoin spécifique, que ce soit une couleur ou un produit,<a href="http://127.0.0.1:8000/contact/contact/">contactez-nous</a> .</b> Nous ferons tout notre possible pour répondre favorablement à votre demande.</p>
+    <p><b>En cas de besoin spécifique, que ce soit une couleur ou un produit, <a href="http://127.0.0.1:8000/contact/contact/">contactez-nous</a>. </b> Nous ferons tout notre possible pour répondre favorablement à votre demande.</p>
     <p><b>Par exemple, vous pouvez bien sûr nous demander de peindre un produit que nous ne proposons pas sur le site avec une couleur pas affichée.</b></p>
     <p>En cas de doute sur la couleur, nous vous invitons à parcourir <a href="http://127.0.0.1:8000/couleurs-disponibles/">les couleurs disponibles</a>.</p>
     <p>Vu que notre clientèle est essentiellement professionnelle, les prix affichés sont HT. Néanmoins, pour nos amis particuliers, vous retrouverez 
@@ -16,7 +16,7 @@
 
         <h2>{{categorie.nom_Produit}}</h2>
         <a href=" {{ categorie.get_absolute_url }}" ><img src="{{categorie.img_Produit.url}}" alt="{{categorie.nom_Produit}}"></a>
-    {% endfor%} 
-
+    {% endfor %} 
+ 
 
 {% endblock %}

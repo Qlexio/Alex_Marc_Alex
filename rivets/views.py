@@ -119,7 +119,17 @@ def script_js(request):
 
 
 def produit_detail(request, slug):
-    categories = get_object_or_404(Category, slug = slug)
-    return render(request, 'rivets/detail.html', context = {"categories":categories}) 
+    produit = get_object_or_404(Products, slug = slug)
+    return render(request, 'rivets/detail.html', context = {"produit ":produit }) 
 
 
+def category_products(request, slug):
+    category = get_object_or_404(Category, slug=slug)
+    products = Products.objects.filter(is_active=True, category=category)
+    categories = Category.objects.filter(is_active=True)
+    context = {
+        'category': category,
+        'products': products,
+        'categories': categories,
+    }
+    return render(request, 'rivets/produits.html', context)

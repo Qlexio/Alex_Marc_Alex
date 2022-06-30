@@ -1,8 +1,13 @@
+from itertools import product
 from pyexpat import model
 from tkinter import Place
 from django.db import models
 from django.core.files.storage import FileSystemStorage
 from django.urls import reverse
+
+from rivecol.settings import AUTH_USER_MODEL
+
+
 
 class Type_teinte(models.Model):
     idType = models.IntegerField(primary_key= True)
@@ -118,10 +123,14 @@ class Category(models.Model):
     slug=models.SlugField(max_length= 128)
     nom_Produit = models.CharField(max_length = 50)
     img_Produit = models.ImageField(upload_to ="products", blank = True, null=True)
+    is_active = models.BooleanField(verbose_name="Is Active?" ,default= False)
     def __str__(self):
         return self.nom_Produit
     def get_absolute_url(self):
         return reverse("produit", kwargs= {"slug": self.slug} )
+
+    def get_all_categories():
+        return Category.objects.all()
 
     class Meta:
         db_table = "Produits"
@@ -129,28 +138,39 @@ class Category(models.Model):
 
 class Products(models.Model):
     name = models.CharField(max_length=60)
+    slug=models.SlugField(max_length= 128 )
     price = models.IntegerField(default=0)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
-    description = models.CharField(
-        max_length=250, default='', blank=True, null=True)
+    is_active = models.BooleanField(verbose_name="Is Active?" , default= False)
+    # Modifier le upload_to pour modifier l'endroit ou l'image va etre chercher 
     image = models.ImageField(upload_to='uploads/products/')
   
-    @staticmethod
-    def get_products_by_id(ids):
-        return Products.objects.filter(id__in=ids)
+    
+    # def get_products_by_id(ids):
+    #     return Products.objects.filter(id__in=ids)
   
-    @staticmethod
-    def get_all_products():
-        return Products.objects.all()
+    # def get_all_products():
+    #     return Products.objects.all()
   
-    @staticmethod
-    def get_all_products_by_categoryid(category_id):
-        if category_id:
-            return Products.objects.filter(category=category_id)
-        else:
-            return Products.get_all_products()
+    # def get_all_products_by_categoryid(category_id):
+    #     if category_id:
+    #         return Products.objects.filter(category=category_id)
+
+
+class Order(models.Model):
+    user = models.ForeignKey(AUTH_USER_MODEL , on_delete= models.CASCADE) 
+    product = models.ForeignKey(Products , on_delete= models.CASCADE)
+    quantity = models.IntegerField(default=1)
+    ordered = models.BooleanField(default=False)
+    def __str__(self):
+        return f"{self.product.name} ({self.quantity})"
 
 
 
-
-
+class Cart(models.Model):
+    user = models.OneToOneField(AUTH_USER_MODEL , on_delete= models.CASCADE)
+    orders = models.ManyToManyField(Order)
+    ordered = models.BooleanField(default=False)    
+    ordered_date = models.DateTimeField(blank=True , null = True)
+    def __str__(self):
+        return self.user.username
