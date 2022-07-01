@@ -14,5 +14,8 @@ Mes sources e-commerce  :
 
 
 Identifiant admin :
-  Nom admin : lenny
-  mdp : azerty
+  - Nom admin : lenny
+  - mdp : azerty
+  
+Base de donnée complete : 
+  - rivecol_V2_Lenny
